@@ -1,0 +1,40 @@
+.btn {
+  display: block;
+  margin: auto;
+  padding: 0 15px;
+
+  width: 100%;
+  max-width: 225px;
+  min-height: 40px;
+
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 2px;
+  text-transform: uppercase;
+
+  &-default {
+    color: @linear-color;
+    background-color: @base-color;
+  }
+
+  &-primary {
+    color: @linear-color;
+    background-color: @yellow-color;
+  }
+
+  &-danger {
+    color: @text-color;
+    background-color: @error-color;
+  }
+
+  &:active {
+    opacity: 0.88;
+  }
+
+  &:disabled {
+    text-decoration: line-through;
+    opacity: 0.64;
+    cursor: not-allowed;
+    filter: grayscale(25%);
+  }
+}

@@ -1,0 +1,56 @@
+.ui--header {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+
+  max-width: 992px;
+  margin: auto;
+
+  background-color: @text-color;
+  border-bottom: solid 1px @border-color;
+
+  &-group {
+    display: grid;
+    grid-auto-flow: column;
+  }
+
+  &-columns {
+    font-size: 13px;
+
+    .title {
+      font-weight: 600;
+      text-transform: capitalize;
+
+      &::after {
+        content: ':';
+        margin-right: 5px;
+      }
+    }
+
+    .text {
+      font-weight: 900;
+    }
+
+    .buble {
+      color: @gray-color;
+      padding: 0 5px;
+      line-height: 1;
+    }
+
+    .lang {
+      &.active {
+        font-weight: 700;
+        padding: 0 3px;
+        border-radius: 2px;
+        background-color: @primary-color;
+      }
+    }
+
+  }
+}

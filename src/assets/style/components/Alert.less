@@ -1,0 +1,95 @@
+.ui--alert {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  padding: 20px;
+  background-color: rgba(@bunker-gray, 0.5);
+  transition: all .2s @cubic-bezier;
+
+  &-container {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    max-width: 360px;
+    color: @deep-color;
+    background-color: @text-color;
+    border-radius: @border-radius-x2;
+    box-shadow: 0 10px 20px rgba(@linear-color, 0.2);
+    transition: all .2s ease;
+
+    // Nested At-Rules and Bubbling.
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      backdrop-filter: blur(15px);
+      background-color: rgba(#FFF, 0.88);
+    }
+  }
+
+  &-header {
+    background-color: @base-color;
+  }
+
+  &-body {
+    position: relative;
+    padding: 25px 20px;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px 10px 0;
+  }
+
+  &-title {
+    padding: 0 20px;
+    line-height: 3.5;
+    font-weight: @font-weight-900;
+  }
+
+  &-btn {
+    text-transform: capitalize;
+    margin-left: 10px;
+    min-width: 88px;
+    line-height: 25px;
+    text-align: center;
+    font-size: @font-size-x12;
+    font-weight: @font-weight-700;
+    border-radius: @border-radius-x2;
+
+    &-danger {
+      color: @deep-color;
+    }
+
+    &.success {
+      color: @linear-color;
+      background-color: @yellow-color;
+
+      &:active {
+        opacity: 0.88;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &.alert-enter-active,
+  &.alert-leave-active {
+    [class$="container"] {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  &.alert-enter,
+  &.alert-leave-to {
+    [class$="container"] {
+      opacity: 0;
+      transform: translate(0, -10px);
+    }
+  }
+}

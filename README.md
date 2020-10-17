@@ -1,16 +1,19 @@
-# demo
+# Got't Patiphat - Web Profile
 
-## Project setup
+## 🔥 Required
+- [Vue CLI](https://v3.vuejs.org/guide/installation.html#cli)
+
+## 🔌 Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 🚀 Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 📦 Compiles and minifies for production
 ```
 npm run build
 ```
