@@ -1,5 +1,5 @@
 <template>
-  <div class="ui--hrader"></div>
+  <HeaderComponent />
   <router-view class="ui--router-view" />
 </template>
 

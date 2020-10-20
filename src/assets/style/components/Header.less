@@ -1,0 +1,39 @@
+.ui--header {
+  position: relative;
+  z-index: 10;
+  padding: 20px 40px 10px;
+
+  display: grid;
+  grid-column-gap: 60px;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, auto) 1fr;
+
+  &-logo {
+    font-size: 24px;
+    font-weight: @font-weight-bolder;
+    text-transform: uppercase;
+  }
+
+  &-contact {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: repeat(2, auto);
+    line-height: 36px;
+
+    .icon {
+      color: @primary-color;
+      width: 1em;
+      height: 1em;
+      margin-right: 10px;
+    }
+
+    .text {
+      color: tint(@base-color, 88%);
+      font-weight: @font-weight-bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

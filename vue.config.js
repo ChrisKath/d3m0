@@ -1,7 +1,18 @@
+const webpack = require('webpack')
+
 module.exports = {
   assetsDir: 'static',
   productionSourceMap: false,
   lintOnSave: process.env.NODE_ENV !== 'production',
+
+  configureWebpack: {
+    plugins: [
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/
+      })
+    ]
+  },
 
   chainWebpack: config => {
     config
@@ -13,7 +24,7 @@ module.exports = {
   },
 
   css: {
-    modules: true
+    requireModuleExtension: true
   },
 
   pwa: {
