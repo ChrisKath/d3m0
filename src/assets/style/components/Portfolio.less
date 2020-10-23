@@ -1,0 +1,31 @@
+.ui--portfolio {
+  display: grid;
+  padding: 15vh 0;
+  background-color: @base-color;
+
+  &-grid {
+    display: grid;
+    grid-column-gap: 88px;
+    grid-auto-flow: column;
+    grid-template-columns: 320px 1fr;
+  }
+
+  &-menu {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    margin: 0 0 40px;
+
+    &-list {
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: @font-weight-normal;
+
+      &:hover,
+      &.active {
+        color: @primary-color;
+      }
+    }
+  }
+}

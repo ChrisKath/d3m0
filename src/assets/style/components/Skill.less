@@ -1,0 +1,46 @@
+.ui--skill {
+  display: grid;
+  padding: 15vh 0;
+  background-color: @base-color;
+
+  &-grid {
+    display: grid;
+    grid-column-gap: 88px;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 320px;
+    align-items: flex-start;
+
+    .column {
+      &.x1 {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  &-list {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    padding: 20px 25px;
+    font-weight: @font-weight-normal;
+    background-color: @bunker-black;
+    border-radius: 10px;
+
+    .label {
+      padding-right: 50px;
+    }
+
+    .value {
+      align-self: center;
+      padding: 0 8px;
+      border-radius: 25px;
+      font-weight: @font-weight-bold;
+      color: @base-color;
+      background-color: @primary-color;
+
+      &::after { content: '%' }
+    }
+  }
+}

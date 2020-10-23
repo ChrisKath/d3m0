@@ -1,0 +1,49 @@
+.ui--experience {
+  display: grid;
+  padding: 15vh 0;
+  background-color: @bunker-black;
+
+  &-grid {
+    display: grid;
+    grid-column-gap: 88px;
+    grid-auto-flow: column;
+    grid-template-columns: 320px 1fr;
+  }
+
+  &-list {
+    display: grid;
+    grid-column-gap: 30px;
+    grid-template-columns: 20px 320px 1fr;
+    border-bottom: solid 1px @border-color;
+    height: 128px;
+
+    &:not(:last-child) {
+      margin: 0 0 20px;
+    }
+
+    .icon {
+      width: 1.4em;
+      height: 1.4em;
+      margin: 4px 0 0;
+      color: @primary-color;
+    }
+
+    .title {
+      p {
+        color: @gray-color;
+        font-weight: @font-weight-bold;
+        text-transform: uppercase;
+      }
+
+      h4 {
+        line-height: 3;
+        font-size: @font-size-large;
+        font-weight: @font-weight-normal;
+      }
+    }
+
+    .desc {
+      color: @gray-color;
+    }
+  }
+}

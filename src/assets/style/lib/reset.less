@@ -21,9 +21,13 @@ time, mark, audio, video {
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     box-sizing: border-box;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -113,16 +117,78 @@ a {
 
 // Create global variable
 :root {
+  // Color
   --primary-color         : @primary-color;
-  --info-color            : @info-color;
   --success-color         : @success-color;
   --warning-color         : @warning-color;
   --error-color           : @error-color;
   --text-color            : @text-color;
   --base-color            : @base-color;
   --gray-color            : @gray-color;
-  --bunker-gray           : @bunker-gray;
-  --shsak-gray            : @shsak-gray;
+  --bunker-black          : @bunker-black;
   --border-color          : @border-color;
-  --cubic-bezier          : cubic-bezier(0.77, 0, 0.175, 1);
+
+  // Font
+  --font-size-larger      : @font-size-larger;
+  --font-size-large       : @font-size-large;
+  --font-size-medium      : @font-size-medium;
+  --font-size-small       : @font-size-small;
+  --font-size-smaller     : @font-size-smaller;
+  --font-weight-lighter   : @font-weight-lighter;
+  --font-weight-normal    : @font-weight-normal;
+  --font-weight-bold      : @font-weight-bold;
+  --font-weight-bolder    : @font-weight-bolder;
+}
+
+// Global classes
+.ui--wrapper {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+  perspective: 2px;
+
+  .rows {
+    padding: 0 40px;
+  }
+
+  .container {
+    max-width: @screen-lg;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+}
+
+.ui--info {
+  &-h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 15px;
+    color: @gray-color;
+    font-size: @font-size-medium;
+    font-weight: @font-weight-normal;
+  }
+
+  &-h2 {
+    text-transform: capitalize;
+    font-size: 32px;
+    font-weight: @font-weight-normal;
+    position: relative;
+    margin: 0 0 50px;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: -15px;
+      width: 80px;
+      height: 3px;
+      content: '';
+      background-color: @primary-color;
+    }
+  }
+
+  &-desc {
+    color: @gray-color;
+    font-weight: @font-weight-lighter;
+  }
 }
