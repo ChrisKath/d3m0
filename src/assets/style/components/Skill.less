@@ -3,33 +3,61 @@
   padding: 15vh 0;
   background-color: @base-color;
 
-  &-grid {
-    display: grid;
-    grid-column-gap: 88px;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 320px;
-    align-items: flex-start;
+  @media @mobile-screen {
+    padding: 50px 0;
+  }
 
-    .column {
+  .grid {
+    &-content {
+      grid-template-columns: 1fr 320px;
+      align-items: flex-start;
+
+      @media @mobile-screen {
+        grid-template-columns: unset;
+        align-items: unset;
+      }
+    }
+
+    &-column {
       &.x1 {
-        display: grid;
-        grid-gap: 20px;
-        grid-template-columns: repeat(2, 1fr);
+        grid-area: area-x2;
+
+        @media @mobile-screen {
+          grid-area: area-x1;
+        }
+      }
+
+      &.x2 {
+        display: inline-block;
+        width: 100%;
+        grid-area: area-x1;
+
+        @media @mobile-screen {
+          grid-area: area-x2;
+        }
       }
     }
   }
 
   &-list {
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
-    padding: 20px 25px;
+    float: left;
+    margin: 0 20px 20px 0;
+    padding: 15px 20px;
     font-weight: @font-weight-normal;
-    background-color: @bunker-black;
+    background-color: tint(@base-color, 5%);
     border-radius: 10px;
+
+    @media @mobile-screen {
+      padding: 10px 15px;
+      margin: 0 15px 15px 0;
+    }
 
     .label {
       padding-right: 50px;
+
+      @media @mobile-screen {
+        padding-right: 22px;
+      }
     }
 
     .value {

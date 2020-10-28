@@ -10,8 +10,9 @@ import { Vue } from 'vue-class-component'
 export default class FooterComponent extends Vue {
   [propName: string]: any
 
+  // __PROPS
   private get appVersion (): string {
-    return this.$attrs.version as string
+    return this.$store.getters['APP.CORE/appVersion']
   }
 }
 </script>

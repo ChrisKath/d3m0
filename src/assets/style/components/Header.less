@@ -10,11 +10,26 @@
   align-items: center;
   padding: 0 40px;
 
+  @media @mobile-screen {
+    top: 20px;
+    padding: 0 20px;
+    grid-gap: 2.5px 0;
+    grid-template-columns: unset;
+    grid-template-areas: "area-logo area-x1" "area-logo area-x2";
+    align-items: flex-start;
+  }
+
   &-logo {
     justify-self: flex-start;
     text-transform: uppercase;
     font-size: @font-size-larger;
     font-weight: @font-weight-bold;
+
+    @media @mobile-screen {
+      grid-area: area-logo;
+      font-size: 20px;
+      margin-top: -5px;
+    }
 
     .color {
       padding: 0 5px;
@@ -27,16 +42,42 @@
     justify-self: flex-end;
     margin-left: 20px;
 
+    @media @mobile-screen {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    &.tel {
+      @media @mobile-screen {
+        grid-area: area-x2;
+      }
+    }
+
+    &.email {
+      @media @mobile-screen {
+        grid-area: area-x1;
+      }
+    }
+
     .icon {
       color: @primary-color;
       width: 1em;
       height: 1em;
       margin-right: 10px;
+
+      @media @mobile-screen {
+        margin-right: 5px;
+      }
     }
 
     .text {
       color: @text-color;
       font-weight: @font-weight-normal;
+
+      @media @mobile-screen {
+        font-size: @font-size-small;
+      }
 
       &:hover {
         text-decoration: underline;

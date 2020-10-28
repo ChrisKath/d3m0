@@ -6,7 +6,11 @@
   <ExperienceContainer />
   <SkillContainer />
 
-  <FooterComponent :version="appVersion" />
+  <FooterComponent />
+
+  <teleport to="body">
+    <BackToTopComponent />
+  </teleport>
 </template>
 
 <script lang="ts">
@@ -15,20 +19,19 @@ import Index from '@/components/Index.vue'
 import Portfolio from '@/components/Portfolio.vue'
 import Experience from '@/components/Experience.vue'
 import Skill from '@/components/Skill.vue'
+import Top from '@/components/Top.vue'
 
 @Options({
   components: {
     IndexContainer: Index,
     PortfolioContainer: Portfolio,
     ExperienceContainer: Experience,
-    SkillContainer: Skill
+    SkillContainer: Skill,
+    BackToTopComponent: Top
   }
 })
 export default class Application extends Vue {
   [propName: string]: any
-
-  // __DATA
-  private appVersion: string = 'v2.0 (oct, 2020)'
 
   // __MOUNTED <Lifecycle Hooks>
   public mounted (): void {

@@ -2,8 +2,8 @@
   <div class="ui--portfolio">
     <div class="container">
 
-      <div class="ui--portfolio-grid">
-        <div class="column x1">
+      <div class="grid-content">
+        <div class="grid-column x1">
           <h2 class="ui--info-h2">portfolio</h2>
 
           <ul class="ui--portfolio-menu">
@@ -13,11 +13,11 @@
           </ul>
 
           <p class="ui--info-desc">
-            It doesn't matter how great your product or service is if your copy does not captivate your audience
+            It doesn't matter how great your product or service is if your copy does not captivate your audience.
           </p>
         </div>
 
-        <div class="column x2">.content</div>
+        <div class="grid-column x2">.content</div>
       </div>
 
     </div>

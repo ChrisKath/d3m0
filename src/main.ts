@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import store from '@/store'
 import App from '@/App.vue'
 import '@/registerServiceWorker'
+import '@/registerDefineProperty'
 import '@/assets/style/Index.less'
 
 // Include any dependencies modules

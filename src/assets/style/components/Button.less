@@ -15,6 +15,20 @@
     color: @primary-color;
   }
 
+  &-border {
+    text-align: center;
+    min-height: unset;
+    padding: 0;
+    color: rgba(@text-color, 0.8);
+    border-color: rgba(@text-color, 0.1);
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: @text-color;
+      background-color: rgba(@text-color, 0.08);
+    }
+  }
+
   &-primary {
     color: @base-color;
     background-color: @primary-color;

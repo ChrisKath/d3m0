@@ -28,9 +28,16 @@ module.exports = {
   },
 
   pwa: {
-    name: 'unset',
-    themeColor: '#010122',
-    msTileColor: '#010122',
-    manifestCrossorigin: 'use-credentials'
+    name: 'Web Profile',
+    themeColor: '#000425',
+    msTileColor: '#000425',
+    manifestCrossorigin: 'use-credentials',
+    iconPaths: {
+      favicon32: 'static/images/icons/favicon-32x32.png',
+      favicon16: 'static/images/icons/favicon-16x16.png',
+      appleTouchIcon: 'static/images/icons/apple-touch-icon-152x152.png',
+      maskIcon: 'static/images/icons/safari-pinned-tab.svg',
+      msTileImage: 'static/images/icons/msapplication-icon-144x144.png'
+    }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <header class="ui--header">
-    <div class="ui--header-logo">text <span class="color">logo</span></div>
+    <div class="ui--header-logo">unset <span class="color">logo</span></div>
 
     <div class="ui--header-contact tel">
       <svg class="icon bi bi-phone" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

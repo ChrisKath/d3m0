@@ -1,0 +1,27 @@
+.ui--backtotop {
+  position: fixed;
+  z-index: 10;
+  right: 40px;
+  bottom: 40px;
+  transition: all 0.2s ease;
+
+  &:not(.show) {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5px);
+  }
+
+  .btn {
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    color: rgba(@text-color, 0.8);
+  }
+
+  .icon {
+    width: 2em;
+    height: 2em;
+    color: @text-color;
+  }
+}
