@@ -13,10 +13,10 @@
   @media @mobile-screen {
     top: 20px;
     padding: 0 20px;
-    grid-gap: 2.5px 0;
+    grid-gap: 5px 0;
     grid-template-columns: unset;
-    grid-template-areas: "area-logo area-x1" "area-logo area-x2";
-    align-items: flex-start;
+    grid-template-areas: "area-x1" "area-x2";
+    justify-content: flex-start;
   }
 
   &-logo {
@@ -26,9 +26,7 @@
     font-weight: @font-weight-bold;
 
     @media @mobile-screen {
-      grid-area: area-logo;
-      font-size: 20px;
-      margin-top: -5px;
+      display: none;
     }
 
     .color {
@@ -45,6 +43,7 @@
     @media @mobile-screen {
       display: flex;
       align-items: center;
+      justify-self: unset;
       margin: 0;
     }
 
@@ -67,7 +66,7 @@
       margin-right: 10px;
 
       @media @mobile-screen {
-        margin-right: 5px;
+        margin-right: 7.5px;
       }
     }
 

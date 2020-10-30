@@ -66,7 +66,7 @@ export default class IndexContainer extends Vue {
   // __METHODS
   private next (): void {
     const root: any = document.getElementById('app')
-    const to: number = this.$el.clientHeight
+    const to: number = (this.$el.clientHeight * 1.06)
 
     root.scrollTo({
       top: to,

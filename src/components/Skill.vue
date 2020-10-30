@@ -42,7 +42,7 @@ export default class SkillContainer extends Vue {
   ]
 
   // __COMPUTED
-  private get store (): any[] {
+  private get store (): TypeSkill[] {
     return (this.dataset as any).orderBy('order')
   }
 }

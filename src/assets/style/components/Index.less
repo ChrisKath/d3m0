@@ -12,7 +12,7 @@
     bottom: 0;
     z-index: -1;
     pointer-events: none;
-    background-image: url(../../images/bg-4k.webp);
+    background-image: url(../../images/bg-hd.webp);
     background-size: auto 100vh;
     background-repeat: no-repeat;
     background-position: right top;
@@ -97,8 +97,20 @@
     justify-content: flex-start;
     margin: 40px 0 0;
 
+    @media @mobile-screen {
+      grid-template-columns: 1fr repeat(3, 40px);
+    }
+
     .btn {
-      text-transform: capitalize;
+      &-primary {
+        text-transform: capitalize;
+        white-space: nowrap;
+
+        @media @mobile-screen {
+          width: 100%;
+          padding: 0 10px;
+        }
+      }
 
       &-border {
         width: 40px;

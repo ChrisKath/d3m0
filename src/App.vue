@@ -32,10 +32,5 @@ import Top from '@/components/Top.vue'
 })
 export default class Application extends Vue {
   [propName: string]: any
-
-  // __MOUNTED <Lifecycle Hooks>
-  public mounted (): void {
-    console.log('🚀 Application Running...')
-  }
 }
 </script>
