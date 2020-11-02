@@ -1,7 +1,6 @@
 .ui--skill {
   display: grid;
   padding: 15vh 0;
-  background-color: @base-color;
 
   @media @mobile-screen {
     padding: 50px 0;
@@ -41,11 +40,11 @@
 
   &-list {
     float: left;
-    margin: 0 20px 20px 0;
+    margin: 0 15px 15px 0;
     padding: 15px 20px;
+    border-radius: 2px;
     font-weight: @font-weight-normal;
-    background-color: tint(@base-color, 5%);
-    border-radius: 10px;
+    background-color: tint(@bunker-gray, 96%);
 
     @media @mobile-screen {
       padding: 10px 15px;
@@ -62,11 +61,12 @@
 
     .value {
       align-self: center;
-      padding: 0 8px;
-      border-radius: 25px;
-      font-weight: @font-weight-bold;
-      color: @base-color;
-      background-color: @primary-color;
+      padding: 0 5px;
+      border-radius: 2px;
+      font-size: @font-size-small;
+      font-weight: @font-weight-normal;
+      color: @primary-color;
+      background-color: @bunker-gray;
 
       &::after { content: '%' }
     }

@@ -25,10 +25,6 @@ time, mark, audio, video {
   &::after {
     box-sizing: border-box;
   }
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 html, body {
@@ -36,8 +32,9 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   font-family: @font-family-base;
   font-size: @font-size-medium;
-  color: @text-color;
-  background-color: @base-color;
+  overflow: hidden;
+  color: @bunker-gray;
+  background-color: #FFFFFF;
 }
 
 /* HTML5 display-role reset for older browsers */

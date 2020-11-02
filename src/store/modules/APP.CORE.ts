@@ -1,6 +1,6 @@
 // State
 export const state: any = {
-  appVersion: 'v2.0 (oct, 2020)',
+  appVersion: 'v2.0-beta (oct, 2020)',
   load: [false, ''],
   lang: 'en-US',
 }

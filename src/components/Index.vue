@@ -11,19 +11,27 @@
 
       <div class="desc">
         Web developer and UI/UX Designer with 4 years of experience.
-        Learn about coding techniques for higher web performance.
+        Learning about coding techniques for higher web performance.
       </div>
 
       <div class="action">
-        <button class="btn btn-primary">download resume</button>
+        <a class="btn btn-download" href="http://bit.ly/r3sum3dl" target="_blank">
+          <svg class="icon bi bi-download" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+          <span class="text">Download Resume</span>
+        </a>
+      </div>
 
-        <a class="btn btn-border" href="https://facebook.com/100007468007588" target="_blank">
+      <div class="follow">
+        <a class="btn btn-text" href="https://facebook.com/100007468007588" target="_blank">
           <svg class="icon bi bi-facebook" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-6.932 0-5.046 7.85-5.322 9h-3.487v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877c.188-2.824-.761-5.016 2.051-5.016z"/>
           </svg>
         </a>
 
-        <a class="btn btn-border" href="https://twitter.com/pinn_project" target="_blank">
+        <a class="btn btn-text" href="https://twitter.com/pinn_project" target="_blank">
           <svg class="icon bi bi-twitter" viewBox="0 0 490.659 490.659" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M487.84,92.931c-3.262-3.567-8.514-4.494-12.8-2.261c-4.406,2.002-8.964,3.65-13.632,4.928
               c7.28-9.316,12.777-19.897,16.213-31.211c1.513-5.693-1.876-11.535-7.569-13.048c-3.04-0.808-6.281-0.233-8.857,1.571
@@ -39,19 +47,11 @@
           </svg>
         </a>
 
-        <a class="btn btn-border" href="https://github.com/pinn-project" target="_blank">
+        <a class="btn btn-text" href="https://github.com/pinn-project" target="_blank">
           <svg class="icon bi bi-github" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"/>
           </svg>
         </a>
-      </div>
-
-      <div class="arrow">
-        <button class="btn btn-border" @click="next">
-          <svg class="icon bi bi-arrow-down-short" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
-          </svg>
-        </button>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@ export default class IndexContainer extends Vue {
   // __METHODS
   private next (): void {
     const root: any = document.getElementById('app')
-    const to: number = (this.$el.clientHeight * 1.06)
+    const to: number = (this.$el.clientHeight * 1.05)
 
     root.scrollTo({
       top: to,

@@ -5,13 +5,16 @@
       "id": 1,
       "label": "design"
     },
-    "title": "Oasis Spa Re-design",
+    "tags": [
+      "Adobe XD", "Photoshop"
+    ],
+    "title": "Oasis Spa (New Design)",
     "desc": "It doesn't matter how great your product or service is if your copy does not captivate your audience.",
     "poster": "1.png",
     "images": ["1.png", "2.png", "3.png", "4.png"],
     "href": null,
     "order": 10,
-    "createdAt": "2020-10-20T00:00:00.000Z",
+    "createdAt": "2019-10-20T00:00:00.000Z",
     "updatedAt": null
   },
   {
@@ -20,12 +23,15 @@
       "id": 1,
       "label": "design"
     },
+    "tags": [
+      "Photoshop", "Prototype", "Vue", "TS"
+    ],
     "title": "Destiny TH (Official Site)",
     "desc": "The heart of business ventures providing them the support they need to be “The best of The best”",
     "poster": "1.png",
     "images": ["1.png", "2.png", "3.png"],
     "href": "https://destiny-39c8a.firebaseapp.com/",
-    "order": 40,
+    "order": 20,
     "createdAt": "2020-10-20T00:00:00.000Z",
     "updatedAt": null
   },
@@ -35,12 +41,15 @@
       "id": 1,
       "label": "design"
     },
+    "tags": [
+      "Photoshop", "Published"
+    ],
     "title": "Chinese New Year 2019 (Campaign Event)",
     "desc": "It doesn't matter how great your product or service is if your copy does not captivate your audience.",
     "poster": "1.png",
     "images": ["1.png"],
     "href": null,
-    "order": 20,
+    "order": 40,
     "createdAt": "2020-10-20T00:00:00.000Z",
     "updatedAt": null
   },
@@ -50,6 +59,9 @@
       "id": 2,
       "label": "web app"
     },
+    "tags": [
+      "Launched", "NodeJs", "Vue", "TS"
+    ],
     "title": "Café De Oasis (PWA Ordering)",
     "desc": "Do you love a good latte, consider yourself a coffee connoisseur or tea enthusiast? There is only one possible destination for you – Café De Oasis",
     "poster": "1.png",
@@ -65,8 +77,11 @@
       "id": 2,
       "label": "web app"
     },
+    "tags": [
+      "Launched", "Laravel", "Vue", "TS"
+    ],
     "title": "Camera lobby view (PWA)",
-    "desc": "Do you love a good latte, consider yourself a coffee connoisseur or tea enthusiast? There is only one possible destination for you – Café De Oasis",
+    "desc": "RTSP Project, CCTV multiple streaming screen on the web browser.",
     "poster": "8.jpg",
     "images": ["1.webp"],
     "href": null,
@@ -80,6 +95,9 @@
       "id": 2,
       "label": "web app"
     },
+    "tags": [
+      "Published", "PHP Slim"
+    ],
     "title": "Oasis Spa School (Official Site)",
     "desc": "Education with Understanding is the Basis for Advancement.",
     "poster": "1.jpg",

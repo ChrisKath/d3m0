@@ -32,11 +32,13 @@
     .color {
       padding: 0 5px;
       color: @primary-color;
-      background-color: tint(@base-color, 8%);
+      background-color: @bunker-gray;
     }
   }
   
   &-contact {
+    display: flex;
+    align-items: center;
     justify-self: flex-end;
     margin-left: 20px;
 
@@ -64,19 +66,11 @@
       width: 1em;
       height: 1em;
       margin-right: 10px;
-
-      @media @mobile-screen {
-        margin-right: 7.5px;
-      }
     }
 
     .text {
-      color: @text-color;
+      font-size: @font-size-small;
       font-weight: @font-weight-normal;
-
-      @media @mobile-screen {
-        font-size: @font-size-small;
-      }
 
       &:hover {
         text-decoration: underline;
