@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import store from '@/store'
+import routers from '@/router'
 import App from '@/App.vue'
 import '@/registerServiceWorker'
 import '@/registerDefineProperty'
@@ -12,6 +13,7 @@ import Footer from '@/components/Footer.vue'
 // Vue Instance
 createApp(App)
   .use(store)
+  .use(routers)
   .component('HeaderComponent', Header)
   .component('FooterComponent', Footer)
   .mount('#app')

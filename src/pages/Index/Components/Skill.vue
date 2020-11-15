@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { Vue } from 'vue-class-component'
-import { TypeSkill } from './type'
+import { TypeSkill } from '../type'
 
 export default class SkillContainer extends Vue {
   [propName: string]: any

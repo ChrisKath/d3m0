@@ -8,12 +8,12 @@
     "deploy": "vue-cli-service build && firebase deploy --only hosting"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.7.0",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.2",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.0-rc.1",
-    "vuex": "^4.0.0-0"
+    "vue-router": "^4.0.0-rc.3",
+    "vuex": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.8",

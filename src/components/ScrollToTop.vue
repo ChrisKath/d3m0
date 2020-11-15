@@ -19,13 +19,13 @@ export default class BackToTopComponent extends Vue {
 
   // __METHODS
   private scrollToTop (): void {
-    const root: any = document.getElementById('app')
+    const $root: any = document.getElementById('app')
+    let c: number = $root.scrollTop
 
-    root.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
+    if (c > 0) {
+      window.requestAnimationFrame(this.scrollToTop)
+      $root.scrollTo(0, c - c / 14)
+    }
   }
 
   private setListener (): void {

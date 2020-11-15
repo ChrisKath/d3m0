@@ -1,36 +1,29 @@
 <template>
   <HeaderComponent />
 
-  <IndexContainer />
-  <PortfolioContainer />
-  <ExperienceContainer />
-  <SkillContainer />
+  <router-view class="ui--router-view" />
 
   <FooterComponent />
 
   <teleport to="body">
-    <BackToTopComponent />
+    <BackToTopComponent v-if="routeName" />
   </teleport>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from 'vue-class-component'
-import Index from '@/components/Index.vue'
-import Portfolio from '@/components/Portfolio.vue'
-import Experience from '@/components/Experience.vue'
-import Skill from '@/components/Skill.vue'
-import Top from '@/components/Top.vue'
+import ScrollToTop from '@/components/ScrollToTop.vue'
 
 @Options({
   components: {
-    IndexContainer: Index,
-    PortfolioContainer: Portfolio,
-    ExperienceContainer: Experience,
-    SkillContainer: Skill,
-    BackToTopComponent: Top
+    BackToTopComponent: ScrollToTop
   }
 })
 export default class Application extends Vue {
   [propName: string]: any
+
+  private get routeName (): any {
+    return this.$route.name
+  }
 }
 </script>

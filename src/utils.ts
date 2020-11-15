@@ -136,6 +136,17 @@ export function capitalize (input: string): string {
 }
 
 /**
+ * Create an object containing the parameters of the current URL.
+ * 
+ * @param {string} input
+ */
+export function getParams (input: string): any {
+  return (input.match(/([^?=&]+)(=([^&]*))/g) || [])
+    .reduce((a: any, v: any) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a), {})
+}
+
+
+/**
  * Convert elm Hightlight.
  * 
  * @param {string} input

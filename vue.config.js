@@ -18,7 +18,7 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = 'Got\'t Patiphat — Web Profile'
+        args[0].title = process.env.VUE_APP_WEB_TITLE
         return args
       })
   },
@@ -28,9 +28,9 @@ module.exports = {
   },
 
   pwa: {
-    name: 'Web Profile',
-    themeColor: '#000425',
-    msTileColor: '#000425',
+    name: process.env.VUE_APP_NAME,
+    themeColor: '#FFFFFF',
+    msTileColor: '#FFFFFF',
     manifestCrossorigin: 'use-credentials',
     iconPaths: {
       favicon32: 'static/img/icons/favicon-32x32.png',

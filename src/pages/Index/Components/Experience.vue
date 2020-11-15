@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { Vue } from 'vue-class-component'
-import { TypeExperience } from './type'
+import { TypeExperience } from '../type'
 
 export default class ExperienceContainer extends Vue {
   [propName: string]: any
@@ -43,17 +43,17 @@ export default class ExperienceContainer extends Vue {
     {
       time: 'apr 2017 - present',
       label: 'Front-End Web Developer',
-      desc: 'Tempora praesentium architecto aut temporibus quam adipisci excepturi optio rem, id eaque dicta sed a, esse aspernatur eligendi repudiandae corporis hic nesciunt!'
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos assumenda ad ipsa corrupti sit vero porro ratione? Cum, doloremque suscipit. Suscipit tempore, ut voluptatibus ea animi sint cum temporibus culpa!'
     },
     {
       time: 'seb 2016 - dec 2016',
       label: 'Junior Back-End Programmer',
-      desc: 'Tempora praesentium architecto aut temporibus quam adipisci excepturi optio rem, id eaque dicta sed a, esse aspernatur eligendi repudiandae corporis hic nesciunt!'
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos assumenda ad ipsa corrupti sit vero porro ratione? Cum, doloremque suscipit. Suscipit tempore, ut voluptatibus ea animi sint cum temporibus culpa!'
     },
     {
       time: 'jan 2016 - apr 2016',
       label: 'Internship Student',
-      desc: 'Tempora praesentium architecto aut temporibus quam adipisci excepturi optio rem, id eaque dicta sed a, esse aspernatur eligendi repudiandae corporis hic nesciunt!'
+      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos assumenda ad ipsa corrupti sit vero porro ratione? Cum, doloremque suscipit. Suscipit tempore, ut voluptatibus ea animi sint cum temporibus culpa!'
     }
   ]
 }
