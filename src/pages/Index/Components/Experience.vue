@@ -19,11 +19,11 @@
             </svg>
 
             <div class="title">
-              <p v-text="elm.time"></p>
+              <p>{{ getDate(elm.time) }}</p>
               <h4 v-text="elm.label"></h4>
             </div>
 
-            <div class="desc" v-text="elm.desc"></div>
+            <div class="desc" v-text="elm.description"></div>
           </div>
         </div>
       </div>
@@ -33,28 +33,22 @@
 
 <script lang="ts">
 import { Vue } from 'vue-class-component'
-import { TypeExperience } from '../type'
+import { dateTime } from '@/utils'
 
 export default class ExperienceContainer extends Vue {
   [propName: string]: any
 
-  // __DATA
-  private store: TypeExperience[] = [
-    {
-      time: 'apr 2017 - nov 2020',
-      label: 'Front-End Web Developer',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos assumenda ad ipsa corrupti sit vero porro ratione? Cum, doloremque suscipit. Suscipit tempore, ut voluptatibus ea animi sint cum temporibus culpa!'
-    },
-    {
-      time: 'seb 2016 - dec 2016',
-      label: 'Junior Back-End Programmer',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos assumenda ad ipsa corrupti sit vero porro ratione? Cum, doloremque suscipit. Suscipit tempore, ut voluptatibus ea animi sint cum temporibus culpa!'
-    },
-    {
-      time: 'jan 2016 - apr 2016',
-      label: 'Internship Student',
-      desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos assumenda ad ipsa corrupti sit vero porro ratione? Cum, doloremque suscipit. Suscipit tempore, ut voluptatibus ea animi sint cum temporibus culpa!'
-    }
-  ]
+  // __METHODS
+  private getDate (input: any): string {
+    const from: string = dateTime(input.from.toDate())
+    const to: string = dateTime(input.to.toDate())
+    return `${from} - ${to}`
+  }
+
+  // __COMPUTED
+  private get store (): any[] {
+    const results: any = this.$store.getters['APP.DATA/experience']
+    return results.orderBy('order')
+  }
 }
 </script>

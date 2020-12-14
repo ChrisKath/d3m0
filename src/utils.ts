@@ -57,6 +57,18 @@ export function keyCode (): string {
 }
 
 /**
+ * Date format.
+ * 
+ * @param input 
+ * @param limit 
+ */
+export function dateTime (input?: any): string {
+  const $intl: any = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
+  let date: Date = new Date(input)
+  return $intl.format(date)
+}
+
+/**
  * Truncate limitor text.
  * 
  * @param {string} input

@@ -25,25 +25,14 @@
 
 <script lang="ts">
 import { Vue } from 'vue-class-component'
-import { TypeSkill } from '../type'
 
 export default class SkillContainer extends Vue {
   [propName: string]: any
 
-  // __DATA
-  private dataset: TypeSkill[] = [
-    { label: 'Web Performance', value: 75, order: 3 },
-    { label: 'TypeScript', value: 75, order: 4 },
-    { label: 'Vue JS', value: 90, order: 1 },
-    { label: 'Node JS', value: 80, order: 2 },
-    { label: 'Adobe XD', value: 40, order: 5 },
-    { label: 'Photoshop', value: 50, order: 6 },
-    { label: 'UI/UX Design', value: 60, order: 7 }
-  ]
-
   // __COMPUTED
-  private get store (): TypeSkill[] {
-    return (this.dataset as any).orderBy('order')
+  private get store (): any[] {
+    const results: any = this.$store.getters['APP.DATA/skills']
+    return results.orderBy('order')
   }
 }
 </script>

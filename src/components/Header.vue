@@ -1,6 +1,12 @@
 <template>
   <header class="ui--header">
-    <div class="ui--header-logo">unset <span class="color">logo</span></div>
+    <div class="ui--header-logo">web <span class="color">profile</span></div>
+
+    <div class="ui--header-menu">
+      <router-link v-for="(elm, idx) in menu" :key="idx" :to="elm.to">
+        {{ elm.label }}
+      </router-link>
+    </div>
 
     <div class="ui--header-contact tel">
       <svg class="icon bi bi-phone" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -24,5 +30,11 @@ import { Vue } from 'vue-class-component'
 
 export default class HeaderComponent extends Vue {
   [propName: string]: any
+
+  // __DATA
+  private menu: any[] = [
+    { label: 'index', to: { name: 'index' } },
+    { label: 'collects', to: { name: 'collect' } }
+  ]
 }
 </script>

@@ -9,32 +9,17 @@
   border: solid 1px transparent;
   background-color: transparent;
 
-  &-text {
-    min-height: unset;
-    padding: 0;
-    color: @primary-color;
-  }
-
-  &-border {
-    text-align: center;
-    min-height: unset;
-    padding: 0;
-    color: rgba(@text-color, 0.8);
-    border-color: rgba(@text-color, 0.1);
-    transition: all 0.2s ease;
-
-    &:hover {
-      color: @text-color;
-      background-color: rgba(@text-color, 0.08);
-    }
+  .icon {
+    width: 1.1em;
+    height: 1.1em;
   }
 
   &-primary {
-    color: @base-color;
+    color: @text-color;
     background-color: @primary-color;
 
     &:hover {
-      background-color: shade(@primary-color, 7.5%);
+      background-color: tint(@primary-color, 5%);
     }
   }
 }

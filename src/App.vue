@@ -35,6 +35,13 @@ export default class Application extends Vue {
     }, 1e3)
   }
 
+  // __CREATED <Lifecycle Hooks>
+  public created (): void {
+    this.$store.dispatch('APP.DATA/pull', 'collects')
+    this.$store.dispatch('APP.DATA/pull', 'experience')
+    this.$store.dispatch('APP.DATA/pull', 'skills')
+  }
+
   // __MOUNTED <Lifecycle Hooks>
   public mounted (): void {
     this.$nextTick(this.onReady)

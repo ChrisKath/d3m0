@@ -27,6 +27,10 @@
     text-transform: uppercase;
     letter-spacing: 1.5px;
 
+    @media @mobile-screen {
+      max-width: 300px;
+    }
+
     &::before,
     &::after {
       position: absolute;
@@ -34,7 +38,11 @@
       width: 60px;
       height: 1px;
       content: '';
-      background-color: tint(@primary-color, 25%);
+      background-color: @primary-color;
+
+      @media @mobile-screen {
+        width: 50px;
+      }
     }
 
     &::before {
@@ -89,15 +97,11 @@
     margin: 40px 0 0;
 
     .btn {
-      line-height: 38px;
       width: 220px;
-      background-color: @primary-color;
+      line-height: 38px;
     }
 
     .icon {
-      color: @text-color;
-      width: 1em;
-      height: 1em;
       margin-right: 15px;
     }
   }
@@ -117,11 +121,10 @@
     }
 
     .btn {
-      padding: 6px;
+      min-height: unset;
       width: 32px;
       height: 32px;
-      color: @text-color;
-      background-color: @primary-color;
+      padding: 7px;
     }
   }
 }
