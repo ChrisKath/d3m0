@@ -1,7 +1,7 @@
 <template>
   <footer class="ui--footer">
     <p class="copyright">
-      {{ appVersion }} | power by vue-3 (preview) &amp; firebase-hosting
+      {{ appVersion }} | power by vue-next &amp; firebase
     </p>
   </footer>
 </template>

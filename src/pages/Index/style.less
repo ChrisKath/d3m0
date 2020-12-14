@@ -1,34 +1,19 @@
 @import (less) "../../assets/style/lib/custom.less";
 
-.ui--index {
+.ui--cover {
   position: relative;
   height: 100vh;
   display: grid;
   align-items: center;
-  text-align: center;
 
-  .parallax {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    opacity: 0.88;
-    pointer-events: none;
-    background-image: url(../../assets/images/bg.webp);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: auto 100vh;
-    transform: translateZ(-1px) scale(1.5);
-  }
-
-  .container {
-    @media @desktop-screen {
-      max-width: 90vw;
-    }
+  &-container {
+    position: relative;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
 
     @media @mobile-screen {
+      padding: 20px;
       max-width: unset;
     }
   }
@@ -78,9 +63,6 @@
       font-size: 60px;
       font-weight: @font-weight-normal;
       color: @primary-color;
-      background: -webkit-linear-gradient(@primary-color, #B69119);
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
 
       @media @mobile-screen {
         font-size: 45px;
@@ -109,25 +91,18 @@
     .btn {
       line-height: 38px;
       width: 220px;
-      border: solid 1px tint(@primary-color, 60%);
-      background-color: rgba(@text-color, 0.88);
-
-      // Nested At-Rules and Bubbling.
-      @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-        background-color: rgba(@text-color, 0.06);
-        backdrop-filter: blur(10px);
-      }
+      background-color: @primary-color;
     }
 
     .icon {
-      color: @primary-color;
+      color: @text-color;
       width: 1em;
       height: 1em;
       margin-right: 15px;
     }
   }
 
-  .follow {
+  &-follow {
     position: absolute;
     left: 40px;
     right: 40px;
@@ -142,86 +117,72 @@
     }
 
     .btn {
-      padding: 5px;
-      width: 30px;
-      height: 30px;
-      background-color: tint(@primary-color, 88%);
+      padding: 6px;
+      width: 32px;
+      height: 32px;
+      color: @text-color;
+      background-color: @primary-color;
     }
   }
 }
 
-.ui--portfolio {
+.ui--collect {
   display: grid;
-  padding: 8vh 0 15vh;
+  padding: 40px 0 15vh;
 
-  @media @mobile-screen {
-    padding: 50px 0;
+  @media @tablet-screen {
+    padding: 40px 0 50px;
   }
 
   &-item {
     display: grid;
-    grid-gap: 60px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    grid-template-columns: repeat(3, calc((100% / 3) - 34.5px));
+    grid-auto-flow: dense;
+
+    @media @laptop-screen {
+      grid-gap: 20px;
+      grid-template-columns: repeat(3, calc((100% / 3) - 13.5px));
+    }
 
     @media @mobile-screen {
-      grid-gap: 20px 0;
-      grid-auto-flow: row;
       grid-template-columns: unset;
+      grid-auto-flow: row;
+      grid-row-gap: 40px;
     }
   }
 
   &-list {
     position: relative;
-    box-shadow: 0 0 40px rgba(@gray-color, 0.12);
 
     .image {
       display: block;
       width: 100%;
-      height: 256px;
+      height: auto;
       border-radius: 2px;
-      background-color: tint(@gray-color, 96%);
-      object-position: center;
-      object-fit: cover;
-
-      @media @mobile-screen {
-        height: 200px;
-      }
+      background-color: @base-color;
+      object-position: top;
+      object-fit: contain;
     }
 
     .type {
       position: absolute;
-      top: 226px;
-      right: 14px;
+      top: 10px;
+      right: 10px;
       padding: 0 4px;
       font-size: @font-size-smaller;
       font-weight: @font-weight-normal;
       text-transform: uppercase;
-      border-radius: 2px;
-      color: @primary-color;
-      background-color: @bunker-gray;
-
-      @media @mobile-screen {
-        top: 170px;
-      }
+      border-radius: 1px;
+      color: @text-color;
+      background-color: @primary-color;
     }
 
     .content {
-      padding: 15px;
-
       h2 {
-        margin: 0 0 5px;
+        margin: 10px 0 5px;
         font-size: 16px;
         font-weight: @font-weight-normal;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-
-        @media @mobile-screen {
-          text-transform: unset;
-          white-space: unset;
-          overflow: auto;
-          font-size: @font-size-medium;
-        }
       }
 
       p {
@@ -236,10 +197,6 @@
           text-overflow: ellipsis;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
-
-          @media @mobile-screen {
-            font-size: 11px;
-          }
         }
 
         &.create {
@@ -252,8 +209,8 @@
         .tag {
           padding: 0 4px;
           font-size: @font-size-smaller;
-          color: @primary-color;
-          background-color: tint(@primary-color, 90%);
+          color: @text-color;
+          background-color: rgba(@primary-color, 0.4);
 
           &:not(:last-child) {
             margin-right: 5px;
@@ -267,9 +224,8 @@
 .ui--experience {
   display: grid;
   padding: 15vh 0;
-  background-color: tint(@bunker-gray, 98%);
 
-  @media @mobile-screen {
+  @media @tablet-screen {
     padding: 50px 0;
   }
 
@@ -289,7 +245,7 @@
     border-bottom: solid 1px @border-color;
     height: 140px;
 
-    @media @mobile-screen {
+    @media @tablet-screen {
       height: auto;
       padding: 20px 0 0;
       grid-column-gap: 20px;
@@ -308,13 +264,13 @@
       margin: 4px 0 0;
       color: @primary-color;
 
-      @media @mobile-screen {
+      @media @tablet-screen {
         grid-area: area-icon;
       }
     }
 
     .title {
-      @media @mobile-screen {
+      @media @tablet-screen {
         grid-area: area-title;
       }
 
@@ -329,7 +285,7 @@
         font-size: @font-size-large;
         font-weight: @font-weight-normal;
 
-        @media @mobile-screen {
+        @media @tablet-screen {
           line-height: 2.5;
         }
       }
@@ -338,7 +294,7 @@
     .desc {
       color: @gray-color;
 
-      @media @mobile-screen {
+      @media @tablet-screen {
         grid-area: area-desc;
         font-size: @font-size-small;
       }
@@ -350,7 +306,7 @@
   display: grid;
   padding: 15vh 0;
 
-  @media @mobile-screen {
+  @media @tablet-screen {
     padding: 50px 0;
   }
 
@@ -359,8 +315,11 @@
       grid-template-columns: 1fr 320px;
       align-items: flex-start;
 
-      @media @mobile-screen {
+      @media @laptop-screen {
         grid-template-columns: unset;
+      }
+
+      @media @mobile-screen {
         align-items: unset;
       }
     }
@@ -369,7 +328,7 @@
       &.x1 {
         grid-area: area-x2;
 
-        @media @mobile-screen {
+        @media @laptop-screen {
           grid-area: area-x1;
         }
       }
@@ -379,7 +338,7 @@
         width: 100%;
         grid-area: area-x1;
 
-        @media @mobile-screen {
+        @media @laptop-screen {
           grid-area: area-x2;
         }
       }
@@ -392,7 +351,7 @@
     padding: 15px 20px;
     border-radius: 2px;
     font-weight: @font-weight-normal;
-    background-color: tint(@bunker-gray, 96%);
+    background-color: tint(@base-color, 3%);
 
     @media @mobile-screen {
       padding: 10px 15px;
@@ -409,7 +368,7 @@
 
     .value {
       align-self: center;
-      padding: 0 5px;
+      padding: 0 8px;
       border-radius: 2px;
       font-size: @font-size-small;
       font-weight: @font-weight-normal;

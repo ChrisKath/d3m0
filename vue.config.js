@@ -29,8 +29,8 @@ module.exports = {
 
   pwa: {
     name: process.env.VUE_APP_NAME,
-    themeColor: '#FFFFFF',
-    msTileColor: '#FFFFFF',
+    themeColor: '#282B30',
+    msTileColor: '#282B30',
     manifestCrossorigin: 'use-credentials',
     iconPaths: {
       favicon32: 'static/img/icons/favicon-32x32.png',

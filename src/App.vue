@@ -5,25 +5,39 @@
 
   <FooterComponent />
 
-  <teleport to="body">
-    <BackToTopComponent v-if="routeName" />
+  <teleport to="#teleport">
+    <ScrollTopComponent v-if="ready" />
   </teleport>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from 'vue-class-component'
-import ScrollToTop from '@/components/ScrollToTop.vue'
+import ScrollTop from '@/components/Scrolltop.vue'
 
 @Options({
   components: {
-    BackToTopComponent: ScrollToTop
+    ScrollTopComponent: ScrollTop
   }
 })
 export default class Application extends Vue {
   [propName: string]: any
 
-  private get routeName (): any {
-    return this.$route.name
+  // __DATA
+  private ready: boolean = false
+
+  // __METHODS
+  private onReady (): void {
+    let i: number = setInterval((): void => {
+      if (this.$route.name) {
+        this.ready = true
+        clearInterval(i)
+      }
+    }, 1e3)
+  }
+
+  // __MOUNTED <Lifecycle Hooks>
+  public mounted (): void {
+    this.$nextTick(this.onReady)
   }
 }
 </script>

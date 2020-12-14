@@ -1,9 +1,14 @@
 <template>
-  <div class="ui--portfolio">
+  <div class="ui--collect">
     <div class="container">
-      <ul class="ui--portfolio-item">
+      <div class="ui--collect-info">
+        <h4 class="ui--info-h4">collects</h4>
+        <h2 class="ui--info-h2">portfolio</h2>
+      </div>
 
-        <li class="ui--portfolio-list" v-for="(elm, idx) in store" :key="idx">
+      <div class="ui--collect-item">
+
+        <div class="ui--collect-list" v-for="(elm, idx) in store" :key="idx">
           <img class="image" :src="getImage(elm)" loading="lazy">
           <div class="type" v-text="elm.type.label"></div>
 
@@ -17,9 +22,9 @@
               </span>
             </div>
           </div>
-        </li>
+        </div>
 
-      </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -28,7 +33,7 @@
 import { Vue } from 'vue-class-component'
 import data from '@/store/project.json'
 
-export default class PortfolioContainer extends Vue {
+export default class CollectContainer extends Vue {
   [propName: string]: any
 
   // __DATA

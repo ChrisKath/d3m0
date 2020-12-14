@@ -1,22 +1,24 @@
 <template>
-  <IndexContainer />
-  <PortfolioContainer />
-  <ExperienceContainer />
-  <SkillContainer />
+  <div class="ui--index">
+    <CoverContainer />
+    <CollectContainer />
+    <ExperienceContainer />
+    <SkillContainer />
+  </div>
 </template>
 
 <script lang="ts">
 import { Vue, Options } from 'vue-class-component'
-import Index from './Components/Index.vue'
-import Portfolio from './Components/Portfolio.vue'
+import Cover from './Components/Cover.vue'
+import Collect from './Components/Collect.vue'
 import Experience from './Components/Experience.vue'
 import Skill from './Components/Skill.vue'
 import './style.less'
 
 @Options({
   components: {
-    IndexContainer: Index,
-    PortfolioContainer: Portfolio,
+    CoverContainer: Cover,
+    CollectContainer: Collect,
     ExperienceContainer: Experience,
     SkillContainer: Skill
   }

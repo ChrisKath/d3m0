@@ -1,10 +1,5 @@
 // Global classes
-.ui--wrapper {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  height: 100vh;
-  perspective: 2px;
-  
+.ui--wrapper {  
   .rows {
     padding: 0 40px;
   }
@@ -28,7 +23,7 @@
       grid-template-columns: 320px 1fr;
       grid-template-areas: "area-x1 area-x2";
 
-      @media @mobile-screen {
+      @media @laptop-screen {
         grid-gap: 30px 0;
         grid-auto-flow: row;
         grid-template-columns: unset;

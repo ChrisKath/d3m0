@@ -41,7 +41,7 @@ export default class ExperienceContainer extends Vue {
   // __DATA
   private store: TypeExperience[] = [
     {
-      time: 'apr 2017 - present',
+      time: 'apr 2017 - nov 2020',
       label: 'Front-End Web Developer',
       desc: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos assumenda ad ipsa corrupti sit vero porro ratione? Cum, doloremque suscipit. Suscipit tempore, ut voluptatibus ea animi sint cum temporibus culpa!'
     },
