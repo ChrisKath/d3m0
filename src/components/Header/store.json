@@ -1,0 +1,14 @@
+{
+  "menu": [
+    {
+      "label": "Index",
+      "to": "/",
+      "exact": true
+    },
+    {
+      "label": "Collects",
+      "to": "/collects",
+      "exact": true
+    }
+  ]
+}

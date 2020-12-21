@@ -1,5 +1,9 @@
 {
+  "git.ignoreLimitWarning": true,
   "less.compile": {
-    "out": false
-  }
+    "out": null
+  },
+  "editor.tabSize": 2,
+  "editor.fontSize": 24,
+  "editor.lineHeight": 50
 }

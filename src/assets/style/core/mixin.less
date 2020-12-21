@@ -1,0 +1,30 @@
+// neumorphism style
+@phism-color-tl: #0B0E14;
+@phism-color-br: #121822;
+
+.neumorphismFlat(@offset, @blur-radius) {
+  box-shadow:
+    @offset @offset @blur-radius @phism-color-tl,
+    -@offset -@offset @blur-radius @phism-color-br;
+}
+
+.neumorphismConcave(@offset, @blur-radius) {
+  background-image: linear-gradient(145deg, #0D1118, #0F141D);
+  box-shadow:
+    @offset @offset @blur-radius @phism-color-tl,
+    -@offset -@offset @blur-radius @phism-color-br;
+}
+
+.neumorphismConvex(@offset, @blur-radius) {
+  background-image: linear-gradient(145deg, #0F141D, #0D1118);
+  box-shadow:
+    @offset @offset @blur-radius @phism-color-tl,
+    -@offset -@offset @blur-radius @phism-color-br;
+}
+
+.neumorphismPressed(@offset, @blur-radius) {
+  background-image: linear-gradient(145deg, #0F141D, #0D1118);
+  box-shadow:
+    inset @offset @offset @blur-radius @phism-color-tl,
+    inset -@offset -@offset @blur-radius @phism-color-br;
+}

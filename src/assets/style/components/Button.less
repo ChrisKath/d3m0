@@ -1,25 +1,19 @@
 .btn {
-  display: block;
-  margin: 0 auto;
-  padding: 0 20px;
-  min-height: 40px;
-  font-size: @font-size-medium;
-  font-weight: @font-weight-normal;
-  border-radius: 2px;
-  border: solid 1px transparent;
-  background-color: transparent;
+  &-phism {
+    color: @primary-color;
+    .neumorphismConvex(5px, 5px);
 
-  .icon {
-    width: 1.1em;
-    height: 1.1em;
+    &:active {
+      .neumorphismConcave(6px, 6px);
+    }
   }
 
-  &-primary {
-    color: @text-color;
-    background-color: @primary-color;
+  &-flat {
+    color: @primary-color;
+    .neumorphismFlat(5px, 5px);
 
-    &:hover {
-      background-color: tint(@primary-color, 5%);
+    &:active {
+      .neumorphismFlat(4px, 4px);
     }
   }
 }

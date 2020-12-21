@@ -1,9 +1,18 @@
-# Got't Patiphat - Web Profile
+# Got't Patiphat, Web Profile;
 
-## 🔥 Required
-- [Vue CLI](https://v3.vuejs.org/guide/installation.html#cli)
+### Directory structure
+```
+index.js          # App entry point
+└─ assets         # Uncompiled assets images, style
+└─ components     # Layouts or other components
+└─ pages          # Application router view
+└─ router         # Routes for all the endpoints
+└─ services       # API fetching resources
+└─ store          # Redux state manager
+└─ utilities      # Utility function
+```
 
-## 🔌 Project setup
+### Install dependencies
 ```
 npm install
 ```
@@ -17,6 +26,3 @@ npm run serve
 ```
 npm run build
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

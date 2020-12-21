@@ -1,0 +1,41 @@
+// Color
+@primary-color          : #08D2AB;
+@success-color          : #28B463;
+@warning-color          : #FF9900;
+@error-color            : #FC0101;
+@text-color             : #EAEBEB;
+@base-color             : #0E131B;
+@dark-color             : #131921;
+@gray-color             : #A7AFBE;
+@border-color           : shade(@base-color, 28%);
+
+// Font
+@font-family-base       : -apple-system, BlinkMacSystemFont, 'Comfortaa', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', cursive, sans-serif;
+@code-family            : Consolas, Menlo, Courier, monospace;
+@font-size-larger       : 22px;
+@font-size-large        : 18px;
+@font-size-medium       : 14px;
+@font-size-small        : 12px;
+@font-size-smaller      : 10px;
+@font-weight-lighter    : 300;
+@font-weight-normal     : 400;
+@font-weight-bold       : 600;
+@font-weight-bolder     : 700;
+
+// Animation
+@animation-time         : convert(400ms, 's');
+@transition-time        : convert(200ms, 's');
+@cubic-bezier           : cubic-bezier(0.77, 0, 0.175, 1);
+
+// Media queries breakpoints
+@screen-xs              : 480px;  // Extra small screen / phone
+@screen-sm              : 768px;  // Small screen / tablet
+@screen-md              : 1024px; // Medium screen / desktop
+@screen-lg              : 1280px; // Large screen / wide desktop
+@desktop-screen         : ~"only screen and (max-width: 1440px)";
+@laptop-screen          : ~"only screen and (max-width: 1024px)";
+@tablet-screen          : ~"only screen and (max-width: 768px)";
+@mobile-screen          : ~"only screen and (max-width: 480px)";
+
+// Import Mixins
+@import (less) "./mixin";

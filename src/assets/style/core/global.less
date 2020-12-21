@@ -1,0 +1,23 @@
+// SET global classes.
+.ui--router {
+  &-link {
+    position: relative;
+    padding: 10px 5px;
+    font-size: @font-size-small + 1;
+    font-weight: @font-weight-bolder;
+    
+    &.active {
+      color: @primary-color;
+      text-shadow: 0 0 8px rgba(@primary-color, 0.2);
+    }
+  }
+
+  &-view {
+    position: relative;
+    padding: 40px;
+
+    @media @mobile-screen {
+      padding: 20px 15px;
+    }
+  }
+}
