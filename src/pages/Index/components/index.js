@@ -1,1 +1,5 @@
-export { CoverComponent } from './cover'
+import CoverComponent from './cover'
+
+export {
+  CoverComponent
+}

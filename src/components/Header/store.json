@@ -8,7 +8,7 @@
     {
       "label": "Collects",
       "to": "/collects",
-      "exact": true
+      "exact": false
     }
   ]
 }

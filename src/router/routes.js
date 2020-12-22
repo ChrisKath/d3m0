@@ -3,14 +3,14 @@ import Index from '@/pages/Index'
 
 export default [
   {
-    path: '/',
     name: 'index',
+    path: '/',
     exact: true,
     component: Index
   },
   {
-    path: '/collects',
     name: 'collect',
+    path: '/collects',
     exact: false,
     component: lazy(() => import(/* webpackChunkName: "collect" */ '@/pages/Collect'))
   }

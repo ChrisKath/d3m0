@@ -2,8 +2,9 @@
 node_modules
 /build
 
-# Firebase cache
+# cache
 .firebase/
+.eslintcache
 
 # local env files
 .env
@@ -15,6 +16,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 firebase-debug.log*
+package-lock.json*
 
 # Editor directories and files
 *.suo

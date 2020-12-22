@@ -1,24 +1,24 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import RouterView from '@/router/index'
+import { StrictMode } from 'react'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+import RouterView from '@/router'
+import store from '@/store'
 import {
   HeaderComponent,
   FooterComponent
 } from '@/components'
 
-export default class Application extends Component {
-  // __RENDER <React.Methods>
-  render () {
-    return (
-      <React.StrictMode>
-        <Router>
-
+export default function Application () {
+  // __RENDER
+  return (
+    <Provider store={store}>
+      <StrictMode>
+        <BrowserRouter>
           <HeaderComponent />
           <RouterView />
           <FooterComponent />
-
-        </Router>
-      </React.StrictMode>
-    )
-  }
+        </BrowserRouter>
+      </StrictMode>
+    </Provider>
+  )
 }

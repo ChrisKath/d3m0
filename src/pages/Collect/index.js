@@ -1,25 +1,26 @@
-import React, { Component } from 'react'
+import { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import './style.less'
 
-export default class CollectContainer extends Component {
-  constructor (props) {
-    super(props)
-    
-    this.state = { // initialState
-      unset: undefined
-    }
-  }
+export default function CollectContainer () {
+  // __STATE <Initial.State>
+  const [ data, setData ] = useState(null)
+  let store = useSelector(state => state['APP.DATA']['collect'])
 
-  // __RENDER <React.Methods>
-  render () {
-    return (<>
-      <div className="ui--collect">
-        .ui--collect
-      </div>
-      
-      <div className="ui--collect-modal">
-        .ui--collect-modal
-      </div>
-    </>)
-  }
+  // __MOUNTED <React.Hooks>
+  useEffect(() => {
+    console.log(store)
+  }, [])
+
+  // __UNMOUNTE <React.Hooks>
+  useEffect(() => {
+    return () => console.log('Component Will Unmount.')
+  }, [])
+
+  // __RENDER
+  return (
+    <div className="ui--collect">
+      .ui--collect
+    </div>
+  )
 }

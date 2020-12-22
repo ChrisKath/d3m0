@@ -1,23 +1,17 @@
-import React, { Component } from 'react'
+import { useState } from 'react'
 import {
   CoverComponent
 } from './components'
 import './style.less'
 
-export default class IndexContainer extends Component {
-  constructor (props) {
-    super(props)
-  }
-
+export default function IndexContainer () {
   // __STATE <Initial.State>
-  state = {}
+  const [ data, setData ] = useState(null)
 
-  // __RENDER <React.Methods>
-  render () {
-    return (
-      <div className="ui--index">
-        <CoverComponent />
-      </div>
-    )
-  }
+  // __RENDER
+  return (
+    <div className="ui--index">
+      <CoverComponent />
+    </div>
+  )
 }

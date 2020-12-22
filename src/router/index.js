@@ -1,31 +1,22 @@
-import React, { Component, Suspense } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import routes from './routes'
+import { lazy, Suspense } from 'react'
+import {
+  Route,
+  Switch
+} from 'react-router-dom'
+import Index from '@/pages/Index'
 
-export default class RouterView extends Component {
-  constructor (props) {
-    super(props)
-  }
+export default function RouterView () {
+  const Collect = lazy(() => import(/* webpackChunkName: "collect" */ '@/pages/Collect'))
 
-  // __RENDER <React.Methods>
-  render () {
-    return (
-      <div className="ui--router-view">
-        <Switch>
-          <Suspense fallback={<></>}>
-            {
-              routes.map((route, idx) => (
-                <Route
-                  key={idx}
-                  path={route.path}
-                  exact={route.exact}
-                  component={route.component}
-                />
-              ))
-            }
-          </Suspense>
-        </Switch>
-      </div>
-    )
-  }
+  // __RENDER
+  return (
+    <div className="ui--router-view">
+      <Switch>
+        <Suspense fallback={<></>}>
+          <Route path="/" component={Index} exact />
+          <Route path="/collects" component={Collect} />
+        </Suspense>
+      </Switch>
+    </div>
+  )
 }

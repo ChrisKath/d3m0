@@ -1,2 +1,7 @@
-export { HeaderComponent } from './Header'
-export { FooterComponent } from './Footer'
+import HeaderComponent from './Header'
+import FooterComponent from './Footer'
+
+export {
+  HeaderComponent,
+  FooterComponent
+}
