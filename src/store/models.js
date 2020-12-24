@@ -5,7 +5,7 @@ export const root = {
 }
 
 export const storage = {
-  ability: [],
   collect: [],
-  experience: []
+  experience: [],
+  skill: []
 }

@@ -12,7 +12,7 @@ export default function CoverComponent () {
       <h1 className="name">Got't Patiphat</h1>
       <p className="desc">
         Web developer and UI/UX Designer with 4 years of experience.
-        Learning about coding techniques for higher web performance.
+        Enjoy learning new technologies.
       </p>
 
       <div className="actions">

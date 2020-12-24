@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import {
-  CoverComponent
+  CoverComponent,
+  CollectComponent,
+  ExperienceComponent,
+  SkillComponent
 } from './components'
 import './style.less'
 
@@ -12,6 +15,9 @@ export default function IndexContainer () {
   return (
     <div className="ui--index">
       <CoverComponent />
+      <CollectComponent />
+      <ExperienceComponent />
+      <SkillComponent />
     </div>
   )
 }

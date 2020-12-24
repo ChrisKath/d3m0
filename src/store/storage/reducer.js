@@ -3,12 +3,6 @@ import types from './action'
 
 export default (state = storage, { type, payload }) => {
   switch (type) {
-    case types.ADD_ABILITY:
-      return {
-        ...state,
-        ability: state.ability.concat(payload)
-      }
-
     case types.ADD_COLLECT:
       return {
         ...state,
@@ -19,6 +13,12 @@ export default (state = storage, { type, payload }) => {
       return {
         ...state,
         experience: state.experience.concat(payload)
+      }
+
+    case types.ADD_SKILL:
+      return {
+        ...state,
+        skill: state.skill.concat(payload)
       }
     
     default:

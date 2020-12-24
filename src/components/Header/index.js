@@ -12,8 +12,8 @@ export default function HeaderComponent () {
   const stickyClass = (sticky ? ' is-sticky' : '')
   const setEventListener = () => {
     window.addEventListener('scroll', () => {
-      setSticky(window.scrollY >= 80)
-    }, false)
+      setSticky(window.scrollY > 100)
+    })
   }
   
   // __MOUNTED <React.Hooks>

@@ -14,9 +14,11 @@ export default function Application () {
     <Provider store={store}>
       <StrictMode>
         <BrowserRouter>
+
           <HeaderComponent />
           <RouterView />
           <FooterComponent />
+          
         </BrowserRouter>
       </StrictMode>
     </Provider>
