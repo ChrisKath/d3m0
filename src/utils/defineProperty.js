@@ -1,4 +1,4 @@
-import { isNumber, upperCase } from '@utils'
+import { isNumber, upperCase } from '@/utils'
 
 /**
  * @param {string} prop

@@ -9,7 +9,6 @@ module.exports = override(
   addLessLoader(),
   addWebpackAlias({
     '@': path.resolve(__dirname, './src'),
-    '@img': path.resolve(__dirname, './src/assets/images'),
-    '@utils': path.resolve(__dirname, './src/utilities')
+    '@img': path.resolve(__dirname, './src/assets/images')
   })
 )

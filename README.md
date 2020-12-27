@@ -9,7 +9,7 @@ index.js          # App entry point
 └─ router         # Routes for all the endpoints
 └─ services       # API fetching resources
 └─ store          # Redux state manager
-└─ utilities      # Utility function
+└─ utils          # Utility function
 ```
 
 ### Install dependencies

@@ -9,11 +9,12 @@ export default function HeaderComponent () {
   const [ items ] = useState(store.menu)
   const [ sticky, setSticky ] = useState(false)
 
+  // __FUNCTION
   const stickyClass = (sticky ? ' is-sticky' : '')
   const setEventListener = () => {
     window.addEventListener('scroll', () => {
       setSticky(window.scrollY > 100)
-    })
+    }, false)
   }
   
   // __MOUNTED <React.Hooks>
