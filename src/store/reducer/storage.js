@@ -1,5 +1,11 @@
 import { storage } from '../models'
-import types from './action'
+
+export const types = {
+  INIT_STORAGE    : 'INIT_STORAGE',
+  ADD_COLLECT     : 'ADD_COLLECT',
+  ADD_EXPERIENCE  : 'ADD_EXPERIENCE',
+  ADD_SKILL       : 'ADD_SKILL'
+}
 
 export default (state = storage, { type, payload }) => {
   switch (type) {

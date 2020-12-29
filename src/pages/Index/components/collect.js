@@ -1,14 +1,28 @@
-import { useSelector } from 'react-redux'
-import { dateFormat } from '@/utils'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { getDate } from '@/utils/collect'
 import poster from '@img/pic-2.jpg'
 
 export default function CollectComponent () {
-  // __STATE <Initial.State>
-  const store = useSelector(state => state['APP.DATA']['collects'])
+  // __STATE <React.Hooks>
+  const dispatch  = useDispatch()
+  const history   = useHistory()
+  const store     = useSelector(state => state['APP.DATA']['collects'])
 
   // __FUNCTION
-  const getDate = ({ createdAt }) => dateFormat(createdAt.toDate())
   const getter = input => input.orderBy('order').slice(0, 4)
+
+  const viewItem = ({ id }) => {
+    dispatch({
+      type: 'SET_PREVIEW',
+      payload: {
+        active: true,
+        value: id
+      }
+    })
+
+    history.push({ search: `?cid=${id}` })
+  }
 
   // __RENDER
   return (
@@ -26,7 +40,7 @@ export default function CollectComponent () {
           <ul className="content">
             {
               getter(store).map((item, index) => (
-                <li className="item" key={index}>
+                <li className="item" key={index} onClick={() => viewItem(item)}>
                   <img className="poster" src={poster} />
                   <div className="type">{ item.type.label }</div>
                   <div className="info">

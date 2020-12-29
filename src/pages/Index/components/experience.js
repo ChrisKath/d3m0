@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { dateFormat } from '@/utils'
 
 export default function ExperienceComponent () {
-  // __STATE <Initial.State>
+  // __STATE <React.Hooks>
   const store = useSelector(state => state['APP.DATA']['experience'])
 
   // __FUNCTION

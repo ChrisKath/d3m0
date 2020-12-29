@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 
 export default function SkillComponent () {
-  // __STATE <Initial.State>
+  // __STATE <React.Hooks>
   const store = useSelector(state => state['APP.DATA']['skills'])
 
   // __FUNCTION

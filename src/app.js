@@ -1,16 +1,18 @@
-import { StrictMode, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { getCollection } from '@/service'
-import { storage } from '@/store/actions'
 import RouterView from '@/router'
 import {
+  ParallaxComponent,
   HeaderComponent,
   FooterComponent,
-  ParallaxComponent
+  PreviewComponent,
+  LoaderComponent
 } from '@/components'
 
 export default function Application () {
+  // __STATE <React.Hooks>
   const dispatch = useDispatch()
 
   // __FUNCTION
@@ -19,9 +21,17 @@ export default function Application () {
     const experience  = await getCollection('experience')
     const skills      = await getCollection('skills')
 
-    dispatch(storage.initStorage({
-      collects, experience, skills
-    }))
+    dispatch({
+      type: 'INIT_STORAGE',
+      payload: { collects, experience, skills }
+    })
+
+    setTimeout(() => {
+      dispatch({
+        type: 'SET_LOADER',
+        payload: [false, '']
+      })
+    }, 4e3)
   }
 
   // __MOUNTED <React.Hooks>
@@ -31,13 +41,13 @@ export default function Application () {
 
   // __RENDER
   return (
-    <StrictMode>
-      <BrowserRouter>
-        <ParallaxComponent />
-        <HeaderComponent />
-        <RouterView />
-        <FooterComponent />
-      </BrowserRouter>
-    </StrictMode>
+    <BrowserRouter>
+      <ParallaxComponent />
+      <HeaderComponent />
+      <RouterView />
+      <LoaderComponent />
+      <PreviewComponent />
+      <FooterComponent />
+    </BrowserRouter>
   )
 }

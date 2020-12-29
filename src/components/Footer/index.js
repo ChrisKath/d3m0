@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function FooterComponent () {
-  // __STATE <Initial.State>
+  // __STATE <React.Hooks>
   const [ follow ] = useState({
     fb: 'https://facebook.com/100007468007588',
     tw: 'https://twitter.com/pinn_project',

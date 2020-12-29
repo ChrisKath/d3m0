@@ -1,5 +1,10 @@
 import { root } from '../models'
-import types from './action'
+
+export const types = {
+  SET_LOADER  : 'SET_LOADER',
+  SET_LANG    : 'SET_LANGUAGE',
+  SET_PREVIEW : 'SET_PREVIEW'
+}
 
 export default (state = root, { type, payload }) => {
   switch (type) {
@@ -13,6 +18,12 @@ export default (state = root, { type, payload }) => {
       return {
         ...state,
         lang: payload
+      }
+
+    case types.SET_PREVIEW:
+      return {
+        ...state,
+        preview: payload
       }
     
     default:

@@ -8,22 +8,25 @@
   align-items: center;
   height: 80px;
   padding: 0 40px;
-  border-bottom: solid 1px transparent;
-  transition: all @animation-time ease;
-
-  .setSticky() {
-    height: 60px;
-    background-color: @base-color;
-    border-color: @border-color;
-  }
+  transition:
+    height @animation-time ease,
+    background-color @transition-time ease;
 
   @media @mobile-screen {
+    position: relative;
+    height: 60px;
     padding: 0 15px;
-    .setSticky();
   }
 
   &.is-sticky {
-    .setSticky();
+    height: 60px;
+    background-color: @base-color;
+
+    // Nested At-Rules and Bubbling.
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      backdrop-filter: blur(15px);
+      background-color: rgba(@base-color, 0.88);
+    }
   }
 
   &-logo {
@@ -70,13 +73,12 @@
       .contact {
         text-align: center;
         width: 34px;
-        padding: 10px 0 0;
-        border-radius: 8px;
+        padding: 7px 0 0;
       }
 
       .icon {
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
       }
     }
   }

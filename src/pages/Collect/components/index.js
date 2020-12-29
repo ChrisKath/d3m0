@@ -1,1 +1,5 @@
-// export {} from ''
+import ItemComponent from './item'
+
+export {
+  ItemComponent
+}

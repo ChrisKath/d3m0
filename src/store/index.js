@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux'
-import root from './root/reducer'
-import storage from './storage/reducer'
+import root from './reducer/root'
+import storage from './reducer/storage'
 
 const store = createStore(
   combineReducers({

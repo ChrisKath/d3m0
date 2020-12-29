@@ -6,9 +6,8 @@
     right: 0;
   }
 
-  --pos-y: 0px;
   .set-position();
-  height: 128vh;
+  height: 110vh;
   transform: translateY(var(--pos-y));
 
   .picture {
@@ -25,6 +24,8 @@
   .overlay {
     .set-position();
     bottom: 0;
-    background-image: linear-gradient(to top, @base-color 0%, rgba(@base-color, 0.5) 64%);
+    background:
+      url(../../../images/dot.png) repeat,
+      linear-gradient(to top, @base-color 0%, rgba(@base-color, 0.72) 72%);
   }
 }

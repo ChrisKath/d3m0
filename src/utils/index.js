@@ -68,6 +68,26 @@ export function dateFormat (input = Date.now()) {
 }
 
 /**
+ * Hidden overflow scroll.
+ * 
+ * @param {boolean} input 
+ */
+export function scrollhidden (input = true) {
+  document.body.style.overflow = (input ? 'hidden' : 'auto')
+}
+
+/**
+ * GET query string
+ * 
+ * @param {string} input 
+ */
+export function getParam (input) {
+  let { search } = window.location
+  let query = new URLSearchParams(search)
+  return query.get(input)
+}
+
+/**
  * Truncate limitor text.
  * 
  * @param {string} input
