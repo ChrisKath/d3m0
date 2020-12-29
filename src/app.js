@@ -8,7 +8,8 @@ import {
   HeaderComponent,
   FooterComponent,
   PreviewComponent,
-  LoaderComponent
+  LoaderComponent,
+  BackToTopComponent
 } from '@/components'
 
 export default function Application () {
@@ -47,6 +48,7 @@ export default function Application () {
       <RouterView />
       <LoaderComponent />
       <PreviewComponent />
+      <BackToTopComponent />
       <FooterComponent />
     </BrowserRouter>
   )

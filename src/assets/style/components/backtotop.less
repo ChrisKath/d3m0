@@ -1,0 +1,37 @@
+.ui--backtotop {
+  position: sticky;
+  z-index: 10;
+  bottom: 40px;
+  text-align: right;
+  transition: all @transition-time ease;
+
+  @media @mobile-screen {
+    bottom: 15px;
+    text-align: center;
+  }
+
+  &:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5px);
+  }
+
+  .btn {
+    margin-right: 40px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    color: @primary-color;
+    background-color: @dark-color;
+    border-radius: 4px;
+
+    @media @mobile-screen {
+      margin-right: 0;
+    }
+  }
+
+  .icon {
+    width: 2em;
+    height: 2em;
+  }
+}
