@@ -1,11 +1,13 @@
 const path = require('path')
 const {
   override,
+  disableChunk,
   addLessLoader,
-  addWebpackAlias,
+  addWebpackAlias
 } = require('customize-cra')
 
 module.exports = override(
+  disableChunk(),
   addLessLoader(),
   addWebpackAlias({
     '@': path.resolve(__dirname, './src'),
