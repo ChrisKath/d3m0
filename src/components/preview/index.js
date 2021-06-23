@@ -38,7 +38,7 @@ export default function PreviewComponent () {
     <CSSTransition
       className="ui--preview"
       in={data.active}
-      timeout={400}
+      timeout={320}
       unmountOnExit={true}
       onEnter={() => scrollhidden(true)}
       onExited={() => scrollhidden(false)}>

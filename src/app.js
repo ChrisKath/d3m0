@@ -32,7 +32,7 @@ export default function Application () {
         type: 'SET_LOADER',
         payload: [false, '']
       })
-    }, 4e3)
+    }, 1e3)
   }
 
   // __MOUNTED <React.Hooks>

@@ -9,7 +9,7 @@ export default function ExperienceComponent () {
   const getter = input => input.orderBy('order')
   const getDate = ({ from, to }) => {
     let _from = dateFormat(from.toDate())
-    let _to = dateFormat(to.toDate())
+    let _to = typeof to === 'string' ? to : dateFormat(to.toDate())
     return `${_from} - ${_to}`
   }
 

@@ -2,7 +2,7 @@
 
 ### Directory structure
 ```
-index.js          # App entry point
+src               # App entry point
 └─ assets         # Uncompiled assets images, style
 └─ components     # Layouts or other components
 └─ pages          # Application router view
