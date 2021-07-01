@@ -1,0 +1,29 @@
+.ui--loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 210;
+  padding: 57px 0 0;
+
+  &-progress {
+    max-width: 92%;
+    height: 3px;
+    background-color: $color-primary;
+    background-image: linear-gradient(to right, $color-violet, $color-indigo, $color-pink, $color-orange, $color-yellow);
+    animation: loader 1s ease;
+
+    &.done {
+      max-width: 100%;
+      animation: unset;
+    }
+  }
+
+  @keyframes loader {
+    0% { width: 0% }
+    33% { width: 33% }
+    66% { width: 66% }
+    100% { width: 92% }
+  }
+}

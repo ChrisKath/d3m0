@@ -1,0 +1,248 @@
+.ui--input {
+  @mixin input-base-style {
+    border-radius: 4px;
+    border: 1px solid $color-dark-2;
+
+    &:hover {
+      border-color: $color-primary;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+      background-color: tint($color-primary, 99%);
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.12);
+    }
+
+    &:disabled,
+    &[disabled] {
+      color: $color-dark-4;
+      cursor: not-allowed;
+      user-select: none;
+      border-color: $color-dark-2 !important;
+    }
+  }
+
+  &-provider {
+    position: relative;
+  }
+
+  &-label {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+
+    &.required::after {
+      margin-left: 5px;
+      content: ' *';
+      color: $color-pink;
+      font-size: $font-size-large;
+    }
+
+    .icon {
+      color: $color-dark-6;
+      line-height: 1;
+      font-size: $font-size-large;
+      margin-right: 7.5px;
+      padding-right: 5px;
+      border-right: 1px solid $color-dark-2;
+    }
+
+    .text {
+      color: $color-dark-6;
+      font-size: $font-size-medium;
+    }
+  }
+
+  &-desc {
+    color: $color-dark-4;
+    font-size: $font-size-smaller + 1;
+    line-height: $line-height;
+    margin: 0.5rem 0;
+  }
+
+  &-field {
+    position: relative;
+
+    &:hover {
+      input {
+        border-color: tint($color-primary, 50%);
+      }
+    }
+
+    input {
+      height: 45px;
+      padding: 0 15px;
+
+      & ~ .icon {
+        position: absolute;
+        top: 5px;
+        right: 0;
+        bottom: 5px;
+        padding: 11px 10px;
+        line-height: 0;
+        color: $color-dark-4;
+  
+        &:hover {
+          color: $color-dark-6;
+        }
+      }
+
+      @include input-base-style();
+
+      @include attr('type', 'password') {
+        letter-spacing: 4px;
+        font-weight: $font-weight-bolder;
+      }
+
+      @include attr('type', ('number', 'search')) {
+        appearance: none;
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          appearance: none;
+          -webkit-appearance: none;
+        }
+      }
+    }
+  }
+
+  &-textarea {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    min-height: 80px;
+    max-height: 120px;
+    resize: vertical;
+    line-height: $line-height;
+
+    @include input-base-style();
+
+    @include screen-sm {
+      min-height: 120px;
+      max-height: 180px;
+    }
+  }
+
+  &-checkbox {
+    display: none;
+        
+    &:checked ~ label {
+      .icon {
+        color: white;
+        background-color: $color-primary;
+      }
+    }
+
+    &-label {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: auto 1fr;
+      user-select: none;
+      cursor: pointer;
+
+      &:hover {
+        .text {
+          text-decoration: underline;
+        }
+      }
+
+      .icon {
+        text-align: center;
+        width: 18px;
+        height: 18px;
+        line-height: 20px;
+        border-radius: 2px;
+        font-size: $font-size-large;
+        color: $color-dark-4;
+        background-color: $color-dark-2;
+      }
+
+      .text {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  &-radio {
+    display: grid;
+    grid-gap: 2rem;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+
+    &-label {
+      display: grid;
+      grid-gap: 0.75rem;
+      grid-template-columns: 24px 1fr;
+      padding: 0.5rem 0;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        .icon {
+          color: rgba($color-primary, 0.25);
+          border-color: rgba($color-primary, 0.25);
+        }
+      }
+
+      .icon {
+        text-align: center;
+        width: 24px;
+        height: 24px;
+        line-height: 20px;
+        border-radius: 100%;
+        font-size: $font-size-large + 2;
+        color: $color-dark-2;
+        background-color: white;
+        border: 1px solid $color-dark-2;
+      }
+      
+      .text {
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    &-field {
+      display: none;
+
+      &:checked ~ label {
+        .icon {
+          color: $color-primary;
+          border-color: $color-primary;
+        }
+      }
+    }
+  }
+
+  &-select {
+    height: 45px;
+    padding: 0 35px 0 15px;
+    background-color: white;
+    appearance: none;
+
+    & ~ .icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      line-height: 0;
+      color: $color-dark-4;
+      font-size: $font-size-large;
+      pointer-events: none;
+      transform: translateY(-50%) rotate(90deg);
+    }
+
+    &:hover ~ .icon {
+      color: $color-dark-6;
+    }
+
+    @include input-base-style();
+  }
+
+  &-errors {
+    display: block;
+    color: $color-pink;
+    font-size: $font-size-small - 1;
+    font-weight: $font-weight-regular;
+    letter-spacing: 0.5px;
+  }
+}

@@ -1,9 +1,9 @@
 {
-  "git.ignoreLimitWarning": true,
-  "less.compile": {
-    "out": null
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.next": true
   },
-  "editor.tabSize": 2,
-  "editor.fontSize": 24,
-  "editor.lineHeight": 50
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

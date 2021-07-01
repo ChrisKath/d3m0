@@ -1,0 +1,37 @@
+// Color
+$color-primary          : #08D2AB;
+$color-indigo           : #515BD4;
+$color-violet           : #8134AF;
+$color-pink             : #DD2A7B;
+$color-orange           : #F58529;
+$color-yellow           : #FEDA77;
+$color-dark             : #12121C;
+$color-dark-2           : #EEEFF6;
+$color-dark-4           : #ABACBA;
+$color-dark-6           : #4B4D6B;
+$color-dark-8           : #2A2B38;
+
+// Font
+$font-family-base       : -apple-system, BlinkMacSystemFont, 'Comfortaa', 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', cursive, sans-serif;
+$font-family-code       : Consolas, Menlo, Courier, monospace;
+$font-size-larger       : 22px;
+$font-size-large        : 16px;
+$font-size-medium       : 14px;
+$font-size-small        : 12px;
+$font-size-smaller      : 10px;
+$font-weight-light      : 300;
+$font-weight-regular    : 400;
+$font-weight-bold       : 600;
+$font-weight-bolder     : 700;
+$line-height            : 1.4614;
+
+// Animation
+$animation-time         : 400ms;
+$transition-time        : 200ms;
+$cubic-bezier           : cubic-bezier(0.77, 0, 0.177, 1);
+
+// Media queries breakpoints
+$screen-xs              : 576px;  // Small tablets and large smartphones (landscape view)
+$screen-sm              : 768px;  // Small tablets (portrait view)
+$screen-md              : 992px;  // Tablets and small desktops
+$screen-lg              : 1260px; // Large tablets and desktops

@@ -1,0 +1,114 @@
+.ui--dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 110;
+  padding: 4rem;
+  background-color: rgba($color-dark-4, 0.25);
+
+  &.enter,
+  &.exit-active {
+    @include class-endWith('-container') {
+      opacity: 0;
+      transform: translate(0, -5px);
+    }
+  }
+
+  &.enter-active {
+    @include class-endWith('-container') {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  &-container {
+    position: relative;
+    max-width: 440px;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba($color-dark-2, 0.5);
+    transition: all $transition-time $cubic-bezier;
+  }
+
+  &-header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid $color-dark-2;
+
+    .title {
+      line-height: 20px;
+      color: $color-dark-8;
+      font-size: $font-size-large;
+      font-weight: $font-weight-bold;
+      user-select: none;
+    }
+
+    .btn {
+      &-close {
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        font-size: $font-size-large;
+        color: $color-dark-4;
+        background-color: transparent;
+        justify-content: center;
+
+        &:hover {
+          color: white;
+          background-color: $color-pink;
+        }
+
+        .icon {
+          display: block;
+          line-height: 1;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &-body {
+    position: relative;
+    padding: 20px;
+    color: $color-dark-6;
+    line-height: $line-height;
+
+    small {
+      display: block;
+      margin: 0.75rem 0 0;
+      color: $color-dark-4;
+      font-size: $font-size-small;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px 20px;
+
+    .btn {
+      width: auto;
+      height: 25px;
+      min-width: 80px;
+      font-size: $font-size-small;
+      text-transform: capitalize;
+
+      &-cancel {
+        font-weight: $font-weight-regular;
+        margin-right: 15px;
+        color: $color-dark-4;
+        background-color: tint($color-dark-2, 50%);
+      }
+
+      &-confirm {
+        font-weight: $font-weight-bolder;
+      }
+    }
+  }
+}

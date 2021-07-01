@@ -1,0 +1,31 @@
+.ui--parallax {
+  @mixin set-absolute() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  @include set-absolute();
+  height: 110vh;
+  transform: translateY(var(--pos-y));
+
+  .picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+
+    @include screen-xs {
+      object-position: left top;
+    }
+  }
+
+  .overlay {
+    @include set-absolute();
+    bottom: 0;
+    background:
+      url("/static/imgs/dot.png") repeat,
+      linear-gradient(to top, $color-dark, rgba($color-dark, 0.75) 75%);
+  }
+}

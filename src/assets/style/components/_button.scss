@@ -1,0 +1,35 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+  color: $color-dark;
+  background-color: transparent;
+
+  border-radius: 4px;
+  transition: all $transition-time ease;
+
+  .icon {
+    line-height: 0;
+  }
+
+  .text {
+    font-weight: $font-weight-bold;
+  }
+
+  &-primary {
+    color: white;
+    background-color: #dc4403;
+    background-image: linear-gradient(45deg, #dc4403, #f58529, #feda77);
+
+    &:hover {
+      filter: brightness(98%);
+    }
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+}
