@@ -1,11 +1,8 @@
-import { useSelector } from 'react-redux'
+import { useSelector, dataSelector } from '@/store'
 
 export function SkillComponent() {
   // __STATE <React.Hooks>
-  const store = useSelector((state) => state['APP.DATA']['skills'])
-
-  // __FUNCTION
-  const getter = (input) => input.orderBy('order')
+  const skills = useSelector(dataSelector.getSkills)
 
   // __RENDER
   return (
@@ -21,11 +18,11 @@ export function SkillComponent() {
 
         <div className='ui--context-column col-2'>
           <ul className='content'>
-            {getter(store).map((item, index) => (
-              <li className='item' key={index}>
-                <div className='label'>{item.label}</div>
-                <div className='desc'>description</div>
-                <div className='value'>{item.value}%</div>
+            {skills.map((skill) => (
+              <li className='item' key={skill.id}>
+                <div className='label'>{skill.label}</div>
+                <div className='desc'>{skill.description}</div>
+                <div className='value'>{skill.mastery}%</div>
               </li>
             ))}
           </ul>

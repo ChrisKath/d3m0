@@ -1,12 +1,9 @@
-import { useSelector, dataSelector } from '@/store'
 import { useFormat } from '@/libs/moment'
-// import { Collect } from '@/types'
+import { useSelector, dataSelector } from '@/store'
 
 export function CollectComponent() {
   // __STATE <React.Hooks>
   const collects = useSelector(dataSelector.getCollects)
-
-  // collects.orderBy('order').slice(0, 4)
 
   // __RENDER
   return (
