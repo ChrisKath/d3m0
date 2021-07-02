@@ -2,7 +2,7 @@ import axios from '@/libs/axios'
 import { configs, getCookie, setCookie, removeCookie, cookieOptions } from '@/libs/cookies'
 import { dispatch, authActions } from '@/store'
 import { resAudit, loader } from '@/utils'
-import { TResponse } from '@/types'
+import { IResponse } from '@/types'
 import { FormLogin } from '@/types/forms'
 
 export const authService = {
@@ -12,7 +12,7 @@ export const authService = {
    * @Note ClientCall
    * @param {FormLogin} params
    */
-  async login(params: FormLogin): Promise<TResponse | void> {
+  async login(params: FormLogin): Promise<IResponse | void> {
     const { data, ...payload } = await axios.post('/auth/login', params)
     const audit = resAudit(payload, data)
 
@@ -20,7 +20,7 @@ export const authService = {
       const isRemember = String(+params.remember)
       const { accessToken, expiresDate } = data
 
-      await authService.setCookieAuth(accessToken, expiresDate, isRemember)
+      authService.setCookieAuth(accessToken, expiresDate, isRemember)
       await authService.getUserProfile()
 
       dispatch(authActions.setAuthenticated(accessToken))
@@ -55,7 +55,7 @@ export const authService = {
    *
    * @Note ClientCall
    */
-  async refreshToken(): Promise<TResponse | void> {
+  async refreshToken(): Promise<IResponse | void> {
     const { data, ...payload } = await axios.get('/auth/refresh-token')
     const audit = resAudit(payload, data)
 

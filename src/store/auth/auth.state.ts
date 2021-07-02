@@ -1,5 +1,4 @@
-import { configs } from '@/libs/configs'
-import { getCookie } from '@/libs/cookies'
+import { configs, getCookie } from '@/libs/cookies'
 import { AuthState } from './auth.interface'
 
 const getPassport = getCookie(configs.APP_AUTH)

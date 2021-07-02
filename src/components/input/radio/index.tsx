@@ -1,17 +1,16 @@
-import { useState } from 'react'
+import { useMemo } from 'react'
 import { RadioProps } from '@/types/input'
 import { getErrors } from '../utils'
 import cls from 'classnames'
 
-export function RadioProvider({ name, register, rules, options, ...props }: RadioProps) {
+export function RadioProvider({ name, value, register, rules, options, ...props }: RadioProps) {
   // __STATE <React.Hooks>
-  const [vid] = useState(`ui--form-model-${name}`)
+  const vid = useMemo(() => `ui--form-model-${name}`, [name])
+  const defaultChecked = useMemo(() => value, [value])
 
-  const [defaultChecked] = useState(props.value)
-  const [required] = useState(rules?.required)
-
-  const [optionValue] = useState(props.optionValue || 'value')
-  const [optionLabel] = useState(props.optionLabel || 'label')
+  const required = useMemo(() => rules?.required, [])
+  const optionValue = useMemo(() => props.optionValue || 'value', [props.optionValue])
+  const optionLabel = useMemo(() => props.optionLabel || 'label', [props.optionLabel])
 
   // __RENDER
   return (

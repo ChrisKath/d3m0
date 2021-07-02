@@ -1,20 +1,19 @@
-import { useState } from 'react'
+import { useMemo, useCallback } from 'react'
 import { SelectProps } from '@/types/input'
 import { getErrors } from '../utils'
 import cls from 'classnames'
 
-export function SelectProvider({ name, register, rules, options, optionGroup, ...props }: SelectProps) {
+export function SelectProvider({ name, value, register, rules, options, optionGroup, ...props }: SelectProps) {
   // __STATE <React.Hooks>
-  const [vid] = useState(`ui--form-model-${name}`)
+  const vid = useMemo(() => `ui--form-model-${name}`, [name])
+  const defaultValue = useMemo(() => value, [value])
 
-  const [defaultValue] = useState(props.value)
-  const [required] = useState(rules?.required)
-
-  const [optionValue] = useState(props.optionValue || 'value')
-  const [optionLabel] = useState(props.optionLabel || 'label')
+  const required = useMemo(() => rules?.required, [])
+  const optionValue = useMemo(() => props.optionValue || 'value', [props.optionValue])
+  const optionLabel = useMemo(() => props.optionLabel || 'label', [props.optionLabel])
 
   // __FUNCTIONS
-  const optionRenderer = () => {
+  const optionRenderer = useCallback(() => {
     if (optionGroup) {
       const groupLabel = optionGroup[0] || 'label'
       const groupItems = optionGroup[1] || 'items'
@@ -35,7 +34,7 @@ export function SelectProvider({ name, register, rules, options, optionGroup, ..
         </option>
       ))
     }
-  }
+  }, [options, optionGroup])
 
   // __RENDER
   return (

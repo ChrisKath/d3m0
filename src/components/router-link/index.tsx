@@ -1,22 +1,23 @@
-import { ReactNode, MouseEvent } from 'react'
+import { useMemo, useCallback, ReactNode, MouseEvent } from 'react'
 import { useRouter } from 'next/router'
 
 export function RouterLink({ children, href, onClick, useLink, ...props }: Props) {
+  // __STATE <React.Hooks>
   const router = useRouter()
-  const defClassName: string = `${props.className || ''} router-link`
-
-  // prettier-ignore
-  const className: string = [router.pathname, router.asPath].indexOf(href) > -1
-    ? `${defClassName} ${props?.activeClass || 'router-link-active'}`
-    : defClassName
+  const defClassName: string = useMemo(() => `${props.className || ''} router-link`, [])
+  const className: string = useMemo(() => {
+    return [router.pathname, router.asPath].indexOf(href) > -1
+      ? `${defClassName} ${props?.activeClass || 'router-link-active'}`
+      : defClassName
+  }, [router])
 
   // __FUNCTIONS
-  const handleRouterLink = (event: MouseEvent<HTMLAnchorElement>): void => {
+  const handleRouterLink = useCallback((event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
     router.push(href)
 
     if (onClick) onClick()
-  }
+  }, [])
 
   // __RENDER
   if (useLink) {

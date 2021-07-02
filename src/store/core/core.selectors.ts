@@ -1,23 +1,27 @@
 import { StoreTypes } from '@/store'
 
 export default {
-  getCompony({ core }: StoreTypes) {
-    return core.company
+  getCompony({ core: { company } }: StoreTypes) {
+    return company
   },
 
-  getAppVersion({ core }: StoreTypes) {
-    return core.appVersion
+  getAppVersion({ core: { appVersion } }: StoreTypes) {
+    return appVersion
   },
 
-  getLanguage({ core }: StoreTypes) {
-    return core.lang
+  getLanguage({ core: { lang } }: StoreTypes) {
+    return lang
   },
 
-  getLoader({ core }: StoreTypes) {
-    return core.loader
+  getLoader({ core: { loader } }: StoreTypes) {
+    return loader
   },
 
-  getDialog({ core }: StoreTypes) {
-    return core.dialog
+  getDialog({ core: { dialog } }: StoreTypes) {
+    return dialog
+  },
+
+  getLinks({ core: { externalLinks } }: StoreTypes) {
+    return externalLinks
   }
 }

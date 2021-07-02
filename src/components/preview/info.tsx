@@ -1,36 +1,34 @@
-import { useState } from 'react'
-import { getDate, getTags } from '@/libs/firebase'
+import { useFormat } from '@/libs/moment'
+import { Collect } from '@/types'
 
-export function InfoComponent(props: any) {
-  // __STATE <React.Hooks>
-  const [info] = useState(props.info)
+export interface Props {
+  data?: Collect;
+}
 
-  // __FUNCTION
-  const hasInfo = info && info !== null
-
+export function InfoComponent({ data }: Props) {
   // __RENDER
-  if (!hasInfo) return null
+  if (!data) return null
   return (
     <div className='ui--preview-info'>
       <div className='column col-1'>
-        <h2 className='info-title'>{info.title}</h2>
-        <p className='info-desc'>{info.description}</p>
+        <h2 className='info-title'>{data.title}</h2>
+        <p className='info-desc'>{data.description}</p>
       </div>
 
       <div className='column col-2'>
         <div className='info-date'>
           <span className='label'>created:</span>
-          <span className='value'>{getDate(info)}</span>
+          <span className='value'>{useFormat(data.updatedAt)}</span>
         </div>
 
         <div className='info-type'>
           <span className='label'>type:</span>
-          <span className='value'>{info.type.label}</span>
+          <span className='value'>{data.type}</span>
         </div>
 
         <div className='info-tags'>
           <span className='label'>tags:</span>
-          <span className='value'>{getTags(info)}</span>
+          <span className='value'>{data.tags.join(', ')}</span>
         </div>
       </div>
     </div>

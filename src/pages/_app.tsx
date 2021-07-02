@@ -1,9 +1,16 @@
 import HTMLHead from 'next/head'
-import { useEffect } from 'react'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import { Provider } from 'react-redux'
-import { HeaderComponent, LoaderComponent, DialogComponent } from '@/components'
+import {
+  HeaderComponent,
+  FooterComponent,
+  LoaderComponent,
+  DialogComponent,
+  ParallaxComponent,
+  PreviewComponent
+} from '@/components'
 import { configs } from '@/libs/configs'
 import store from '@/store'
 import { loader } from '@/utils'
@@ -34,8 +41,12 @@ export default function Application({ Component: PagesContainer, pageProps }: Ap
 
           <LoaderComponent />
           <DialogComponent />
+          <ParallaxComponent />
+          <PreviewComponent />
 
           <PagesContainer {...pageProps} />
+
+          <FooterComponent />
         </Provider>
       </div>
     </>

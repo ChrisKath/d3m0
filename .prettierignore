@@ -3,5 +3,5 @@
 *.scss
 
 # Ignore artifacts: TypeScript
-**/utils/defineProperty.ts
 **/utils/index.ts
+**/utils/defineProperty.ts

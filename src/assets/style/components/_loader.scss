@@ -5,13 +5,12 @@
   right: 0;
   bottom: 0;
   z-index: 210;
-  padding: 57px 0 0;
 
   &-progress {
     max-width: 92%;
-    height: 3px;
+    height: 2px;
     background-color: $color-primary;
-    background-image: linear-gradient(to right, $color-violet, $color-indigo, $color-pink, $color-orange, $color-yellow);
+    background-image: linear-gradient(to right, $color-indigo, $color-violet, $color-pink, $color-orange, $color-yellow);
     animation: loader 1s ease;
 
     &.done {

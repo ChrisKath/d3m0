@@ -1,22 +1,17 @@
 import { AuthState, AuthActionTypes, AuthActionInterface } from './auth.interface'
 import { initialState } from './auth.state'
 
-export default function AuthReducer(state = initialState, action: AuthActionInterface): AuthState {
-  switch (action.type) {
+export default function AuthReducer(state = initialState, { type, payload }: AuthActionInterface): AuthState {
+  switch (type) {
     case AuthActionTypes.SET_AUTH:
-      return {
-        ...state,
-        isAuthenticated: Boolean(action.payload),
-        passport: action.payload
-      }
+      state.isAuthenticated = Boolean(payload)
+      state.passport = payload
+      break
 
     case AuthActionTypes.SET_USER:
-      return {
-        ...state,
-        user: action.payload
-      }
-
-    default:
-      return state
+      state.user = payload
+      break
   }
+
+  return state
 }

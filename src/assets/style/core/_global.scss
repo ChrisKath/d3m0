@@ -3,33 +3,33 @@
   &-wrapper {
     position: relative;
     display: grid;
-    grid-template-rows: 60px 1fr;
-    grid-template-areas: "area-header" "router-view";
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "area-header" "router-view" "area-footer";
     min-height: 100vh;
 
     .router-view {
+      position: relative;
       grid-area: router-view;
-      padding: 2.5rem 4rem;
     }
   }
 
-  &-page-err {
+  &-page-error {
+    padding: 10vh 4rem;
     text-align: center;
 
     .h1 {
-      margin: 8vh 0 1rem;
-      line-height: 1;
       font-size: 6rem;
       font-weight: $font-weight-bolder;
     }
   
     .h3 {
-      font-size: $font-size-larger;
+      margin: 0.5rem 0;
+      font-size: $font-size-larger * 1.25;
       font-weight: $font-weight-bolder;
     }
   
     .h4, .h5 {
-      color: $color-dark-6;
+      color: $color-dark-4;
       line-height: $line-height;
     }
   }

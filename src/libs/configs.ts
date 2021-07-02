@@ -1,9 +1,9 @@
-import { ConfigProps, ConfigPropsType } from '@/types/config'
+import { IConfigs } from '@/types'
 
-export const configs: ConfigPropsType<any> = {
+export const configs: IConfigs = {
   APP_MODE: process.env.NODE_ENV,
-  APP_NAME: process.env.NEXT_PUBLIC_NAME,
-  WEB_TITLE: process.env.NEXT_PUBLIC_WEB_TITLE || 'Instagram | IG',
+  APP_NAME: process.env.NEXT_PUBLIC_APP_NAME || "project_d3m0",
+  WEB_TITLE: process.env.NEXT_PUBLIC_WEB_TITLE || "Got't Patiphat, Web Profile;",
   APP_CLIENT_SIDE: process.browser,
 
   // XMLHttpRequest (XHR)
@@ -28,6 +28,6 @@ export const isBrowser: boolean = configs.APP_CLIENT_SIDE || typeof window !== '
 export const isDevelop: boolean = configs.APP_MODE === 'development'
 export const isProduction: boolean = configs.APP_MODE === 'production'
 
-export function getConfig(keyName: ConfigProps): any {
+export function getConfig(keyName: keyof IConfigs): any {
   return configs[keyName]
 }

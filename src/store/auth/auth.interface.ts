@@ -22,6 +22,6 @@ export interface User {
   name: string;
   email: string;
   phone: string;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date | string;
+  updatedAt: Date | string;
 }

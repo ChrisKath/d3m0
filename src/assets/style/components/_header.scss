@@ -1,20 +1,13 @@
 .ui--header {
   position: sticky;
   top: 0;
+  left: 0;
   z-index: 110;
-
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
   height: 80px;
   padding: 0 2rem;
-  transition: all $animation-time ease;
-
-  // Nested At-Rules and Bubbling.
-  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-    backdrop-filter: blur(20px);
-    background-color: rgba($color-dark, 0.75);
-  }
+  transition:
+    height $animation-time $cubic-bezier,
+    background-color $animation-time ease;
   
   @include screen-xs {
     position: relative;
@@ -22,60 +15,83 @@
     padding: 0 15px;
   }
 
-  &.is-sticky {
+  &.sticky {
     height: 60px;
+
+    // Nested At-Rules and Bubbling.
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      backdrop-filter: blur(20px);
+      background-color: rgba($color-dark, 0.75);
+    }
+  }
+
+  &-container {
+    position: relative;
+    display: grid;
+    grid-gap: 3rem;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    height: 100%;
   }
 
   &-logo {
-    align-self: center;
-    justify-self: flex-start;
-
     font-size: $font-size-large;
     font-weight: $font-weight-bolder;
     text-transform: uppercase;
-    line-height: 30px;
+    user-select: none;
 
     @include screen-xs {
       display: none;
     }
+
+    .router-link {
+      line-height: 1;
+      padding: 9.5px 0;
+    }
     
     .color {
-      padding: 6px 5px 4px;
+      padding: 6px 5px 3px;
       color: $color-primary;
-      background-color: $color-dark;
+      background-color: rgba($color-dark, 0.75);
+      backdrop-filter: blur(20px);
+      border-radius: 2px;
     }
   }
 
-  &-menu {
-    justify-self: flex-end;
+  &-contact {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 0.75rem;
     grid-auto-flow: column;
+    justify-content: flex-end;
 
     @include screen-xs {
-      justify-self: unset;
-      justify-content: flex-start;
-      grid-template-columns: repeat(2, auto) 1fr;
+      justify-self: flex-end;
     }
 
-    &-contact {
-      display: grid;
-      grid-column-gap: 15px;
-      grid-auto-flow: column;
+    .btn {
+      &-contact {
+        width: auto;
+        height: 35px;
+        padding: 0 1rem;
 
-      @include screen-xs {
-        justify-self: flex-end;
+        &:hover {
+          filter: brightness(132%);
+        }
+
+        .icon {
+          margin-right: 0.75rem;
+          color: $color-primary;
+        }
+        
+        .text {
+          color: $color-dark-4;
+          font-size: $font-size-small;
+        }
       }
 
-      .contact {
-        text-align: center;
-        width: 34px;
-        padding: 7px 0 0;
-      }
-
-      .icon {
-        width: 18px;
-        height: 18px;
+      &-follow {
+        width: 35px;
+        height: 35px;
       }
     }
   }

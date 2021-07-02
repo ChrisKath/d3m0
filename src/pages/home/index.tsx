@@ -1,12 +1,10 @@
-export default function IndexContainer() {
+import { Home } from '@/components'
+
+export default function HomeContainer() {
   // __RENDER
   return (
-    <div className='ui--index router-view'>
-      .ui--index
-      {/* <CoverComponent /> */}
-      {/* <CollectComponent /> */}
-      {/* <ExperienceComponent /> */}
-      {/* <SkillComponent /> */}
+    <div className='ui--home router-view'>
+      <Home.Cover />
     </div>
   )
 }

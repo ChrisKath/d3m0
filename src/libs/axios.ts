@@ -7,7 +7,7 @@ import { getCookie } from './cookies'
  * Create axios instance.
  */
 const Axios: AxiosInstance = axios.create({
-  baseURL: `${configs.API_GATEWAY}/api/v2`,
+  baseURL: `${configs.API_GATEWAY}/api`,
   withCredentials: false,
   headers: {
     'Access-Control-Allow-Origin': isBrowser ? location.origin : '*',
@@ -60,6 +60,6 @@ export function useAuthorize({ headers }: NextApiRequest): AxiosRequestConfig {
  * @param {Error} error
  */
 export function resError(res: NextApiResponse, { response: { status } }: any) {
-  res.status(status || 202)
+  res.status(status || 200)
   res.end()
 }

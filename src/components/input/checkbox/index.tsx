@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import { useMemo } from 'react'
 import { CheckboxProps } from '@/types/input'
 
-export function CheckboxProvider({ name, register, ...props }: CheckboxProps) {
+export function CheckboxProvider({ name, value, register, ...props }: CheckboxProps) {
   // __STATE <React.Hooks>
-  const [vid] = useState(`ui--form-model-${name}`)
-
-  const [defaultChecked] = useState(props.value)
+  const vid = useMemo(() => `ui--form-model-${name}`, [name])
+  const defaultChecked = useMemo(() => value, [value])
 
   // __RENDER
   return (

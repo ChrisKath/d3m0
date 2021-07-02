@@ -3,12 +3,3 @@ export interface FormLogin {
   password: string;
   remember: boolean;
 }
-
-export interface FormRegister {
-  firstName: string;
-  lastName: string;
-  gender: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}

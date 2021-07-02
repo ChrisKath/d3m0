@@ -1,1 +1,99 @@
-// .ui--home {}
+.ui--home {
+  display: grid;
+  grid-gap: 10rem;
+
+  &-cover {
+    position: relative;
+    max-width: $screen-xs;
+    margin: 0 auto;
+    padding: 7rem 1rem;
+    text-align: center;
+
+    @include screen-xs {
+      padding: 5vh 0 10vh;
+    }
+
+    .title {
+      color: $color-dark-4;
+      font-size: $font-size-small;
+      font-weight: $font-weight-bolder;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+    }
+
+    .avatar {
+      display: block;
+      width: 88px;
+      height: 88px;
+      margin: 2.75rem auto 0;
+      border-radius: 2rem;
+      overflow: hidden;
+      transform: rotate(45deg);
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.75),
+        5px 5px 2.5rem rgba($color-primary, 0.25);
+
+      .img {
+        display: block;
+        width: 120%;
+        height: 120%;
+        pointer-events: none;
+        transform: rotate(-45deg) translate(0, -12px);
+      }
+    }
+
+    .sayhi {
+      font-size: 32px;
+      margin: 2rem 0 0;
+
+      @include screen-xs {
+        font-size: 26px;
+      }
+    }
+
+    .name {
+      margin: 1rem 0 0;
+      color: $color-primary;
+      font-size: 45px;
+      font-weight: $font-weight-bolder;
+      text-shadow: 0 0 25px rgba($color-primary, 0.25);
+
+      @include screen-xs {
+        font-size: 35px;
+      }
+    }
+
+    .desc {
+      margin: 2.75rem 0;
+      line-height: $line-height;
+      font-size: $font-size-medium + 2;
+
+      @include screen-xs {
+        font-size: $font-size-medium;
+      }
+    }
+
+    .btn {
+      width: 45px;
+      height: 45px;
+
+      &-resume {
+        width: 210px;
+
+        .text {
+          margin-left: 1rem;
+          font-size: $font-size-small + 1;
+          font-weight: $font-weight-bolder;
+        }
+      }
+
+      &-github {
+        margin-left: 0.75rem;
+
+        .icon {
+          font-size: $font-size-large + 2;
+        }
+      }
+    }
+  }
+}

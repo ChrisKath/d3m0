@@ -25,6 +25,14 @@ export interface InputProps extends INPUTAttributes {
   children?: ReactNode;
 }
 
+export interface TextareaProps extends INPUTAttributes {
+  value?: string | number | readonly string[];
+  rows?: number;
+  placeholder?: string;
+  maxlength?: number;
+  children?: ReactNode;
+}
+
 export interface SelectProps extends INPUTAttributes {
   value?: string | number | readonly string[];
   placeholder?: string;
@@ -42,14 +50,6 @@ export interface RadioProps extends INPUTAttributes {
   options: any[];
   optionValue?: string;
   optionLabel?: string;
-}
-
-export interface TextareaProps extends INPUTAttributes {
-  value?: string | number | readonly string[];
-  rows?: number;
-  placeholder?: string;
-  maxlength?: number;
-  children?: ReactNode;
 }
 
 export interface CheckboxProps extends INPUTAttributes {

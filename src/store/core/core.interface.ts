@@ -1,10 +1,10 @@
-import { DialogOptions } from "@/types";
+import { DialogOptions } from '@/types'
 
 export type CoreAction = CoreActionTypes
 export enum CoreActionTypes {
-  SET_LANG    = 'SET_CORE_LANGUAGE',
-  SET_LOADER  = 'SET_CORE_LOADER',
-  SET_DIALOG  = 'SET_CORE_DIALOG'
+  SET_LANG = 'SET_CORE_LANGUAGE',
+  SET_LOADER = 'SET_CORE_LOADER',
+  SET_DIALOG = 'SET_CORE_DIALOG'
 }
 
 export interface CoreActionInterface {
@@ -18,6 +18,7 @@ export interface CoreState {
   lang: string;
   loader: Loader;
   dialog: Dialog;
+  externalLinks: ExternalLinks;
 }
 
 export interface Loader {
@@ -29,4 +30,11 @@ export interface Dialog extends DialogOptions {
   visible: boolean;
   resolvePromise?: Function;
   rejectPromise?: Function;
+}
+
+export interface ExternalLinks {
+  resume: string;
+  facebook: string;
+  twitter: string;
+  github: string;
 }

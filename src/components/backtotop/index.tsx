@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { addEventListener } from '@/utils'
 import cls from 'classnames'
 
@@ -17,13 +17,13 @@ export function BackToTopComponent() {
   }, [])
 
   // __FUNCTIONS
-  const handleBackToTop = () => {
+  const handleBackToTop = useCallback(() => {
     const y = window.scrollY
     if (y > 0) {
       window.requestAnimationFrame(handleBackToTop)
       window.scrollTo(0, y - y / 14)
     }
-  }
+  }, [])
 
   // __RENDER
   return (

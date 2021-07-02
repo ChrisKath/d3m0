@@ -1,24 +1,22 @@
-import { useState } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { InputProps } from '@/types/input'
 import { getErrors } from '../utils'
 import cls from 'classnames'
 
-export function InputProvider({ name, register, rules, errors, ...props }: InputProps) {
+export function InputProvider({ name, value, register, rules, errors, ...props }: InputProps) {
   // __STATE <React.Hooks>
-  const [vid] = useState(`ui--form-model-${name}`)
+  const vid = useMemo(() => `ui--form-model-${name}`, [name])
+  const defaultValue = useMemo(() => value, [value])
 
-  const [defaultValue] = useState(props.value)
-  const [required] = useState(rules?.required)
+  const required = useMemo(() => rules?.required, [])
+  const isPassword = useMemo(() => props.type === 'password', [])
 
-  const [isPassword] = useState(props.type === 'password')
   const [type, setType] = useState(props.type || 'text')
 
   // __FUNCTIONS
-  const handleSwitchType = (): void => {
-    if (isPassword) {
-      setType(type === 'text' ? 'password' : 'text')
-    }
-  }
+  const handleSwitchType = useCallback(() => {
+    if (isPassword) setType(type === 'text' ? 'password' : 'text')
+  }, [])
 
   // __RENDER
   return (

@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { useMemo } from 'react'
 import { TextareaProps } from '@/types/input'
 import { getErrors } from '../utils'
 import cls from 'classnames'
 
-export function TextareaProvider({ name, register, rules, ...props }: TextareaProps) {
+export function TextareaProvider({ name, value, register, rules, ...props }: TextareaProps) {
   // __STATE <React.Hooks>
-  const [vid] = useState(`ui--form-model-${name}`)
+  const vid = useMemo(() => `ui--form-model-${name}`, [name])
+  const defaultValue = useMemo(() => value, [value])
 
-  const [defaultValue] = useState(props.value)
-  const [required] = useState(rules?.required)
+  const required = useMemo(() => rules?.required, [])
 
   // __RENDER
   return (

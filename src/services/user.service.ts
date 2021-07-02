@@ -1,12 +1,12 @@
 import axios from '@/libs/axios'
 import { resAudit } from '@/utils'
-import { TResponse } from '@/types'
+import { IResponse } from '@/types'
 
 export const userService = {
   /**
    * GET all users.
    */
-  async getAll(): Promise<TResponse | void> {
+  async getAll(): Promise<IResponse | void> {
     const { data, ...payload } = await axios.get('/users')
     const audit = resAudit(payload, data)
 
@@ -16,9 +16,9 @@ export const userService = {
   /**
    * GET user by userId.
    *
-   * @param {string | number} id
+   * @param {string} userId
    */
-  async getById(userId: string | number): Promise<TResponse | void> {
+  async getById(userId: string): Promise<IResponse | void> {
     const { data, ...payload } = await axios.get(`/users/${userId}`)
     const audit = resAudit(payload, data)
 

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useMemo, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { coreActions, coreSelector } from '@/store'
@@ -6,29 +6,13 @@ import { scrollOff, addEventListener, removeEventListener } from '@/utils'
 
 export function DialogComponent() {
   // __STATE <React.Hooks>
+  const elm = useRef(null)
   const dispatch = useDispatch()
   const dialog = useSelector(coreSelector.getDialog)
-  const useConfirm = dialog.type === 'confirm'
+  const useConfirm = useMemo(() => dialog.type === 'confirm', [dialog.type])
 
   // __EFFECTS <React.Hooks>
   useEffect(() => {
-    function listener(event: KeyboardEvent) {
-      let keyCode: string = event.code || event.key
-
-      switch (keyCode) {
-        case 'Enter':
-        case 'Space':
-          // event.preventDefault()
-          handleClose()
-          break
-
-        case 'Escape':
-          // event.preventDefault()
-          handleClose(false)
-          break
-      }
-    }
-
     if (dialog.visible) {
       handleFocus()
       addEventListener('keydown', listener)
@@ -40,7 +24,24 @@ export function DialogComponent() {
   }, [dialog.visible])
 
   // __FUNCTIONS
-  const handleClose = (value: boolean = true) => {
+  const listener = useCallback((event: KeyboardEvent) => {
+    const keyCode: string = event.code || event.key
+
+    switch (keyCode) {
+      case 'Enter':
+      case 'Space':
+        event.preventDefault()
+        handleClose()
+        break
+
+      case 'Escape':
+        event.preventDefault()
+        handleClose(false)
+        break
+    }
+  }, [])
+
+  const handleClose = useCallback((value: boolean = true) => {
     if (dialog.resolvePromise) {
       dialog.resolvePromise({
         isConfirmed: value,
@@ -49,20 +50,20 @@ export function DialogComponent() {
     }
 
     // Close dialog.
-    dispatch(
-      coreActions.setDialog({
-        ...dialog,
-        visible: false,
-        resolvePromise: void 0,
-        rejectPromise: void 0
-      })
-    )
-  }
+    const action = coreActions.setDialog({
+      ...dialog,
+      visible: false,
+      resolvePromise: void 0,
+      rejectPromise: void 0
+    })
 
-  const handleFocus = (): void => {
-    const button: any = document.querySelector('.ui--dialog .btn-confirm')
-    if (button) button.focus()
-  }
+    dispatch(action)
+  }, [])
+
+  const handleFocus = useCallback(() => {
+    const el: any = elm.current
+    if (el) el.focus()
+  }, [elm])
 
   // __RENDER
   return (
@@ -93,7 +94,7 @@ export function DialogComponent() {
               </button>
             )}
 
-            <button type='button' className='btn btn-confirm btn-primary' onClick={() => handleClose()}>
+            <button type='button' className='btn btn-confirm btn-primary' ref={elm} onClick={() => handleClose()}>
               {dialog.confirmLabel}
             </button>
           </div>

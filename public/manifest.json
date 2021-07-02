@@ -3,13 +3,13 @@
   "name": "Got't Patiphat, Web Profile;",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "favicon.svg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#11151D",
-  "background_color": "#11151D"
+  "theme_color": "#FFC247",
+  "background_color": "#0F0F14"
 }

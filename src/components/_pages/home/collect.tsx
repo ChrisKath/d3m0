@@ -1,25 +1,12 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { getDate } from '@/libs/firebase'
+import { useSelector, dataSelector } from '@/store'
+import { useFormat } from '@/libs/moment'
+// import { Collect } from '@/types'
 
 export function CollectComponent() {
   // __STATE <React.Hooks>
-  const dispatch = useDispatch()
-  const store = useSelector((state) => state['APP.DATA']['collects'])
+  const collects = useSelector(dataSelector.getCollects)
 
-  // __FUNCTION
-  const getter = (input) => input.orderBy('order').slice(0, 4)
-
-  const viewItem = ({ id }) => {
-    dispatch({
-      type: 'SET_PREVIEW',
-      payload: {
-        active: true,
-        value: id
-      }
-    })
-
-    // history.push({ search: `?cid=${id}` })
-  }
+  // collects.orderBy('order').slice(0, 4)
 
   // __RENDER
   return (
@@ -35,13 +22,13 @@ export function CollectComponent() {
 
         <div className='ui--context-column col-2'>
           <ul className='content'>
-            {getter(store).map((item, index) => (
-              <li className='item' key={index} onClick={() => viewItem(item)}>
+            {collects.map((collect) => (
+              <li className='item' key={collect.id}>
                 <img className='poster' src='/static/imgs/pic-2.jpg' />
-                <div className='type'>{item.type.label}</div>
+                <div className='type'>{collect.type}</div>
                 <div className='info'>
-                  <h4 className='info-h4'>{getDate(item)}</h4>
-                  <h2 className='info-h2'>{item.title}</h2>
+                  <h4 className='info-h4'>{useFormat(collect.updatedAt)}</h4>
+                  <h2 className='info-h2'>{collect.title}</h2>
                 </div>
               </li>
             ))}
