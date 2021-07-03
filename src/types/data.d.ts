@@ -6,7 +6,7 @@ export interface IModel {
 
 export interface Duration {
   from: Date | string;
-  to: Date | string;
+  to: Date | string | void;
 }
 
 export interface Collect extends IModel {

@@ -6,23 +6,28 @@ export function SkillComponent() {
 
   // __RENDER
   return (
-    <div className='ui--index-skill'>
+    <div className='ui--home-skill rows'>
       <div className='ui--context rtl'>
         <div className='ui--context-column col-1'>
-          <h3 className='context-title-h3'>creative works</h3>
-          <h1 className='context-title-h1'>skills</h1>
-          <p className='context-desc'>
+          <h4 className='h4'>creative works</h4>
+          <h1 className='h1'>skills</h1>
+          <div className='desc'>
             It doesn't matter how great your product or service is if your copy does not captivate your audience.
-          </p>
+          </div>
+
+          <a className='btn btn-href'>
+            <span className='text'>view all</span>
+            <span className='icon bi bi-arrow-right'></span>
+          </a>
         </div>
 
         <div className='ui--context-column col-2'>
-          <ul className='content'>
+          <ul className='skills'>
             {skills.map((skill) => (
-              <li className='item' key={skill.id}>
+              <li className='li' key={skill.id}>
                 <div className='label'>{skill.label}</div>
+                <code className='code'>{skill.mastery}%</code>
                 <div className='desc'>{skill.description}</div>
-                <div className='value'>{skill.mastery}%</div>
               </li>
             ))}
           </ul>

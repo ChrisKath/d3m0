@@ -5,7 +5,7 @@ export { FooterComponent } from './footer'
 export { LoaderComponent } from './loader'
 export { DialogComponent } from './dialog'
 export { ParallaxComponent } from './parallax'
-export { PreviewComponent } from './preview'
+export { ViewerComponent } from './viewer'
 export { BackToTopComponent } from './backtotop'
 
 // Page Components.

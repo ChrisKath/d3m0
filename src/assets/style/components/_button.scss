@@ -7,8 +7,8 @@
   cursor: pointer;
   color: $color-dark;
   background-color: transparent;
-
   border-radius: 6px;
+  user-select: none;
   transition: all $transition-time ease;
 
   .icon {

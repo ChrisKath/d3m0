@@ -1,10 +1,10 @@
-.ui--preview {
+.ui--viewer {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 110;
+  z-index: 120;
   overflow: auto;
   background-color: rgba($color-dark, 0.6);
 
@@ -16,7 +16,7 @@
   &.exit-active {
     @include class-endWith('-container') {
       opacity: 0;
-      transform: scale(0.98) translate(0, 10px);
+      transform: scale(0.99) translate(0, 5px);
     }
   }
 
@@ -31,7 +31,7 @@
     position: relative;
     margin: 40px auto;
     max-width: $screen-sm;
-    background-color: $color-dark;
+    background-color: $color-dark-8;
     border-radius: 10px;
     overflow: hidden;
     transition: all $animation-time ease;
@@ -44,38 +44,27 @@
       grid-template-rows: 1fr auto;
       align-items: flex-start;
     }
-  }
 
-  &-close {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    padding: 15px;
-    cursor: pointer;
+    .btn {
+      &-close {
+        position: absolute;
+        z-index: 10;
+        top: 1rem;
+        right: 1rem;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 100%;
+        background-color: $color-dark-8;
 
-    @include screen-xs {
-      left: 0;
-      right: unset;
-    }
-
-    &:hover {
-      .icon {
-        background-color: $color-dark;
-      }
-    }
-    
-    .icon {
-      padding: 2px;
-      width: 34px;
-      height: 34px;
-      color: $color-dark-2;
-      background-color: rgba($color-dark, 0.9);
-      border-radius: 100%;
-
-      @include screen-xs {
-        border-radius: 4px;
-        background-color: rgba($color-dark, 0.8);
+        &:hover {
+          background-color: $color-dark;
+        }
+        
+        .icon {
+          color: $color-dark-2;
+          font-size: $font-size-large + 2;
+        }
       }
     }
   }

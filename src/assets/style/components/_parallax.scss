@@ -25,6 +25,6 @@
     bottom: 0;
     background:
       url("/static/imgs/dot.png") repeat,
-      linear-gradient(to top, $color-dark, rgba($color-dark, 0.75) 75%);
+      linear-gradient(to top, $color-dark 7.5%, rgba($color-dark, 0.75) 75%);
   }
 }

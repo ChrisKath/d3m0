@@ -14,6 +14,10 @@ export default function DataReducer(state = initialState, { type, payload }: Dat
     case DataActionTypes.SET_SKILL:
       state.skills = payload
       break
+
+    case DataActionTypes.SET_VIEWER:
+      state.viewer = payload
+      break
   }
 
   return state

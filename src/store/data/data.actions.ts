@@ -21,5 +21,12 @@ export default {
       type: DataActionTypes.SET_SKILL,
       payload
     }
+  },
+
+  setViewer(payload?: Collect): DataActionInterface {
+    return {
+      type: DataActionTypes.SET_VIEWER,
+      payload
+    }
   }
 }

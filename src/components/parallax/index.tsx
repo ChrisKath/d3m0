@@ -7,13 +7,13 @@ export function ParallaxComponent() {
 
   // __EFFECTS <React.Hooks>
   useEffect(() => {
-    addEventListener('scroll', () => {
-      const { innerHeight, scrollY } = window
-      if (scrollY < innerHeight * 1.5) {
-        let val = +(scrollY / 3.25)
-        setPosY(val)
-      }
-    })
+    function listener(): void {
+      let val = window.scrollY / 4
+      setPosY(val)
+    }
+
+    listener()
+    addEventListener('scroll', listener)
   }, [])
 
   // __RENDER

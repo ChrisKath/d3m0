@@ -9,7 +9,8 @@ import {
   LoaderComponent,
   DialogComponent,
   ParallaxComponent,
-  PreviewComponent
+  ViewerComponent,
+  BackToTopComponent
 } from '@/components'
 import { configs } from '@/libs/configs'
 import store from '@/store'
@@ -38,14 +39,14 @@ export default function Application({ Component: PagesContainer, pageProps }: Ap
       <div className='ui--wrapper'>
         <Provider store={store}>
           <HeaderComponent />
-
           <LoaderComponent />
           <DialogComponent />
           <ParallaxComponent />
-          <PreviewComponent />
 
           <PagesContainer {...pageProps} />
 
+          <ViewerComponent />
+          <BackToTopComponent />
           <FooterComponent />
         </Provider>
       </div>

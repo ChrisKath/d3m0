@@ -8,11 +8,12 @@ export function BackToTopComponent() {
 
   // __EFFECTS <React.Hooks>
   useEffect(() => {
-    const screenHeight = window.innerHeight / 2
     function listener(): void {
-      setActive(window.scrollY > screenHeight)
+      const { innerHeight, scrollY } = window
+      setActive(scrollY > innerHeight / 2)
     }
 
+    listener()
     addEventListener('scroll', listener)
   }, [])
 
@@ -28,7 +29,7 @@ export function BackToTopComponent() {
   // __RENDER
   return (
     <div className={cls('ui--backtotop', { active })}>
-      <button className='btn btn-normal' onClick={handleBackToTop}>
+      <button className='btn btn-primary' onClick={handleBackToTop}>
         <span className='icon bi bi-arrow-up-short'></span>
       </button>
     </div>

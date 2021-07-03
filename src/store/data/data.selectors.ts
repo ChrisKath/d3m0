@@ -14,6 +14,10 @@ export default {
     return skills
   },
 
+  getViewer({ data: { viewer } }: StoreTypes) {
+    return viewer
+  },
+
   /**
    * GET collect by Id.
    *

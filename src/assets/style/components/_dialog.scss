@@ -4,9 +4,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 110;
+  z-index: 140;
   padding: 4rem;
-  background-color: rgba($color-dark-4, 0.25);
+  background-color: rgba($color-dark, 0.5);
 
   &.enter,
   &.exit-active {
@@ -29,7 +29,7 @@
     margin: 0 auto;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 0 5px 10px rgba($color-dark-2, 0.5);
+    box-shadow: 0 10px 20px rgba($color-dark, 0.5);
     transition: all $transition-time $cubic-bezier;
   }
 
@@ -38,14 +38,13 @@
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
-    padding: 15px 20px;
+    padding: 1.25rem 1.5rem 1rem;
     border-bottom: 1px solid $color-dark-2;
 
     .title {
       line-height: 20px;
-      color: $color-dark-8;
-      font-size: $font-size-large;
-      font-weight: $font-weight-bold;
+      color: $color-dark;
+      font-weight: $font-weight-bolder;
       user-select: none;
     }
 
@@ -55,7 +54,7 @@
         width: 20px;
         height: 20px;
         font-size: $font-size-large;
-        color: $color-dark-4;
+        color: $color-dark-6;
         background-color: transparent;
         justify-content: center;
 
@@ -75,7 +74,7 @@
 
   &-body {
     position: relative;
-    padding: 20px;
+    padding: 1.5rem;
     color: $color-dark-6;
     line-height: $line-height;
 
@@ -88,26 +87,29 @@
   }
 
   &-footer {
-    display: flex;
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-flow: column;
     justify-content: flex-end;
-    padding: 0 20px 20px;
+    padding: 0 1.5rem 1.5rem;
 
     .btn {
       width: auto;
-      height: 25px;
+      height: 26px;
       min-width: 80px;
-      font-size: $font-size-small;
       text-transform: capitalize;
-
+      
       &-cancel {
-        font-weight: $font-weight-regular;
-        margin-right: 15px;
-        color: $color-dark-4;
+        font-size: $font-size-small - 1;
+        font-weight: $font-weight-bold;
+        color: $color-dark-6;
         background-color: tint($color-dark-2, 50%);
       }
 
       &-confirm {
+        font-size: $font-size-small;
         font-weight: $font-weight-bolder;
+        background-color: $color-primary;
       }
     }
   }

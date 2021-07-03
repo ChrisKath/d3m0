@@ -6,7 +6,7 @@
   height: 80px;
   padding: 0 2rem;
   transition:
-    height $animation-time $cubic-bezier,
+    height $animation-time ease,
     background-color $animation-time ease;
   
   @include screen-xs {
@@ -17,11 +17,13 @@
 
   &.sticky {
     height: 60px;
+    background-color: rgba($color-dark, 0.75);
+    box-shadow: 0 0 0 1px rgba($color-dark-8, 0.25);
 
     // Nested At-Rules and Bubbling.
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       backdrop-filter: blur(20px);
-      background-color: rgba($color-dark, 0.75);
+      background-color: rgba($color-dark, 0.5);
     }
   }
 

@@ -9,7 +9,7 @@ export function InfoComponent({ data }: Props) {
   // __RENDER
   if (!data) return null
   return (
-    <div className='ui--preview-info'>
+    <div className='ui--viewer-info'>
       <div className='column col-1'>
         <h2 className='info-title'>{data.title}</h2>
         <p className='info-desc'>{data.description}</p>

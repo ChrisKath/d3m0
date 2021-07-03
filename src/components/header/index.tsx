@@ -11,7 +11,13 @@ export function HeaderComponent() {
 
   // __MOUNTED <React.Hooks>
   useEffect(() => {
-    addEventListener('scroll', () => setSticky(window.scrollY > 80))
+    function listener(): void {
+      let val = window.scrollY > 64
+      setSticky(val)
+    }
+
+    listener()
+    addEventListener('scroll', listener)
   }, [])
 
   // __RENDER

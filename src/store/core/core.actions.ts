@@ -22,7 +22,9 @@ export default {
         ...payload,
         type: payload?.type || 'alert',
         confirmLabel: payload?.confirmLabel || 'OK',
-        cancelLabel: payload?.cancelLabel || 'cancel'
+        cancelLabel: payload?.cancelLabel || 'Cancel',
+        resolvePromise: payload?.resolvePromise,
+        rejectPromise: payload?.rejectPromise
       }
     }
   }

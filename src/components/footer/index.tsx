@@ -10,7 +10,7 @@ export function FooterComponent() {
       <div className='ui--footer-container'>
         <p className='p1'>Got't Patiphat, Web Profile;</p>
         <p className='p2'>
-          {appVersion} | power by <code>NextJS</code>, <code>Vercel</code>
+          {appVersion} | power by <code className='code'>NextJS</code>, <code className='code'>Vercel</code>
         </p>
       </div>
     </footer>

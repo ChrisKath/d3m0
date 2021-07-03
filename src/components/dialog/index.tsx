@@ -1,7 +1,6 @@
 import { useEffect, useRef, useMemo, useCallback } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
-import { coreActions, coreSelector } from '@/store'
+import { useDispatch, useSelector, coreActions, coreSelector } from '@/store'
 import { scrollOff, addEventListener, removeEventListener } from '@/utils'
 
 export function DialogComponent() {
@@ -17,9 +16,7 @@ export function DialogComponent() {
       handleFocus()
       addEventListener('keydown', listener)
     } else {
-      setTimeout(() => {
-        removeEventListener('keydown', listener)
-      }, 1e3)
+      setTimeout(() => removeEventListener('keydown', listener))
     }
   }, [dialog.visible])
 
@@ -41,6 +38,12 @@ export function DialogComponent() {
     }
   }, [])
 
+  const handleFocus = useCallback(() => {
+    const el: any = elm.current
+    if (el) el.focus()
+  }, [elm])
+
+  // prettier-ignore
   const handleClose = useCallback((value: boolean = true) => {
     if (dialog.resolvePromise) {
       dialog.resolvePromise({
@@ -51,26 +54,20 @@ export function DialogComponent() {
 
     // Close dialog.
     const action = coreActions.setDialog({
-      ...dialog,
+      type: dialog.type,
       visible: false,
-      resolvePromise: void 0,
-      rejectPromise: void 0
+      message: dialog.message
     })
 
     dispatch(action)
-  }, [])
-
-  const handleFocus = useCallback(() => {
-    const el: any = elm.current
-    if (el) el.focus()
-  }, [elm])
+  }, [dialog])
 
   // __RENDER
   return (
     <CSSTransition
       className='ui--dialog'
       in={dialog.visible}
-      timeout={160}
+      timeout={200}
       unmountOnExit={true}
       onEnter={() => scrollOff(true)}
       onExited={() => scrollOff(false)}
@@ -89,12 +86,12 @@ export function DialogComponent() {
 
           <div className='ui--dialog-footer'>
             {useConfirm && (
-              <button type='button' className='btn btn-cancel btn-default' onClick={() => handleClose(false)}>
+              <button type='button' className='btn btn-cancel' onClick={() => handleClose(false)}>
                 {dialog.cancelLabel}
               </button>
             )}
 
-            <button type='button' className='btn btn-confirm btn-primary' ref={elm} onClick={() => handleClose()}>
+            <button type='button' className='btn btn-confirm' ref={elm} onClick={() => handleClose()}>
               {dialog.confirmLabel}
             </button>
           </div>

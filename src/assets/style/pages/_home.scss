@@ -1,17 +1,21 @@
 .ui--home {
   display: grid;
   grid-gap: 10rem;
+  padding: 0 0 10rem;
+
+  .rows {
+    position: relative;
+    margin: 0 auto;
+    width: $screen-lg;
+    max-width: $screen-lg;
+  }
 
   &-cover {
     position: relative;
     max-width: $screen-xs;
     margin: 0 auto;
-    padding: 7rem 1rem;
+    padding: 6rem 2rem 4rem;
     text-align: center;
-
-    @include screen-xs {
-      padding: 5vh 0 10vh;
-    }
 
     .title {
       color: $color-dark-4;
@@ -93,6 +97,223 @@
         .icon {
           font-size: $font-size-large + 2;
         }
+      }
+    }
+  }
+
+  &-collect {
+    .collects {
+      display: grid;
+      grid-gap: 3rem;
+      grid-template-rows: repeat(2, 220px);
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-areas:
+        "area-x1 area-x1 area-x1 area-x2 area-x2"
+        "area-x3 area-x3 area-x4 area-x4 area-x4";
+
+      @include screen-md {
+        grid-gap: 1.5rem;
+        grid-template-rows: repeat(2, 180px);
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "area-x1 area-x2" "area-x3 area-x4";
+      }
+
+      @include screen-xs {
+        grid-gap: 1rem;
+        grid-template-rows: repeat(2, 150px);
+      }
+    }
+
+    .li {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 10px;
+      background-color: $color-dark;
+
+      &:nth-child(1) { grid-area: area-x1 }
+      &:nth-child(2) { grid-area: area-x2 }
+      &:nth-child(3) { grid-area: area-x3 }
+      &:nth-child(4) { grid-area: area-x4 }
+
+      &:hover {
+        .poster {
+          opacity: 0.5;
+          transform: scale(1.03);
+        }
+
+        .type,
+        .info {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .poster {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left;
+      transition: all $animation-time ease;
+    }
+
+    .type {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 4px 5px 2px;
+      font-size: $font-size-smaller - 2;
+      font-weight: $font-weight-bolder;
+      text-transform: uppercase;
+      
+      color: $color-dark-2;
+      background-color: $color-primary;
+      border-radius: 2px;
+
+      transition: all $animation-time ease;
+      transform: translateY(-10px);
+      opacity: 0;
+
+      @include screen-xs {
+        top: 15px;
+        left: 15px;
+      }
+    }
+
+    .info {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+      padding: 20px;
+      transform: translateY(15px);
+      transition: all $animation-time ease;
+
+      @include screen-xs {
+        padding: 15px;
+      }
+
+      .h5 {
+        color: $color-dark-4;
+        font-size: $font-size-small;
+        font-weight: $font-weight-bolder;
+        text-transform: capitalize;
+      }
+
+      .h2 {
+        margin: 1rem 0 0.5rem;
+        font-size: $font-size-large;
+        font-weight: $font-weight-bolder;
+      }
+
+      .h6 {
+        color: $color-dark-4;
+        line-height: $line-height;
+        font-size: $font-size-smaller;
+
+        @include text-overflow(auto, 2);
+      }
+    }
+  }
+
+  &-experience {
+    .experiences {
+      display: grid;
+      grid-gap: 2rem;
+    }
+
+    .li {
+      display: grid;
+      grid-gap: 2rem;
+      grid-template-columns: 22px 250px 1fr;
+      grid-template-areas: "area-icon area-title area-desc";
+      align-items: flex-start;
+      min-height: 95px;
+
+      @include screen-md {
+        grid-gap: 10px 25px;
+        grid-template-columns: 30px 1fr;
+        grid-template-areas:
+          "area-icon area-title"
+          "area-desc area-desc";
+        padding: 0 0 20px;
+      }
+
+      .icon {
+        grid-area: area-icon;
+        color: $color-primary;
+        font-size: $font-size-larger;
+      }
+  
+      .title {
+        grid-area: area-title;
+  
+        &-h6 {
+          color: $color-dark-4;
+          font-size: $font-size-small;
+          font-weight: $font-weight-bolder;
+          text-transform: capitalize;
+        }
+
+        &-h5 {
+          margin: 1rem 0 0.5rem;
+          color: $color-dark-4;
+          font-size: $font-size-small;
+          font-weight: $font-weight-bolder;
+        }
+  
+        &-h3 {
+          font-size: $font-size-large;
+          font-weight: $font-weight-bolder;
+        }
+      }
+  
+      .desc {
+        grid-area: area-desc;
+        color: $color-dark-4;
+        line-height: $line-height;
+      }
+    }
+  }
+
+  &-skill {
+    .skills {
+      display: grid;
+      grid-gap: 1.5rem 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: dense;
+      padding-right: 2rem;
+    }
+
+    .li {
+      display: grid;
+      grid-gap: 0.25rem;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "area-label area-value"
+        "area-desc area-desc";
+      align-items: center;
+
+      .label {
+        grid-area: area-label;
+        font-weight: $font-weight-bolder;
+      }
+  
+      .desc {
+        grid-area: area-desc;
+        color: $color-dark-4;
+        font-style: italic;
+        font-size: $font-size-smaller;
+      }
+  
+      .code {
+        grid-area: area-value;
+        line-height: 1;
+        padding: 3px 5px 1px;
+        font-weight: $font-weight-bolder;
+        border-radius: 2px;
       }
     }
   }
