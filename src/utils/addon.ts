@@ -1,5 +1,5 @@
-import { dispatch, coreActions } from '@/store'
-import { DialogOptions, DialogResults } from '@/types'
+import { dispatch, coreActions, dataActions } from '@/store'
+import { DialogOptions, DialogResults, Collect } from '@/types'
 
 /**
  * Loader.
@@ -19,9 +19,9 @@ export function loader(visible: 'on' | 'off' = 'on', text?: string): void {
 /**
  * Alert box.
  *
- * @param {string | object} options
+ * @param {object | string} options
  */
-export async function dialog(options: string | DialogOptions): Promise<DialogResults> {
+export function dialog(options: DialogOptions | string): Promise<DialogResults> {
   return new Promise((resolve, reject) => {
     let payload: any = {
       visible: true,
@@ -32,13 +32,23 @@ export async function dialog(options: string | DialogOptions): Promise<DialogRes
     if (typeof options === 'string') {
       payload.message = options
     } else {
-      payload = { ...payload, ...options }
+      payload = Object.assign(payload, options)
     }
 
     const action = coreActions.setDialog(payload)
     dispatch(action)
     loader('off')
   })
+}
+
+/**
+ * Open collect viewer component.
+ *
+ * @param {object} collect
+ */
+export function viewer(collect?: Collect) {
+  const action = dataActions.setViewer(collect)
+  dispatch(action)
 }
 
 /**

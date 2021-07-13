@@ -15,7 +15,7 @@ export interface DataActionInterface {
 
 export interface DataState {
   collects: Collect[];
-  experiences: Experience[];
+  experience: Experience[];
   skills: Skill[];
   viewer?: Collect;
 }

@@ -18,17 +18,21 @@ export function InfoComponent({ data }: Props) {
       <div className='column col-2'>
         <div className='info-date'>
           <span className='label'>created:</span>
-          <span className='value'>{useFormat(data.updatedAt)}</span>
+          <code className='code value'>{useFormat(data.updatedAt)}</code>
         </div>
 
         <div className='info-type'>
           <span className='label'>type:</span>
-          <span className='value'>{data.type}</span>
+          <code className='code value'>{data.type}</code>
         </div>
 
         <div className='info-tags'>
           <span className='label'>tags:</span>
-          <span className='value'>{data.tags.join(', ')}</span>
+          {data.tags.map((tag, idx) => (
+            <code className='code value' key={idx}>
+              {tag}
+            </code>
+          ))}
         </div>
       </div>
     </div>

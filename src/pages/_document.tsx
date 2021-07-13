@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+import { isProduction } from '@/libs/configs'
 
 export default class CustomDocument extends Document {
   static async getInitialProps(context: DocumentContext) {
@@ -18,6 +19,7 @@ export default class CustomDocument extends Document {
           <link rel='preconnect' href='https://cdn.jsdelivr.net' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&display=swap' />
           <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css?display=swap' />
+          {isProduction && <script src='https://www.googletagmanager.com/gtag/js?id=G-5E0FTWB4GX' async />}
         </Head>
 
         <body style={{ backgroundColor: '#0F0F14' }}>

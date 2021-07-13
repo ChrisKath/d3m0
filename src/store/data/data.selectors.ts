@@ -6,8 +6,8 @@ export default {
     return collects
   },
 
-  getExperiences({ data: { experiences } }: StoreTypes) {
-    return experiences
+  getExperience({ data: { experience } }: StoreTypes) {
+    return experience
   },
 
   getSkills({ data: { skills } }: StoreTypes) {

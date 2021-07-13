@@ -1,7 +1,7 @@
 import HTMLHead from 'next/head'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { Provider } from 'react-redux'
 import {
   HeaderComponent,
@@ -12,7 +12,7 @@ import {
   ViewerComponent,
   BackToTopComponent
 } from '@/components'
-import { configs } from '@/libs/configs'
+import { configs, isProduction } from '@/libs/configs'
 import store from '@/store'
 import { loader } from '@/utils'
 import '@/utils/defineProperty'
@@ -24,9 +24,19 @@ export default function Application({ Component: PagesContainer, pageProps }: Ap
 
   // __EFFECTS <React.Hooks>
   useEffect(() => {
+    if (isProduction) {
+      initialGoogleTagManager()
+    }
+
     router.events.on('routeChangeStart', () => loader('on'))
     router.events.on('routeChangeComplete', () => loader('off'))
     router.events.on('routeChangeError', () => loader('off'))
+  }, [])
+
+  // __FUNCTIONS
+  const initialGoogleTagManager = useCallback(() => {
+    window.dataLayer = [...(window.dataLayer || []), { js: new Date() }, { config: 'G-5E0FTWB4GX' }]
+    window.gtag = () => window.dataLayer.push(arguments)
   }, [])
 
   // __RENDER

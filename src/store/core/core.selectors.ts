@@ -17,6 +17,10 @@ export default {
     return loader
   },
 
+  getTheme({ core: { theme } }: StoreTypes) {
+    return theme
+  },
+
   getDialog({ core: { dialog } }: StoreTypes) {
     return dialog
   },

@@ -1,16 +1,16 @@
-export default function CollectContainer() {
+export default function SkillContainer() {
   // __RENDER
   return (
-    <div className='ui--collect router-view'>
+    <div className='ui--skill router-view'>
       <div className='ui--page-banner'>
-        <h1 className='title'>collect's</h1>
+        <h1 className='title'>skill's</h1>
         <h4 className='desc'>
           It doesn't matter how great your product or service is if your copy does not captivate your audience.
         </h4>
       </div>
 
-      <div className='ui--collect-content'>
-        <code className='code'>.ui--collect</code>
+      <div className='ui--skill-content'>
+        <code className='code'>.ui--skill</code>
       </div>
     </div>
   )

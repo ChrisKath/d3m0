@@ -9,7 +9,7 @@ export default {
     }
   },
 
-  setExperiences(payload: Experience[]): DataActionInterface {
+  setExperience(payload: Experience[]): DataActionInterface {
     return {
       type: DataActionTypes.SET_EXPERIENCE,
       payload

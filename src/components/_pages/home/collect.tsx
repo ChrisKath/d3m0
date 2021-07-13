@@ -1,18 +1,15 @@
 import { useCallback } from 'react'
 import { RouterLink } from '@/components'
 import { useFormat } from '@/libs/moment'
-import { useDispatch, useSelector, dataActions, dataSelector } from '@/store'
-import { Collect } from '@/types'
+import { useSelector, dataSelector } from '@/store'
+import { viewer } from '@/utils'
 
 export function CollectComponent() {
   // __STATE <React.Hooks>
-  const dispatch = useDispatch()
   const collects = useSelector(dataSelector.getCollects)
 
   // __FUNCTIONS
-  const handleViewer = useCallback((collect: Collect) => {
-    dispatch(dataActions.setViewer(collect))
-  }, [])
+  const handleViewer = useCallback(viewer, [])
 
   // __RENDER
   return (
@@ -24,7 +21,7 @@ export function CollectComponent() {
           <div className='desc'>
             It doesn't matter how great your product or service is if your copy does not captivate your audience.
           </div>
-          <RouterLink className='btn btn-href' href='/collects'>
+          <RouterLink className='btn btn-secondary btn-href' href='/collects'>
             <span className='text'>view all</span>
             <span className='icon bi bi-arrow-right'></span>
           </RouterLink>
@@ -34,7 +31,7 @@ export function CollectComponent() {
           <ul className='collects'>
             {collects.map((collect) => (
               <li className='li' key={collect.id} onClick={() => handleViewer(collect)}>
-                <img className='poster' src='/static/imgs/pic-2.jpg' />
+                <img className='poster' src={`/static/imgs/thumbnail/${collect.poster}`} />
                 <div className='type'>{collect.type}</div>
                 <div className='info'>
                   <h5 className='h5'>{useFormat(collect.updatedAt)}</h5>

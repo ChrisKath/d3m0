@@ -1,8 +1,8 @@
 import { Fruit, Collect, Experience, Skill } from '@/types'
-import { generateId } from '@/utils'
+// import { generateId } from '@/utils'
 
-export const LOREM =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+// prettier-ignore
+export const LOREM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
 export const fruit: Fruit[] = [
   { label: '🍇  Grapes', value: 'grapes' },
@@ -24,52 +24,52 @@ export const fruit: Fruit[] = [
 
 export const collects: Collect[] = [
   {
-    id: generateId(),
+    id: '5b75fa11977af',
     type: 'Web Site',
     title: 'Bizone - Official Site',
-    poster: '001.jpg',
-    pictures: ['001.jpg', '002.jpg', '003.jpg'],
+    poster: '001.png',
+    pictures: ['001.png', '002.png', '003.png'],
     description: LOREM,
-    tags: ['NextJS', 'TypeScript', 'Custom Scss', 'Responsive'],
+    tags: ['NextTS', 'Custom Scss', 'Responsive'],
     createdAt: '2021-04-01',
     updatedAt: '2021-04-01'
   },
   {
-    id: generateId(),
+    id: '8a41a8418f56d',
     type: 'Web App',
     title: 'Café Ordering (Café De Oasis)',
-    poster: '001.jpg',
-    pictures: ['001.jpg', '002.jpg', '003.jpg'],
+    poster: '003.png',
+    pictures: ['001.png', '002.png', '003.png'],
     description: LOREM,
-    tags: ['VueJS', 'NodeJS', 'TypeScript', 'Less', 'PWA'],
+    tags: ['NodeJS', 'VueTS', 'Custom Less', 'PWA'],
     createdAt: '2018-09-14',
     updatedAt: '2021-04-01'
   },
   {
-    id: generateId(),
+    id: '395ba3d0df327',
     type: 'Web Site',
     title: 'Destiny Enterprise - Official Site',
-    poster: '001.jpg',
-    pictures: ['001.jpg', '002.jpg', '003.jpg'],
+    poster: '003.png',
+    pictures: ['001.png', '002.png', '003.png'],
     description: LOREM,
-    tags: ['VueJS', 'TypeScript', 'Less', 'Prototype'],
+    tags: ['VueTS', 'Custom Less', 'Prototype'],
     createdAt: '2019-07-18',
     updatedAt: '2021-04-01'
   },
   {
-    id: generateId(),
+    id: 'e8fe90b7c9854',
     type: 'Web App',
     title: 'Oasisspa B2B Portal Interface',
-    poster: '001.jpg',
-    pictures: ['001.jpg', '002.jpg', '003.jpg'],
+    poster: '002.png',
+    pictures: ['001.png', '002.png', '003.png'],
     description: LOREM,
-    tags: ['VueJS', 'TypeScript', 'PHP Laravel', 'Scss', 'PWA'],
+    tags: ['VueTS', 'PHP Laravel', 'Custom Scss', 'PWA'],
     createdAt: '2019-05-09',
     updatedAt: '2021-04-01'
   }
 ]
 
-export const experiences: Experience[] = [
+export const experience: Experience[] = [
   {
     id: 'd5f87fa451803',
     company: 'OneDee Solution Co., Ltd.',
@@ -161,7 +161,7 @@ export const skills: Skill[] = [
   {
     id: 'cd6fbec19b38e',
     label: 'TypeScript (TS)',
-    mastery: 64,
+    mastery: 72,
     description: 'Generate Lorem Ipsum placeholder text.',
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'
@@ -183,14 +183,6 @@ export const skills: Skill[] = [
     updatedAt: '2021-07-01'
   },
   {
-    id: 'cd0015dceec6f',
-    label: 'NextJS',
-    mastery: 75,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
     id: '94a83c0ce46ea',
     label: 'ReactJS',
     mastery: 80,
@@ -199,9 +191,25 @@ export const skills: Skill[] = [
     updatedAt: '2021-07-01'
   },
   {
+    id: 'cd0015dceec6f',
+    label: 'NextJS',
+    mastery: 75,
+    description: 'Generate Lorem Ipsum placeholder text.',
+    createdAt: '2021-07-01',
+    updatedAt: '2021-07-01'
+  },
+  {
     id: '3982dec055b7c',
     label: 'VueJS',
     mastery: 90,
+    description: 'Generate Lorem Ipsum placeholder text.',
+    createdAt: '2021-07-01',
+    updatedAt: '2021-07-01'
+  },
+  {
+    id: '9ec4f678b5c3f',
+    label: 'NuxtJS',
+    mastery: 10,
     description: 'Generate Lorem Ipsum placeholder text.',
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'

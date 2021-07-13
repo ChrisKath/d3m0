@@ -1,6 +1,6 @@
 import { isBrowser } from '@/libs/configs'
 
-export { loader, dialog, resAudit } from './addon'
+export { loader, dialog, viewer, resAudit } from './addon'
 
 export function isIE(): boolean {
 	return new RegExp('MSIE|Trident').test(navigator.userAgent)

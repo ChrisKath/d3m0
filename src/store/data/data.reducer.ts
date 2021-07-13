@@ -8,7 +8,7 @@ export default function DataReducer(state = initialState, { type, payload }: Dat
       break
 
     case DataActionTypes.SET_EXPERIENCE:
-      state.experiences = payload
+      state.experience = payload
       break
 
     case DataActionTypes.SET_SKILL:

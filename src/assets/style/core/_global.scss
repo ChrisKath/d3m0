@@ -109,13 +109,11 @@
         margin: 2rem 0 0;
 
         &-href {
-          color: $color-dark-2;
           text-transform: capitalize;
 
           &:hover {
             .icon {
-              color: $color-primary;
-              margin-left: 1.25rem;
+              transform: translateX(0.25rem);
             }
           }
 
@@ -156,24 +154,46 @@
     }
   }
 
-  &-page-error {
-    padding: 10vh 4rem;
-    text-align: center;
+  &-page {
+    &-banner {
+      position: relative;
+      text-align: center;
+      padding: 2.5rem 2rem;
 
-    .h1 {
-      font-size: 6rem;
-      font-weight: $font-weight-bolder;
+      .title {
+        font-size: 33px;
+        font-weight: $font-weight-bolder;
+        text-transform: capitalize;
+      }
+
+      .desc {
+        color: $color-dark-4;
+        font-style: italic;
+        font-size: $font-size-small;
+        max-width: 360px;
+        margin: 0.75rem auto 0;
+      }
     }
+
+    &-error {
+      padding: 10vh 4rem;
+      text-align: center;
   
-    .h3 {
-      margin: 0.5rem 0;
-      font-size: $font-size-larger * 1.25;
-      font-weight: $font-weight-bolder;
-    }
-  
-    .h4, .h5 {
-      color: $color-dark-4;
-      line-height: $line-height;
+      .h1 {
+        font-size: 6rem;
+        font-weight: $font-weight-bolder;
+      }
+    
+      .h3 {
+        margin: 0.5rem 0;
+        font-size: $font-size-larger * 1.25;
+        font-weight: $font-weight-bolder;
+      }
+    
+      .h4, .h5 {
+        color: $color-dark-4;
+        line-height: $line-height;
+      }
     }
   }
 }

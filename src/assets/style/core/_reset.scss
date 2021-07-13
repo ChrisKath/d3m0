@@ -30,6 +30,19 @@ time, mark, audio, video {
     color: $color-hunt-4;
     background-color: $color-hunt-2;
   }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color-dark;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-right: 1px solid $color-dark;
+    background-color: $color-primary;
+  }
 }
 
 html, body {

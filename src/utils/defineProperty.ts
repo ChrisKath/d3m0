@@ -1,7 +1,7 @@
 import { isBrowser } from '@/libs/configs'
 import { upperCase } from '@/utils'
 
-(function(): void {
+((): void => {
   if (!isBrowser) return void 0
 
   Object.defineProperty(Array.prototype, 'findOne', {

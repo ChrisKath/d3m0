@@ -31,4 +31,18 @@
       filter: brightness(120%);
     }
   }
+
+  &-secondary {
+    color: $color-primary;
+    
+    &:hover {
+      .icon {
+        color: $color-dark-2;
+      }
+    }
+
+    .icon {
+      color: $color-dark-4;
+    }
+  }
 }

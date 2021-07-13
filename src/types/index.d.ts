@@ -35,6 +35,8 @@ export interface DialogOptions {
   message: string;
   confirmLabel?: string;
   cancelLabel?: string;
+  resolvePromise?: (value: DialogResults | PromiseLike<DialogResults>) => void;
+  rejectPromise?: (reason?: any) => void;
 }
 
 export interface DialogResults {

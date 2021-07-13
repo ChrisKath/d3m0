@@ -9,7 +9,7 @@ export function HeaderComponent() {
   const [sticky, setSticky] = useState(false)
   const links = useSelector(coreSelector.getLinks)
 
-  // __MOUNTED <React.Hooks>
+  // __EFFECTS <React.Hooks>
   useEffect(() => {
     function listener(): void {
       let val = window.scrollY > 64

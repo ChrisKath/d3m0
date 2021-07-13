@@ -1,4 +1,4 @@
-import { CoreActionInterface, CoreActionTypes, Loader, Dialog } from './core.interface'
+import { CoreActionInterface, CoreActionTypes, Loader, Theme, Dialog } from './core.interface'
 
 export default {
   setLanguage(payload: string): CoreActionInterface {
@@ -11,6 +11,13 @@ export default {
   setLoader(payload: Loader): CoreActionInterface {
     return {
       type: CoreActionTypes.SET_LOADER,
+      payload
+    }
+  },
+
+  setTheme(payload: Theme): CoreActionInterface {
+    return {
+      type: CoreActionTypes.SET_THEME,
       payload
     }
   },

@@ -11,6 +11,10 @@ export default function CoreReducer(state = initialState, { type, payload }: Cor
       state.loader = payload
       break
 
+    case CoreActionTypes.SET_THEME:
+      state.theme = payload
+      break
+
     case CoreActionTypes.SET_DIALOG:
       state.dialog = payload
       break

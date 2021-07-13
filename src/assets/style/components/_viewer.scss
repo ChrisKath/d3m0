@@ -16,7 +16,7 @@
   &.exit-active {
     @include class-endWith('-container') {
       opacity: 0;
-      transform: scale(0.99) translate(0, 5px);
+      transform: scale(0.998) translate(0, 0.25em);
     }
   }
 
@@ -31,19 +31,11 @@
     position: relative;
     margin: 40px auto;
     max-width: $screen-sm;
+    max-height: calc(100vh - 80px);
     background-color: $color-dark-8;
     border-radius: 10px;
     overflow: hidden;
     transition: all $animation-time ease;
-
-    @include screen-xs {
-      margin: 0;
-      border-radius: 0;
-      height: 100%;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      align-items: flex-start;
-    }
 
     .btn {
       &-close {
@@ -70,38 +62,47 @@
   }
 
   &-cover {
-    display: block;
-    width: 100%;
-    height: 432px;
-    object-fit: cover;
-    object-position: center;
+    position: relative;
+    max-height: 68vh;
+    overflow: hidden overlay;
+    background-color: shade($color-dark-8, 25%);
 
-    @include screen-xs {
-      height: 100%;
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      border: unset;
+      border-radius: 0.5rem;
+      background-color: $color-primary;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      pointer-events: none;
     }
   }
 
   &-info {
     display: grid;
     grid-gap: 60px;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 210px;
     grid-auto-flow: column;
     align-items: flex-start;
     padding: 40px;
 
-    @include screen-xs {
-      grid-gap: 15px;
-      grid-auto-flow: row;
-      grid-template-columns: unset;
-      grid-template-rows: repeat(2, auto);
-      padding: 30px 20px;
-    }
-
     .column {
       &.col-2 {
         display: grid;
-        grid-row-gap: 10px;
-        line-height: 1.4121;
+        grid-gap: 0.5rem;
         font-weight: $font-weight-bold;
       }
     }
@@ -121,15 +122,19 @@
     }
 
     .label {
+      float: left;
       color: $color-dark-2;
       text-transform: capitalize;
       font-size: $font-size-small;
-      padding-right: 10px;
+      padding-right: 0.5rem;
+      line-height: 23px;
     }
 
     .value {
-      color: $color-dark-2;
+      float: left;
+      padding: 2px 6px;
       text-transform: capitalize;
+      color: $color-primary;
     }
   }
 }

@@ -1,12 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import { useDispatch, useSelector, dataActions, dataSelector } from '@/store'
-import { scrollOff } from '@/utils'
+import { useSelector, dataSelector } from '@/store'
+import { viewer, scrollOff } from '@/utils'
 import { InfoComponent } from './info'
 
 export function ViewerComponent() {
   // __STATE <React.Hooks>
-  const dispatch = useDispatch()
   const collect = useSelector(dataSelector.getViewer)
   const [active, setActive] = useState(false)
 
@@ -18,11 +17,7 @@ export function ViewerComponent() {
   // __FUNCTIONS
   const handleClose = useCallback(() => {
     setActive(false)
-
-    setTimeout(() => {
-      let action = dataActions.setViewer(void 0)
-      dispatch(action)
-    }, 410)
+    setTimeout(() => viewer(void 0), 404)
   }, [])
 
   // __RENDER
@@ -41,7 +36,9 @@ export function ViewerComponent() {
             <span className='icon bi bi-x'></span>
           </button>
 
-          <img className='ui--viewer-cover' src='/static/imgs/pic-2.jpg' />
+          <div className='ui--viewer-cover'>
+            <img className='image' src={`/static/imgs/thumbnail/${collect?.poster}`} />
+          </div>
 
           <InfoComponent data={collect} />
         </div>

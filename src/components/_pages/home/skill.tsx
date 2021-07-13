@@ -1,3 +1,4 @@
+import { RouterLink } from '@/components'
 import { useSelector, dataSelector } from '@/store'
 
 export function SkillComponent() {
@@ -15,10 +16,10 @@ export function SkillComponent() {
             It doesn't matter how great your product or service is if your copy does not captivate your audience.
           </div>
 
-          <a className='btn btn-href'>
+          <RouterLink className='btn btn-secondary btn-href' href='/skills'>
             <span className='text'>view all</span>
             <span className='icon bi bi-arrow-right'></span>
-          </a>
+          </RouterLink>
         </div>
 
         <div className='ui--context-column col-2'>
