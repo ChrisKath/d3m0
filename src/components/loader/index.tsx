@@ -28,7 +28,7 @@ export function LoaderComponent() {
   if (!state) return null
   return (
     <div className='ui--loader' ref={elm}>
-      <div className={cls('ui--loader-progress', { done: !visible })}>&nbsp;</div>
+      <div className={cls('ui--loader-progress', { done: !visible })}></div>
     </div>
   )
 }

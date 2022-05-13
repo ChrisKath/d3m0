@@ -9,8 +9,8 @@ export function BackToTopComponent() {
   // __EFFECTS <React.Hooks>
   useEffect(() => {
     function listener(): void {
-      const { innerHeight, scrollY } = window
-      setActive(scrollY > innerHeight / 2)
+      let val = window.screenX > window.innerHeight / 2
+      setActive(val)
     }
 
     listener()

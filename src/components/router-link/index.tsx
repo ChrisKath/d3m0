@@ -39,8 +39,8 @@ export interface Props {
   children: ReactNode;
   className?: string;
   activeClass?: string;
-  onClick?: Function;
   useLink?: boolean;
+  onClick?: () => void;
 
   /**
    * Specifies the URL of the page the link goes to

@@ -137,8 +137,8 @@ export const skills: Skill[] = [
   {
     id: 'c12cb217523db',
     label: 'Front-End',
-    mastery: 88,
-    description: 'Generate Lorem Ipsum placeholder text.',
+    mastery: 100,
+    description: 'ReactJS, NextJS, VueJS, NuxtJS.',
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'
   },
@@ -146,14 +146,14 @@ export const skills: Skill[] = [
     id: '7725b08d882af',
     label: 'Back-End',
     mastery: 50,
-    description: 'Generate Lorem Ipsum placeholder text.',
+    description: 'NodeJS, NestJS, PHP (Laravel).',
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'
   },
   {
     id: 'da87c4d91d3ab',
     label: 'JavaScript (JS)',
-    mastery: 92,
+    mastery: 75,
     description: 'Generate Lorem Ipsum placeholder text.',
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'
@@ -161,55 +161,7 @@ export const skills: Skill[] = [
   {
     id: 'cd6fbec19b38e',
     label: 'TypeScript (TS)',
-    mastery: 72,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
-    id: '7cad30d68a821',
-    label: 'PHP (Laravel)',
-    mastery: 40,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
-    id: '5fda57dc31026',
-    label: 'NestJS',
-    mastery: 60,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
-    id: '94a83c0ce46ea',
-    label: 'ReactJS',
-    mastery: 80,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
-    id: 'cd0015dceec6f',
-    label: 'NextJS',
     mastery: 75,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
-    id: '3982dec055b7c',
-    label: 'VueJS',
-    mastery: 90,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
-    id: '9ec4f678b5c3f',
-    label: 'NuxtJS',
-    mastery: 10,
     description: 'Generate Lorem Ipsum placeholder text.',
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'
@@ -217,16 +169,8 @@ export const skills: Skill[] = [
   {
     id: 'c20616de59451',
     label: 'UX/UI',
-    mastery: 44,
-    description: 'Generate Lorem Ipsum placeholder text.',
-    createdAt: '2021-07-01',
-    updatedAt: '2021-07-01'
-  },
-  {
-    id: '4ea8356a5901',
-    label: 'Photoshop & XD',
-    mastery: 50,
-    description: 'Generate Lorem Ipsum placeholder text.',
+    mastery: 20,
+    description: 'Photoshop, XD, Figma.',
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'
   }

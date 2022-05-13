@@ -20,6 +20,6 @@ export const initialState: CoreState = {
     resume: 'https://bit.ly',
     facebook: 'https://facebook.com/100007468007588',
     twitter: 'https://twitter.com/pinn_project',
-    github: 'https://github.com/pinn-project'
+    github: 'https://github.com/ChrisKath'
   }
 }

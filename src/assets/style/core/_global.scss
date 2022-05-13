@@ -3,7 +3,7 @@
   &-wrapper {
     position: relative;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 60px 1fr auto;
     grid-template-areas: "area-header" "router-view" "area-footer";
     min-height: 100vh;
 
@@ -128,6 +128,37 @@
           }
         }
       }
+    }
+  }
+
+  &-parallax {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 110vh;
+    pointer-events: none;
+  
+    .bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+  
+      @include screen-xs {
+        object-position: left top;
+      }
+    }
+  
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        url("/static/imgs/dot.png") repeat,
+        linear-gradient(to top, $color-dark 7.5%, rgba($color-dark, 0.75) 75%);
     }
   }
 
