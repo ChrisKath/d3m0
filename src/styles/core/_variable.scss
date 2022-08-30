@@ -1,0 +1,43 @@
+// SET global variable
+:root {
+  // Color's
+  --color-indigo            : #515BD4;
+  --color-violet            : #8134AF;
+  --color-pink              : #DD2A7B;
+  --color-orange            : #F58529;
+  --color-yellow            : #FEDA77;
+  --color-gold              : #C6BC9D;
+
+  --color-primary           : #FF4646;
+  --color-secondary         : #0F0F14;
+
+  --color-desc-1            : #ABACBA;
+  --color-desc-2            : #EEEFF6;
+
+  --color-border-1          : #F6FBF4;
+  --color-border-2          : #F2F2F2;
+
+  // Font's
+  --font-family-base        : 'Comfortaa', -apple-system, BlinkMacSystemFont, 'Open Sans', 'Helvetica Neue',  sans-serif;
+  --font-family-code        : Consolas, Menlo, Courier, monospace;
+  --font-size-larger        : 22px;
+  --font-size-large         : 18px;
+  --font-size-medium        : 14px;
+  --font-size-small         : 12px;
+  --font-size-smaller       : 10px;
+  --font-weight-bolder      : 700;
+  --font-weight-bold        : 600;
+  --font-weight-medium      : 400;
+  --font-weight-light       : 300;
+  --font-weight-thin        : 100;
+
+  // Border
+  --border-radius-small   : 4px;
+  --border-radius-medium  : 6px;
+  --border-radius-large   : 12px;
+
+  // Animation
+  --animation-time          : 400ms;
+  --transition-time         : 200ms;
+  --cubic-bezier            : cubic-bezier(0.72, 0, 0.172, 1);
+}

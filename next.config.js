@@ -1,5 +1,20 @@
-module.exports = {
-  redirects() {
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true
+  },
+
+  reactStrictMode: true,
+  productionBrowserSourceMaps: false,
+
+  i18n: {
+    locales: ['en', 'jp', 'kr'],
+    defaultLocale: 'en'
+  },
+
+  async redirects() {
     return [
       {
         source: '/',
@@ -7,10 +22,7 @@ module.exports = {
         permanent: true
       }
     ]
-  },
-
-  productionBrowserSourceMaps: false,
-  future: {
-    webpack5: true
   }
 }
+
+module.exports = nextConfig

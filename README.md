@@ -3,34 +3,45 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 # Got't Patiphat, Web Profile;
 
 ### Directory structure
+
 ```
 src               # App entry point.
-└─ assets         # Uncompiled all style and media.
 └─ components     # Global custom components.
-└─ libs           # Instance Modules configuration.
-└─ pages          # Application router view.
-└─ services       # APIs service resources.
+└─ constants      # Initiate constant & configs.
+└─ hooks          # Customs React hooks.
+└─ pages          # Application page view.
+└─ services       # APIs services.
 └─ store          # Redux state management.
-└─ types          # Typescript decorators.
+└─ styles         # Stylesheet.
+└─ types          # TypeScript decorators.
 └─ utils          # Utility functions.
 ```
 
 ### Install dependencies
+
 ```
 npm install
 ```
 
 ### 🚀 Compiles and hot-reloads for development
+
 ```
 npm run serve:dev
 ```
 
-### 📦 Compiles and minifies for production
-```
-npm run export
+Runs the app in the development mode.\
+Open [http://localhost:8443](http://localhost:8443) to view it in the browser.
+
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.\
+You will also see any lint errors in the console.
+
+## 📦 Compiles and minifies for production
+
+```sh
+npm run build
 ```
 
-### Learn More
+## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 

@@ -1,33 +1,33 @@
-import { isBrowser } from '@/libs/configs'
+import { format } from 'date-fns'
 
-export { loader, dialog, viewer, resAudit } from './addon'
+export { ArrayService } from './array'
+export { dialog } from './dialog'
+export { createObjectURL, getFileListAt, getMediaBlob } from './media'
+export { modal } from './modal'
+export { notice } from './notice'
+export { useServerSideGuard } from './ssr-guard'
+export { cookie, session, storage } from './storage'
 
 export function isIE(): boolean {
-	return new RegExp('MSIE|Trident').test(navigator.userAgent)
+  return new RegExp('MSIE|Trident').test(navigator.userAgent)
 }
 
-/**
- * UUID Generator.
- */
+export function isEqual(a: any, b: any): boolean {
+  return a === b || Object.is(a, b)
+}
+
+export function isNotEqual(a: any, b: any): boolean {
+  return a !== b || !Object.is(a, b)
+}
+
+export function generateId(radix: number = 16): string {
+  return Math.random().toString(radix).slice(2)
+}
+
 export function keyCode(): string {
-	return `${1e8}-${1e4}-${1e4}-${1e4}-${1e12}`.replace(/[018]/g, (c: any) =>
-		(c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)
-	)
-}
-
-export function generateId(): string {
-	return Math.random().toString(16).substr(2)
-}
-
-/**
- * Date format.
- *
- * @param {date|any} input
- */
-export function dateTimeFormat(input: Date | any = Date.now()): string {
-	const $intl = new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
-	let date = new Date(input)
-	return $intl.format(date)
+  return `${1e8}-${1e4}-${1e4}-${1e4}-${1e12}`.replace(/[018]/g, (c: any) =>
+    (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)
+  )
 }
 
 /**
@@ -36,74 +36,16 @@ export function dateTimeFormat(input: Date | any = Date.now()): string {
  * @param {boolean} input
  */
 export function scrollOff(input: boolean = true): void {
-	document.body.style.overflow = input ? 'hidden' : 'auto'
+  document.body.style.overflow = input ? 'hidden' : 'auto'
 }
 
 /**
- * Truncate limitor text.
- *
- * @param {string} input
- * @param {number} limit
- */
-export function truncate(input: string, limit: number): string {
-	if (input.length <= limit) return input
-
-	const bake = '...'
-	let x = input.substr(0, limit)
-	let n = input.lastIndexOf(' ')
-
-	if (n > -1) x = input.substr(0, n)
-
-	return `${x}${bake}`
-}
-
-/**
- * Convert long number into abbreviated string.
- *
- * @param {number} input
- */
-export function abbreviateNumber(input: number): number | string {
-	const length = input.toString().length
-
-	if (length < 4) return input
-
-	const suffix = ['k', 'm', 'b', 't', 'p', 'e']
-	const index = Math.ceil((length - 3) / 3)
-
-	return (input / Math.pow(1000, index)).toFixed(1).replace(/\.0$/, '') + suffix[index - 1]
-}
-
-/**
- * Convert number to price.
- *
- * @param {number|string} input
- * @param {number} fix delimiters
- */
-export function price(input: number | string, fix: number): string {
-	const n = Number(input)
-		.toFixed(fix || 0)
-		.toString()
-	return n.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
-}
-
-/**
- * Pad Digits
- *
- * @param {number} number
- * @param {number} digits
- */
-export function pad(number: number, digits: number): string {
-	const arr = Array(Math.max(digits - number.toString().length + 1, 0))
-	return arr.join('0') + number
-}
-
-/**
- * clone.
+ * Clone.
  *
  * @param {object|array} input
  */
 export function clone(input: any) {
-	return JSON.parse(JSON.stringify(input))
+  return JSON.parse(JSON.stringify(input))
 }
 
 /**
@@ -112,7 +54,7 @@ export function clone(input: any) {
  * @param {string} input
  */
 export function upperCase(input: string): string {
-	return input.toUpperCase()
+  return input.toUpperCase()
 }
 
 /**
@@ -121,7 +63,7 @@ export function upperCase(input: string): string {
  * @param {string} input
  */
 export function lowerCase(input: string): string {
-	return input.toLowerCase()
+  return input.toLowerCase()
 }
 
 /**
@@ -130,125 +72,77 @@ export function lowerCase(input: string): string {
  * @param {string} input
  */
 export function capitalize(input: string): string {
-	const array = input.split(/[ ]+/)
-	return array
-		.map((word) => {
-			return `${upperCase(word.charAt(0))}${word.slice(1)}`
-		})
-		.join(' ')
+  const array = input.split(/[ ]+/)
+  return array
+    .map((word) => {
+      return `${upperCase(word.charAt(0))}${word.slice(1)}`
+    })
+    .join(' ')
 }
 
 /**
- * Create an object containing the parameters of the current URL.
+ * Provides a way to easily construct a set of key/value pairs representing form fields and their values,
+ * which can then be easily sent using the XMLHttpRequest.send() method.
  *
- * @param {string} input
+ * @param {object} data FormData
  */
-export function getParams(input?: string): any {
-	const queryString = input || location.search
-	const queries = (queryString.match(/([^?=&]+)(=([^&]*))/g) || []).reduce(
-		(a: any, v: string) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a),
-		{}
-	)
+export function createFormData(data: Record<string, any>): [FormData, any] {
+  const formData = new FormData()
 
-	for (const key in queries) {
-		let a = queries[key]
-		queries[key] = isNaN(a) ? a : +a
-	}
-
-	return queries
-}
-
-/**
- * GET: Cookie from cookies-string.
- * 
- * @param {string} cookies
- * @param {string} keyName
- */
-export function getCookies(cookies: string | void, keyName: string): string | void {
-  if (!cookies) return void 0
-
-  let results: any = {}
-	
-  for (const cookie of cookies.split(';')) {
-    let a = cookie.split('=')
-    results[a[0].trim()] = a[1]
+  for (const name in data) {
+    formData.append(name, data[name])
   }
 
-	if (Object.keys(results).length) {
-		return void 0
-	}
-
-  return results[keyName]
+  return [
+    formData,
+    {
+      'Content-Type': 'multipart/form-data'
+    }
+  ]
 }
 
 /**
- * Convert json to querystring.
- * 
- * @param {object} data
- */
-export function toQuery (data: any) {
-	return '?' + Object.keys(data).map((key: string) => {
-		return encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-	}).join('&')
-}
-
-/**
- * User device chacker.
+ * Convert long number into abbreviated string.
  *
- * @param {string} device
+ * @param {number} input
  */
-export function isDevice(device: 'desktop' | 'mobile' | 'tablet' | 'both', userAgent?: string): boolean {
-	userAgent = lowerCase(userAgent || navigator.userAgent)
+export function abbreviateNumber(input: number): number | string {
+  if (input < 1e3) return input.toLocaleString()
 
-	if (!isBrowser && !userAgent) return false
-	
-	const mobile = /android|webos|iphone|ipod|blackberry|ismobile|opera mini/ig
-	const tablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(ip|ap|wp))))/ig
-	const valid = {
-		desktop: !mobile.test(userAgent) && !tablet.test(userAgent),
-		mobile: mobile.test(userAgent),
-		tablet: tablet.test(userAgent),
-		both: mobile.test(userAgent) && tablet.test(userAgent)
-	}
+  const suffixes = ['', 'k', 'm', 'b', 't', 'p', 'e']
+  let value = input
+  let suffixNum = 0
+  while (value >= 1000) {
+    value /= 1000
+    suffixNum++
+  }
 
-	return valid[device]
-}
-
-
-/**
- * Handle file missing.
- * 
- * @param {any} event
- */
-export function file404 (event: any): void {
-	const texture = '/static/media/file-missing.png'
-	const IMG = event.target
-
-	if (!IMG.dataset?.origin) {
-		IMG.dataset.origin = IMG.src
-	}
-
-	IMG.src = texture
-	// IMG.classList.add('_404')
-	
-	// setTimeout(() => {
-	// 	IMG.src = IMG.dataset.origin
-	// 	IMG.classList.remove('_404')
-	// }, 1e4)
+  return value.toFixed(2) + suffixes[suffixNum]
 }
 
 /**
- * Appends an event listener for events whose type attribute value is type.
- * The callback argument sets the callback that will be invoked when the event is dispatched.
+ * Difference timer.
+ *
+ * @param {string} message
  */
-export function addEventListener (type: keyof WindowEventMap, listener: Function | any): void {
-	if (isBrowser) {
-		window.addEventListener(type, listener, true)
-	}
-}
+export function differenceTime(message?: string): [(digits?: number) => string, () => string] {
+  const _t = () => `[${format(Date.now(), 'yyyy-MM-dd hh:mm:ss a')}]`
+  const _s = Date.now()
 
-export function removeEventListener (type: keyof WindowEventMap, listener: Function | any): void {
-	if (isBrowser) {
-		window.removeEventListener(type, listener, true)
-	}
+  if (message) console.log(_t(), message)
+
+  return [
+    (digits: number = 3) => {
+      const seconds = Date.now() - _s
+
+      if (seconds / 1e3 > 60) {
+        return `~ ${(seconds / 1e3 / 60).toFixed(digits)}m`
+      } else if (seconds / 1e3 > 1) {
+        return `~ ${(seconds / 1e3).toFixed(digits)}s`
+      } else {
+        return `~ ${seconds}ms`
+      }
+    },
+    _t
+  ]
 }

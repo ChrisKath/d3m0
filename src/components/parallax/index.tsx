@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react'
-import { addEventListener } from '@/utils'
+import { useEffect, useRef } from 'react'
 
 export function ParallaxComponent() {
   // __STATE <React.Hooks>
-  const [posY, setPosY] = useState(0)
+  const nodeRef = useRef<HTMLDivElement>(null)
 
-  // __EFFECTS <React.Hooks>
+  // __EFFECT's
   useEffect(() => {
-    function listener(): void {
-      let val = window.scrollY / 4
-      setPosY(val)
+    function listener() {
+      const { current: element } = nodeRef
+      if (element) {
+        const { scrollY } = window
+        element.style.transform = `translateY(-${scrollY / 4}px)`
+      }
     }
 
     listener()
@@ -18,8 +20,8 @@ export function ParallaxComponent() {
 
   // __RENDER
   return (
-    <div className='ui--parallax' style={{ transform: `translateY(-${posY}px)` }}>
-      <img className='bg' src='/static/imgs/pic-3.jpg' />
+    <div className='ui--parallax' ref={nodeRef}>
+      <img className='image' src='/static/images/pic-3.jpg' />
       <div className='overlay'></div>
     </div>
   )

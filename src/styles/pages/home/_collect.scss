@@ -1,0 +1,123 @@
+.ui--home-collect {
+  .collects {
+    display: grid;
+    gap: 3rem;
+    grid-template-rows: repeat(2, 220px);
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+      'area-x1 area-x1 area-x1 area-x2 area-x2'
+      'area-x3 area-x3 area-x4 area-x4 area-x4';
+
+    @include screen-md {
+      gap: 1.5rem;
+      grid-template-rows: repeat(2, 180px);
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 'area-x1 area-x2' 'area-x3 area-x4';
+    }
+
+    @include screen-xs {
+      gap: 1rem;
+      grid-template-rows: repeat(2, 150px);
+    }
+  }
+
+  .li {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: var(--color-secondary);
+
+    &:nth-child(1) {
+      grid-area: area-x1;
+    }
+    &:nth-child(2) {
+      grid-area: area-x2;
+    }
+    &:nth-child(3) {
+      grid-area: area-x3;
+    }
+    &:nth-child(4) {
+      grid-area: area-x4;
+    }
+
+    &:hover {
+      .poster {
+        opacity: 0.5;
+        transform: scale(1.03);
+      }
+
+      .type,
+      .info {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .poster {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all var(--animation-time) ease;
+  }
+
+  .type {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 4px 5px 2px;
+    font-size: 8px;
+    font-weight: var(--font-weight-bolder);
+    text-transform: uppercase;
+
+    color: var(--color-desc-2);
+    background-color: var(--color-primary);
+    border-radius: 2px;
+
+    transition: all var(--animation-time) ease;
+    transform: translateY(-10px);
+    opacity: 0;
+
+    @include screen-xs {
+      top: 15px;
+      left: 15px;
+    }
+  }
+
+  .info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    padding: 20px;
+    transform: translateY(15px);
+    transition: all var(--animation-time) ease;
+
+    @include screen-xs {
+      padding: 15px;
+    }
+
+    .h5 {
+      color: var(--color-desc-1);
+      font-size: var(--font-size-small);
+      font-weight: var(--font-weight-bolder);
+      text-transform: capitalize;
+    }
+
+    .h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: var(--font-size-large);
+      font-weight: var(--font-weight-bolder);
+    }
+
+    .h6 {
+      color: var(--color-desc-1);
+      font-size: var(--font-size-smaller);
+
+      @include text-ellipsis(24px, 2);
+    }
+  }
+}

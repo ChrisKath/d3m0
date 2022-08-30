@@ -1,0 +1,106 @@
+@import './home/collect', './home/experience', './home/skill';
+
+.ui--home {
+  &-container {
+    display: grid;
+    gap: 10rem;
+    padding: 0 0 10rem;
+
+    .rows {
+      position: relative;
+      margin: 0 auto;
+      width: $screen-lg;
+      max-width: $screen-lg;
+    }
+  }
+
+  &-cover {
+    position: relative;
+    max-width: $screen-xs;
+    margin: 0 auto;
+    padding: 6rem 1rem 4rem;
+    text-align: center;
+
+    .title {
+      color: var(--color-desc-1);
+      font-size: var(--font-size-small);
+      font-weight: var(--font-weight-bolder);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+    }
+
+    .avatar {
+      display: block;
+      width: 88px;
+      height: 88px;
+      margin: 2.75rem auto 0;
+      border-radius: 2rem;
+      overflow: hidden;
+      transform: rotate(45deg);
+      box-shadow: 0 0 0 2px rgba(#ff4646, 0.75), 5px 5px 2.5rem rgba(#ff4646, 0.25);
+
+      .img {
+        display: block;
+        width: 120%;
+        height: 120%;
+        pointer-events: none;
+        transform: rotate(-45deg) translate(0, -12px);
+      }
+    }
+
+    .sayhi {
+      font-size: 32px;
+      margin: 2rem 0 0;
+
+      @include screen-xs {
+        font-size: 26px;
+      }
+    }
+
+    .name {
+      margin: 1rem 0 0;
+      color: var(--color-primary);
+      font-size: 45px;
+      font-weight: var(--font-weight-bolder);
+      text-shadow: 0 0 25px rgba(#ff4646, 0.25);
+
+      @include screen-xs {
+        font-size: 35px;
+      }
+    }
+
+    .desc {
+      margin: 2.75rem 0;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: grid;
+      gap: 0.5rem;
+      grid-auto-flow: column;
+      justify-content: center;
+    }
+
+    .btn {
+      width: 45px;
+      height: 45px;
+
+      &-resume {
+        width: 210px;
+        gap: 1rem;
+
+        .text {
+          font-size: 13px;
+          font-weight: var(--font-weight-bolder);
+        }
+      }
+
+      &-github {
+        .icon {
+          font-size: var(--font-size-large);
+        }
+      }
+    }
+  }
+}

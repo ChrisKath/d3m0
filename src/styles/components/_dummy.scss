@@ -1,0 +1,112 @@
+.ui--dummy {
+  &-container {
+    position: relative;
+    margin: 40px auto;
+    max-width: $screen-sm;
+    max-height: calc(100vh - 80px);
+    background-color: #2a2b38;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all var(--animation-time) ease;
+
+    .btn {
+      &-close {
+        position: absolute;
+        z-index: 10;
+        top: 1rem;
+        right: 1rem;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        border-radius: 100%;
+        background-color: #2a2b38;
+
+        &:hover {
+          background-color: var(--color-secondary);
+        }
+
+        .icon {
+          color: var(--color-desc-2);
+          font-size: var(--font-size-larger);
+        }
+      }
+    }
+  }
+
+  &-cover {
+    position: relative;
+    max-height: 68vh;
+    overflow: hidden overlay;
+    background-color: shade(#2a2b38, 25%);
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border: unset;
+      border-radius: 0.5rem;
+      background-color: var(--color-primary);
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      pointer-events: none;
+    }
+  }
+
+  &-info {
+    display: grid;
+    gap: 60px;
+    grid-template-columns: 1fr 210px;
+    grid-auto-flow: column;
+    align-items: flex-start;
+    padding: 40px;
+
+    .column {
+      &.col-2 {
+        display: grid;
+        gap: 0.5rem;
+        font-weight: var(--font-weight-bold);
+      }
+    }
+
+    .info {
+      &-title {
+        font-size: var(--font-size-larger);
+        font-weight: var(--font-weight-bolder);
+        margin: 0 0 15px;
+      }
+
+      &-desc {
+        color: var(--color-desc-2);
+        font-size: 13px;
+        line-height: 1.4121;
+      }
+    }
+
+    .label {
+      float: left;
+      color: var(--color-desc-2);
+      text-transform: capitalize;
+      font-size: var(--font-size-small);
+      padding-right: 0.5rem;
+      line-height: 23px;
+    }
+
+    .value {
+      float: left;
+      padding: 2px 6px;
+      text-transform: capitalize;
+      color: var(--color-primary);
+    }
+  }
+}

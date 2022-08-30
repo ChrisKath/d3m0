@@ -1,0 +1,28 @@
+.ui--footer {
+  position: relative;
+  padding: 4rem 3rem;
+  background-color: var(--color-secondary);
+  border-top: 1px solid tint(#0f0f14, 4%);
+
+  // Nested At-Rules and Bubbling.
+  @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    backdrop-filter: blur(1rem);
+    background-color: rgba(#0f0f14, 0.25);
+  }
+
+  &-container {
+    text-align: center;
+
+    .p1 {
+      margin: 0 0 1rem;
+      color: var(--color-desc-1);
+      font-size: var(--font-size-large);
+      font-weight: var(--font-weight-bolder);
+    }
+
+    .p2 {
+      color: var(--color-desc-1);
+      font-size: var(--font-size-small);
+    }
+  }
+}

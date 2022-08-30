@@ -1,0 +1,58 @@
+.ui--home-experience {
+  .experiences {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .li {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 22px 250px 1fr;
+    grid-template-areas: 'area-icon area-title area-desc';
+    align-items: flex-start;
+    min-height: 95px;
+
+    @include screen-md {
+      gap: 10px 25px;
+      grid-template-columns: 30px 1fr;
+      grid-template-areas:
+        'area-icon area-title'
+        'area-desc area-desc';
+      padding: 0 0 20px;
+    }
+
+    .icon {
+      grid-area: area-icon;
+      color: var(--color-primary);
+      font-size: var(--font-size-larger);
+    }
+
+    .title {
+      grid-area: area-title;
+
+      &-h6 {
+        color: var(--color-desc-1);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-bolder);
+        text-transform: capitalize;
+      }
+
+      &-h5 {
+        margin: 1rem 0 0.5rem;
+        color: var(--color-desc-1);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-bolder);
+      }
+
+      &-h3 {
+        font-size: var(--font-size-large);
+        font-weight: var(--font-weight-bolder);
+      }
+    }
+
+    .desc {
+      grid-area: area-desc;
+      color: var(--color-desc-1);
+    }
+  }
+}
