@@ -1,7 +1,7 @@
 export default function CollectContainer() {
   // __RENDER
   return (
-    <div className='ui--collect router-view'>
+    <div className='ui--collect-container'>
       <div className='ui--page-banner'>
         <h1 className='title'>collect's</h1>
         <h4 className='desc'>

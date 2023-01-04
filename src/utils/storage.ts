@@ -1,53 +1,76 @@
-export interface StorageProps {
-  get: (key: string) => string | null | void;
-  set: (key: string, input: any) => void;
-  remove: (key: string) => void;
+import JSCookies, { CookieAttributes } from 'js-cookie'
+
+/**
+ * Cookies Manager.
+ */
+export class cookie {
+  static get<R = any>(keyName: string, json?: 0 | 1): R {
+    const results = JSCookies.get(keyName)
+    return json && results ? JSON.parse(results) : results
+  }
+
+  static set(keyName: string, value: string | object, options?: CookieAttributes) {
+    if (typeof value !== 'string') {
+      value = JSON.stringify(value)
+    }
+
+    return JSCookies.set(keyName, value, this.attrs(options))
+  }
+
+  static remove(keyName: string, options?: CookieAttributes) {
+    return JSCookies.remove(keyName, this.attrs(options))
+  }
+
+  static attrs(options?: CookieAttributes): CookieAttributes {
+    return {
+      domain: location.hostname,
+      sameSite: 'strict',
+      secure: true,
+      ...options
+    }
+  }
 }
 
 /**
  * Local Storege Manager.
  */
-export const storage: StorageProps = {
-  get: (key) => {
-    if (localStorage.getItem(key)) {
-      try {
-        return localStorage.getItem(key)
-      } catch (error) {
-        localStorage.removeItem(key)
-        throw error
-      }
+export class storage {
+  static get<R = any>(keyName: string, json?: 0 | 1): R {
+    const results = localStorage.getItem(keyName)
+    return json && results ? JSON.parse(results) : results
+  }
+
+  static set(keyName: string, value: string | object) {
+    if (typeof value !== 'string') {
+      value = JSON.stringify(value)
     }
-  },
 
-  set: (key, input) => {
-    localStorage.setItem(key, input)
-  },
+    localStorage.setItem(keyName, value)
+  }
 
-  remove: (key) => {
-    localStorage.removeItem(key)
+  static remove(keyName: string) {
+    localStorage.removeItem(keyName)
   }
 }
 
 /**
  * Session Storege Manager.
  */
-export const session: StorageProps = {
-  get: (key) => {
-    if (sessionStorage.getItem(key)) {
-      try {
-        return sessionStorage.getItem(key)
-      } catch (error) {
-        sessionStorage.removeItem(key)
-        throw error
-      }
+export class session {
+  static get<R = any>(keyName: string, json?: 0 | 1): R {
+    const results = sessionStorage.getItem(keyName)
+    return json && results ? JSON.parse(results) : results
+  }
+
+  static set(keyName: string, value: string | object) {
+    if (typeof value !== 'string') {
+      value = JSON.stringify(value)
     }
-  },
 
-  set: (key, input) => {
-    sessionStorage.setItem(key, input)
-  },
+    sessionStorage.setItem(keyName, value)
+  }
 
-  remove: (key) => {
-    sessionStorage.removeItem(key)
+  static remove(keyName: string) {
+    sessionStorage.removeItem(keyName)
   }
 }

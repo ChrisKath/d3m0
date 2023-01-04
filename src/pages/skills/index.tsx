@@ -1,7 +1,7 @@
 export default function SkillContainer() {
   // __RENDER
   return (
-    <div className='ui--skill router-view'>
+    <div className='ui--skill-container'>
       <div className='ui--page-banner'>
         <h1 className='title'>skill's</h1>
         <h4 className='desc'>

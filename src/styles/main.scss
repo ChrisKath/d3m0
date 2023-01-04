@@ -1,0 +1,33 @@
+/**
+  =========================================================
+  * This website is produced by Got't Patiphat.
+  * e-mail: pinn.project@outlook.com
+  * website: dev2-d3m0.vercel.app
+  =========================================================
+  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+**/
+
+// Core style's
+@import
+  'core/variable',
+  'core/mixin',
+  'core/reset',
+  'core/global';
+
+// Components style's
+@import
+  'components/button',
+  'components/loader',
+  'components/modal',
+  'components/notice',
+  
+  'components/header',
+  'components/footer',
+  'components/dummy';
+
+// Pages style's
+@import
+  'pages/home',
+  'pages/collect',
+  'pages/experience',
+  'pages/skill';

@@ -1,7 +1,7 @@
 export default function ExperienceContainer() {
   // __RENDER
   return (
-    <div className='ui--experience router-view'>
+    <div className='ui--experience-container'>
       <div className='ui--page-banner'>
         <h1 className='title'>experience</h1>
         <h4 className='desc'>

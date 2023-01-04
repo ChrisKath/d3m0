@@ -1,9 +1,9 @@
-import { Home } from '@/components'
+import { Home } from '@/features/home'
 
 export default function HomeContainer() {
   // __RENDER
   return (
-    <div className='ui--home router-view'>
+    <div className='ui--home-container'>
       <Home.Cover />
       <Home.Collect />
       <Home.Experience />

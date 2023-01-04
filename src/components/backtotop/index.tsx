@@ -1,12 +1,20 @@
 import { useState, useEffect, useCallback } from 'react'
-import { addEventListener } from '@/utils'
 import cls from 'classnames'
 
 export function BackToTopComponent() {
   // __STATE <React.Hooks>
   const [active, setActive] = useState(false)
 
-  // __EFFECTS <React.Hooks>
+  // __FUNCTION's
+  const handleBackToTop = useCallback(() => {
+    const y = window.scrollY
+    if (y > 0) {
+      window.requestAnimationFrame(handleBackToTop)
+      window.scrollTo(0, y - y / 14)
+    }
+  }, [])
+
+  // __EFFECT's
   useEffect(() => {
     function listener(): void {
       let val = window.screenX > window.innerHeight / 2
@@ -15,15 +23,6 @@ export function BackToTopComponent() {
 
     listener()
     addEventListener('scroll', listener)
-  }, [])
-
-  // __FUNCTIONS
-  const handleBackToTop = useCallback(() => {
-    const y = window.scrollY
-    if (y > 0) {
-      window.requestAnimationFrame(handleBackToTop)
-      window.scrollTo(0, y - y / 14)
-    }
   }, [])
 
   // __RENDER

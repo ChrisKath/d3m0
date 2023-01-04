@@ -1,0 +1,98 @@
+.ui--header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 80px;
+  padding: 0 2rem;
+  transition: height var(--animation-time) ease, background-color var(--animation-time) ease;
+
+  @include screen-xs {
+    position: relative;
+    height: 60px;
+    padding: 0 15px;
+  }
+
+  &.sticky {
+    height: 60px;
+    background-color: rgba(#0f0f14, 0.75);
+    box-shadow: 0 0 0 1px rgba(#2a2b38, 0.25);
+
+    // Nested At-Rules and Bubbling.
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      backdrop-filter: blur(20px);
+      background-color: rgba(#0f0f14, 0.5);
+    }
+  }
+
+  &-container {
+    position: relative;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    height: 100%;
+  }
+
+  &-logo {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-bolder);
+    text-transform: uppercase;
+    user-select: none;
+
+    @include screen-xs {
+      display: none;
+    }
+
+    .router-link {
+      line-height: 1;
+      padding: 9.5px 0;
+    }
+
+    .color {
+      padding: 6px 5px 3px;
+      color: var(--color-primary);
+      background-color: rgba(#0f0f14, 0.75);
+      backdrop-filter: blur(20px);
+      border-radius: 2px;
+    }
+  }
+
+  &-contact {
+    display: grid;
+    gap: 0.75rem;
+    grid-auto-flow: column;
+    justify-content: flex-end;
+
+    @include screen-xs {
+      justify-self: flex-end;
+    }
+
+    .btn {
+      &-contact {
+        width: auto;
+        height: 35px;
+        padding: 0 1rem;
+
+        &:hover {
+          filter: brightness(132%);
+        }
+
+        .icon {
+          margin-right: 0.75rem;
+          color: var(--color-primary);
+        }
+
+        .text {
+          color: var(--color-desc-1);
+          font-size: var(--font-size-small);
+        }
+      }
+
+      &-follow {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+}

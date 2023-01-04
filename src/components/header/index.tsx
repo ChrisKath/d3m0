@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { RouterLink } from '@/components'
-import { useSelector, coreSelector } from '@/store'
-import { addEventListener } from '@/utils'
+import { useSelector } from 'react-redux'
+import { appSelector } from '@/store'
+import { NextLink } from '../next-link'
 import cls from 'classnames'
 
 export function HeaderComponent() {
   // __STATE <React.Hooks>
   const [sticky, setSticky] = useState(false)
-  const links = useSelector(coreSelector.getLinks)
+  const externals = useSelector(appSelector.getExternals)
 
   // __EFFECTS <React.Hooks>
   useEffect(() => {
@@ -25,29 +25,29 @@ export function HeaderComponent() {
     <header className={cls('ui--header', { sticky })}>
       <div className='ui--header-container'>
         <div className='ui--header-logo'>
-          <RouterLink href='/home'>
+          <NextLink to='/home'>
             unset <span className='color'>logo</span>
-          </RouterLink>
+          </NextLink>
         </div>
 
         <div className='ui--header-contact'>
-          <a className='btn btn-contact' href='tel:+66946040222'>
+          <NextLink className='btn btn-contact' to='tel:+66946040222' useLink>
             <span className='icon bi bi-phone'></span>
             <span className='text'>(+66) 94 604 0222</span>
-          </a>
+          </NextLink>
 
-          <a className='btn btn-contact' href='mailto:pinn.project@outlook.com'>
+          <NextLink className='btn btn-contact' to='mailto:pinn.project@outlook.com' useLink>
             <span className='icon bi bi-envelope'></span>
             <span className='text'>pinn.project@outlook.com</span>
-          </a>
+          </NextLink>
 
-          <a className='btn btn-primary btn-follow' href={links.facebook} target='_blank' rel='external'>
+          <NextLink className='btn btn-primary btn-follow' to={externals.facebook} target='_blank' rel='external' useLink>
             <span className='icon bi bi-facebook'></span>
-          </a>
+          </NextLink>
 
-          <a className='btn btn-primary btn-follow' href={links.twitter} target='_blank' rel='external'>
+          <NextLink className='btn btn-primary btn-follow' to={externals.twitter} target='_blank' rel='external' useLink>
             <span className='icon bi bi-twitter'></span>
-          </a>
+          </NextLink>
         </div>
       </div>
     </header>

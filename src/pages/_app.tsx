@@ -1,65 +1,61 @@
 import HTMLHead from 'next/head'
-// import { AppProps } from 'next/app'
-import useRouter from 'next/router'
+import type { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
 import { useCallback, useEffect } from 'react'
-import { Provider } from 'react-redux'
-import {
-  HeaderComponent,
-  FooterComponent,
-  LoaderComponent,
-  DialogComponent,
-  ParallaxComponent,
-  ViewerComponent,
-  BackToTopComponent
-} from '@/components'
-import { configs, isProduction } from '@/libs/configs'
-import store from '@/store'
-import { loader } from '@/utils'
-import '@/utils/defineProperty'
-import '@style/main.scss'
+import { Provider as ReduxProvider } from 'react-redux'
+import { AppProvider, FooterComponent, HeaderComponent, ParallaxComponent } from '@/components'
+import { configs } from '@/constants'
+import { useLoader } from '@/hooks'
+import { Store } from '@/store'
+import '@/styles/main.scss'
 
-export default function Application({ Component, pageProps }: any) {
+export default function Application({ Component, pageProps }: AppProps) {
   // __STATE <Rect.Hooks>
   const router = useRouter()
+  const loader = useLoader()
 
-  // __EFFECTS <React.Hooks>
-  useEffect(() => {
-    if (isProduction) {
-      initialGoogleTagManager()
-    }
-
-    router.events.on('routeChangeStart', () => loader('on'))
-    router.events.on('routeChangeComplete', () => loader('off'))
-    router.events.on('routeChangeError', () => loader('off'))
-  }, [])
-
-  // __FUNCTIONS
+  // __FUNCTION's
   const initialGoogleTagManager = useCallback(() => {
     window.dataLayer = [...(window.dataLayer || []), { js: new Date() }, { config: 'G-5E0FTWB4GX' }]
     window.gtag = () => window.dataLayer.push(arguments)
+  }, [])
+
+  // __EFFECTS's
+  useEffect(() => {
+    if (configs.isProduction) initialGoogleTagManager()
+
+    router.events.on('routeChangeStart', loader.on)
+    router.events.on('routeChangeComplete', loader.off)
+    router.events.on('routeChangeError', loader.off)
   }, [])
 
   // __RENDER
   return (
     <>
       <HTMLHead>
-        <title>{configs.WEB_TITLE}</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <title>{configs.APP_WEB_TITLE}</title>
       </HTMLHead>
 
-      <div className='ui--wrapper'>
-        <Provider store={store}>
+      <ReduxProvider store={Store}>
+        <ParallaxComponent />
+
+        <div className='ui--app-wrapper'>
           <HeaderComponent />
-          <LoaderComponent />
-          <DialogComponent />
-          <ParallaxComponent />
 
-          <Component {...pageProps} />
+          <main className='ui--router-view'>
+            <Component {...pageProps} />
+          </main>
 
-          <ViewerComponent />
-          <BackToTopComponent />
           <FooterComponent />
-        </Provider>
-      </div>
+        </div>
+
+        <AppProvider.Listener />
+        <AppProvider.Loader />
+        <AppProvider.Dialog />
+        <AppProvider.Modal />
+        <AppProvider.Notice />
+      </ReduxProvider>
     </>
   )
 }

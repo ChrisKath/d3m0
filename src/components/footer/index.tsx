@@ -1,8 +1,9 @@
-import { useSelector, coreSelector } from '@/store'
+import { appSelector } from '@/store'
+import { useSelector } from 'react-redux'
 
 export function FooterComponent() {
   // __STATE <React.Hooks>
-  const appVersion = useSelector(coreSelector.getAppVersion)
+  const appVersion = useSelector(appSelector.getAppVersion)
 
   // __RENDER
   return (

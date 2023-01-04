@@ -1,0 +1,234 @@
+// SET global classes.
+.ui- {
+  &-app {
+    &-wrapper {
+      position: relative;
+      display: grid;
+      grid-template-rows: 60px 1fr auto;
+      min-height: 100vh;
+
+      .code {
+        white-space: nowrap;
+        padding: 2px 4px;
+        border-radius: 4px;
+        border: 1px solid #2A2B38;
+        color: var(--color-primary);
+        background-color: shade(#2A2B38, 20%);
+      }
+    }
+  }
+
+  &-router {
+    &-view {}
+  }
+
+  &-media {
+    width: 100%;
+    height: 100%;
+  }
+
+  &-context {
+    display: grid;
+    gap: 6rem;
+    grid-auto-flow: column;
+    grid-template-columns: 360px 1fr;
+    grid-template-areas: "area-x1 area-x2";
+    align-items: flex-start;
+    padding: 3rem;
+  
+    @include screen-md {
+      grid-template-columns: 280px 1fr;
+    }
+  
+    @include screen-xs {
+      gap: 40px;
+      grid-auto-flow: row;
+      grid-template-columns: unset !important;
+      grid-template-areas: "area-x1" "area-x2" !important;
+      margin: 0;
+    }
+  
+    &.rtl {
+      grid-template-columns: 1fr 360px;
+      grid-template-areas: "area-x2 area-x1";
+  
+      @include screen-md {
+        grid-template-columns: 1fr 280px;
+      }
+    }
+  
+    &-column {
+      &.col-1 {
+        grid-area: area-x1;
+      }
+  
+      &.col-2 {
+        grid-area: area-x2;
+      }
+
+      .h4 {
+        color: var(--color-desc-1);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-bolder);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0 0 1.75rem;
+  
+        @include screen-xs {
+          margin: 0 0 1rem;
+        }
+      }
+
+      .h1 {
+        position: relative;
+        font-size: 30px;
+        font-weight: var(--font-weight-bolder);
+        text-transform: capitalize;
+        margin: 0 0 3.5rem;
+  
+        @include screen-xs {
+          margin: 0 0 2.5rem;
+        }
+  
+        &::after {
+          position: absolute;
+          left: 0;
+          bottom: -1rem;
+          width: 75px;
+          height: 3px;
+          content: '';
+          background-color: var(--color-primary);
+        }
+      }
+
+      .desc {
+        color: var(--color-desc-1);
+        width: 77%;
+        font-style: italic;
+        font-size: var(--font-size-small);
+      }
+
+      .btn {
+        height: 25px;
+        margin: 2rem 0 0;
+
+        &-href {
+          text-transform: capitalize;
+
+          &:hover {
+            .icon {
+              transform: translateX(0.25rem);
+            }
+          }
+
+          .text {
+            font-size: var(--font-size-small);
+            font-weight: var(--font-weight-bolder);
+          }
+
+          .icon {
+            margin-left: 1rem;
+            transition: all var(--animation-time) ease;
+          }
+        }
+      }
+    }
+  }
+
+  &-parallax {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 110vh;
+    pointer-events: none;
+    transition: transform 128ms ease;
+  
+    .image {
+      width: 100%;
+      height: 99%;
+      object-fit: cover;
+      object-position: center top;
+  
+      @include screen-xs {
+        object-position: left top;
+      }
+    }
+  
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        url("/static/images/dot.png") repeat,
+        linear-gradient(to top, #0F0F14 7.5%, rgba(#0F0F14, 0.75) 75%);
+    }
+  }
+
+  &-backtotop {
+    position: fixed;
+    z-index: 10;
+    right: 3rem;
+    bottom: 3rem;
+    transition: all var(--animation-time) ease;
+
+    &:not(.active) {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(5px);
+    }
+
+    .btn {
+      width: 40px;
+      height: 40px;
+
+      .icon {
+        font-size: var(--font-size-larger);
+      }
+    }
+  }
+
+  &-page {
+    &-banner {
+      position: relative;
+      text-align: center;
+      padding: 2.5rem 2rem;
+
+      .title {
+        font-size: 33px;
+        font-weight: var(--font-weight-bolder);
+        text-transform: capitalize;
+      }
+
+      .desc {
+        color: var(--color-desc-1);
+        font-style: italic;
+        font-size: var(--font-size-small);
+        max-width: 360px;
+        margin: 0.75rem auto 0;
+      }
+    }
+
+    &-error {
+      padding: 10vh 4rem;
+      text-align: center;
+  
+      .h1 {
+        font-size: 6rem;
+        font-weight: var(--font-weight-bolder);
+      }
+    
+      .h3 {
+        margin: 0.5rem 0;
+        font-size: 3rem;
+        font-weight: var(--font-weight-bolder);
+      }
+    
+      .h4, .h5 {
+        color: var(--color-desc-1);
+      }
+    }
+  }
+}
