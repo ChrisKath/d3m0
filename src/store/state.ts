@@ -77,7 +77,7 @@ export const experience: Experience[] = [
     description: LOREM,
     duration: {
       from: '2021-07-05',
-      to: void 0
+      to: '2022-10-05'
     },
     createdAt: '2021-07-01',
     updatedAt: '2021-07-01'
